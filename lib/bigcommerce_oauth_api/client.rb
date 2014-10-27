@@ -1,13 +1,8 @@
+require 'bigcommerce_oauth_api/api'
+
 module BigcommerceOAuthAPI
-  class Client
-    attr_accessor *Configuration::VALID_CONFIG_KEYS
-
-    def initialize(options = {})
-      merged_options = BigcommerceOAuthAPI.options.merge(options)
-
-      Configuration::VALID_CONFIG_KEYS.each do |key|
-        send("#{key}=", merged_options[key])
-      end
-    end
+  class Client < API
+    Dir[File.expand_path('../client/*.rb', __FILE__)].each { |f| require f }
+    #TODO: include models
   end
 end

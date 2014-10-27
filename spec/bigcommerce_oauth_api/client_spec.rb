@@ -4,7 +4,7 @@ require 'bigcommerce_oauth_api/client'
 module BigcommerceOAuthAPI
   describe BigcommerceOAuthAPI::Client do
     before do
-      @keys = BigcommerceOAuthAPI::Configuration::VALID_CONFIG_KEYS
+      @keys = BigcommerceOAuthAPI::Configuration::VALID_OPTIONS_KEYS
     end
 
     describe 'with module configuration' do
@@ -33,7 +33,8 @@ module BigcommerceOAuthAPI
               :endpoint => 'a',
               :format => 'b',
               :client_id => 'c',
-              :oauth_token => 'd'
+              :oauth_token => 'd',
+              :adapter => 'e'
           }
         end
 
