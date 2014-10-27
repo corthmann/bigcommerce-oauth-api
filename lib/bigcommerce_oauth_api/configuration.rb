@@ -4,6 +4,7 @@ module BigcommerceOAuthAPI
   module Configuration
 
     VALID_OPTIONS_KEYS = [
+        :store_hash,
         :endpoint,
         :adapter,
         :client_id,
@@ -11,6 +12,7 @@ module BigcommerceOAuthAPI
         :format
     ].freeze
 
+    DEFAULT_STORE_HASH = nil
     DEFAULT_ENDPOINT = 'https://api.bigcommerce.com/stores'.freeze
     DEFAULT_CLIENT_ID = nil
     DEFAULT_OAUTH_TOKEN = nil
@@ -24,6 +26,7 @@ module BigcommerceOAuthAPI
     end
 
     def reset
+      self.store_hash = DEFAULT_STORE_HASH
       self.endpoint = DEFAULT_ENDPOINT
       self.format = DEFAULT_FORMAT
       self.client_id = DEFAULT_CLIENT_ID

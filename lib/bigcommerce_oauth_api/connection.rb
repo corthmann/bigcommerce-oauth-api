@@ -11,7 +11,7 @@ module BigcommerceOAuthAPI
               'X-Auth-Client' => client_id,
               'X-Auth-Token' => oauth_token
           },
-          :url => endpoint
+          :url => "#{endpoint}/#{store_hash}/v2/"
       }
 
       Faraday::Connection.new(options) do |connection|
