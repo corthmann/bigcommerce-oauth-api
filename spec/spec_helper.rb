@@ -2,6 +2,7 @@ require 'simplecov'
 
 SimpleCov.start do
   add_group('BigcommerceOAuthAPI', 'lib/bigcommerce_oauth_api')
+  add_group('Faraday', 'lib/faraday')
   add_group('Specs', 'spec')
 end
 
