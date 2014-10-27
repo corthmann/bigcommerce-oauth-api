@@ -1,7 +1,11 @@
 require 'simplecov'
-require 'bigcommerce_oauth_api'
 
-SimpleCov.start
+SimpleCov.start do
+  add_group('BigcommerceOAuthAPI', 'lib/bigcommerce_oauth_api')
+  add_group('Specs', 'spec')
+end
+
+require 'bigcommerce_oauth_api'
 
 require 'rspec'
 require 'webmock/rspec'
