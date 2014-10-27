@@ -10,4 +10,5 @@ gem 'wrest', github: 'birkirb/wrest', :ref => 'dba7518'
 
 group :test do
   gem 'rspec'
+  gem 'simplecov'
 end

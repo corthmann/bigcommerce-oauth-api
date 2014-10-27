@@ -1,6 +1,6 @@
-require 'yaml'
-require 'wrest'
+require 'bigcommerce_oauth_api/configuration'
+require 'bigcommerce_oauth_api/client'
 
-class BigcommerceOAuthAPI
-  BASE = 'https://api.bigcommerce.com/stores'
+module BigcommerceOAuthAPI
+  extend Configuration
 end
