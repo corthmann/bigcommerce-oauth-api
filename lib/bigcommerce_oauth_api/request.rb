@@ -26,7 +26,7 @@ module BigcommerceOAuthAPI
           request.url(path, options)
         when :post, :put
           request.path = path
-          request.body = options if options.present?
+          request.body = options if !options.empty?
         end
       end
       response.body

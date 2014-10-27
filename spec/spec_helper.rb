@@ -17,6 +17,30 @@ def stub_get(client, path)
   stub_request(:get, "#{client.endpoint}/#{client.store_hash}/v2/#{path}")
 end
 
+def stub_post(client, path)
+  stub_request(:post, "#{client.endpoint}/#{client.store_hash}/v2/#{path}")
+end
+
+def stub_put(client, path)
+  stub_request(:put, "#{client.endpoint}/#{client.store_hash}/v2/#{path}")
+end
+
+def stub_delete(client, path)
+  stub_request(:delete, "#{client.endpoint}/#{client.store_hash}/v2/#{path}")
+end
+
 def a_get(client, path)
   a_request(:get, "#{client.endpoint}/#{client.store_hash}/v2/#{path}")
+end
+
+def a_post(client, path)
+  a_request(:post, "#{client.endpoint}/#{client.store_hash}/v2/#{path}")
+end
+
+def a_put(client, path)
+  a_request(:put, "#{client.endpoint}/#{client.store_hash}/v2/#{path}")
+end
+
+def a_delete(client, path)
+  a_request(:delete, "#{client.endpoint}/#{client.store_hash}/v2/#{path}")
 end
