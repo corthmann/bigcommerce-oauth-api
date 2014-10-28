@@ -11,6 +11,7 @@ describe Faraday::Response do
   {
       400 => BigcommerceOAuthAPI::BadRequest,
       404 => BigcommerceOAuthAPI::NotFound,
+      429 => BigcommerceOAuthAPI::TooManyRequests,
       500 => BigcommerceOAuthAPI::InternalServerError,
       502 => BigcommerceOAuthAPI::BadGateway
   }.each do |status, exception|
@@ -22,6 +23,14 @@ describe Faraday::Response do
       it "should raise #{exception.name} error" do
         expect{ @client.product(1337) }.to raise_error(exception)
       end
+    end
+  end
+
+  context 'when the api limit is hit' do
+    it 'raises a TooManyRequests error' do
+      stub_get(@client, 'products').
+          to_return(:body => '', :status => 429, :headers => { 'X-Retry-After' => 15 })
+      expect{ @client.products }.to raise_error(BigcommerceOAuthAPI::TooManyRequests, '15')
     end
   end
 end
