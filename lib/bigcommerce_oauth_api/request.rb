@@ -1,3 +1,5 @@
+require 'bigcommerce_oauth_api/resource'
+
 module BigcommerceOAuthAPI
   module Request
 
@@ -29,7 +31,7 @@ module BigcommerceOAuthAPI
           request.body = options if !options.empty?
         end
       end
-      response.body
+      Resource.new(response.body)
     end
   end
 end
