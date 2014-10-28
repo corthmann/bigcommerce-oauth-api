@@ -26,6 +26,8 @@ module BigcommerceOAuthAPI
       def orders_count(options = {})
         get('orders/count', options)
       end
+
+      include OrderProduct
     end
   end
 end
