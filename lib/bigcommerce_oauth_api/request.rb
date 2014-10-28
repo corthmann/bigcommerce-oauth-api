@@ -31,7 +31,11 @@ module BigcommerceOAuthAPI
           request.body = options if !options.empty?
         end
       end
-      Resource.new(response.body)
+      if response.body.is_a?(Array)
+        response.body.map { |resource| Resource.new(resource) }
+      else
+        Resource.new(response.body)
+      end
     end
   end
 end
