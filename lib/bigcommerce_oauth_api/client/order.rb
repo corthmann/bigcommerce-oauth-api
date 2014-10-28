@@ -29,6 +29,7 @@ module BigcommerceOAuthAPI
 
       include OrderProduct
       include OrderShippingAddress
+      include OrderMessage
     end
   end
 end

@@ -1,11 +1,11 @@
 module BigcommerceOAuthAPI
   class Client
     module CustomField
-      def custom_fields(product_id, options = {})
+      def product_custom_fields(product_id, options = {})
         get("products/#{product_id}/custom_fields", options)
       end
 
-      def custom_field(product_id, id, options = {})
+      def product_custom_field(product_id, id, options = {})
         get("products/#{product_id}/custom_fields/#{id}", options)
       end
 
