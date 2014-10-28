@@ -34,7 +34,7 @@ Getting an OAuth Access Token
 Currently the Bigcommerce API is only focused on making the OAuth API available for 3rd party development through Apps.
 This is quite frustrating especially if you want to use the API to make custom integrations for your webshop.
 
-However, it is actually possible to aquire access tokens and without publishing an App for Bigcommerce.
+However, it is actually possible to aquire access tokens without publishing an App for Bigcommerce.
 
 1.  Go to http://developer.bigcommerce.com
 

@@ -1,6 +1,8 @@
 module BigcommerceOAuthAPI
   class Client
     module Product
+      Dir[File.expand_path('../product/*.rb', __FILE__)].each { |f| require f }
+
       def products(options = {})
         response = get('products', options)
         response
@@ -30,6 +32,8 @@ module BigcommerceOAuthAPI
         response = get('products/count', options)
         response
       end
+
+      include CustomField
     end
   end
 end
