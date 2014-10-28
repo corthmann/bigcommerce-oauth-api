@@ -11,6 +11,9 @@ module BigcommerceOAuthAPI
   # 404 HTTP
   class NotFound < Error; end
 
+  # 429 HTTP
+  class TooManyRequests < Error; end
+
   # 500 HTTP
   class InternalServerError < Error; end
 

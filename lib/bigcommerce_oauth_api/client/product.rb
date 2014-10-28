@@ -4,33 +4,27 @@ module BigcommerceOAuthAPI
       Dir[File.expand_path('../product/*.rb', __FILE__)].each { |f| require f }
 
       def products(options = {})
-        response = get('products', options)
-        response
+        get('products', options)
       end
 
       def product(id, options = {})
-        response = get("products/#{id}", options)
-        response
+        get("products/#{id}", options)
       end
 
       def create_product(options = {})
-        response = post("products", options)
-        response
+        post("products", options)
       end
 
       def update_product(id, options = {})
-        response = put("products/#{id}", options)
-        response
+        put("products/#{id}", options)
       end
 
       def delete_product(id, options = {})
-        response = delete("products/#{id}", options)
-        response
+        delete("products/#{id}", options)
       end
 
       def products_count(options = {})
-        response = get('products/count', options)
-        response
+        get('products/count', options)
       end
 
       include CustomField
