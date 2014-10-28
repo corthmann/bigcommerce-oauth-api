@@ -30,6 +30,7 @@ module BigcommerceOAuthAPI
       include OrderProduct
       include OrderShippingAddress
       include OrderMessage
+      include OrderShipment
     end
   end
 end
