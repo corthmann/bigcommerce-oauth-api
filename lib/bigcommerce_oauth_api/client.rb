@@ -8,7 +8,8 @@ module BigcommerceOAuthAPI
                      :order_product => { api_module: :product, scope: :order, methods: [:all, :select]},
                      :order_shipping_address => { api_module: :shipping_address, scope: :order, methods: [:all, :select]},
                      :order_message => { api_module: :message, scope: :order, methods: [:all, :select]},
-                     :order_shipment => { api_module: :shipment, scope: :order, methods: [:all, :select, :create, :update, :delete]}
+                     :order_shipment => { api_module: :shipment, scope: :order, methods: [:all, :select, :create, :update, :delete]},
+                     :customer => { api_module: :customer, scope: :self, methods: [:all, :select, :create, :update, :delete, :count]}
 
   end
 end
