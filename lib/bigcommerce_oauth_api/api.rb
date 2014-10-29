@@ -1,8 +1,9 @@
 require 'bigcommerce_oauth_api/connection'
 require 'bigcommerce_oauth_api/request'
+require 'bigcommerce_oauth_api/base'
 
 module BigcommerceOAuthAPI
-  class API
+  class API < Base
     attr_accessor *Configuration::VALID_OPTIONS_KEYS
 
     def initialize(options = {})
