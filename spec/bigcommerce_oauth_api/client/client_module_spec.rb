@@ -4,7 +4,7 @@ require 'bigcommerce_oauth_api'
 require 'bigcommerce_oauth_api/client'
 
 describe BigcommerceOAuthAPI::Client do
-  ['product', 'order']. each do |api_module|
+  ['customer', 'order', 'product']. each do |api_module|
     api_module_pluralized = api_module.pluralize
 
     before do
