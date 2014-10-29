@@ -9,7 +9,8 @@ describe BigcommerceOAuthAPI::Client do
       { api_module: 'shipping_address', api_parent_module: 'order', methods: [:all, :select]},
       { api_module: 'message', api_parent_module: 'order', methods: [:all, :select]},
       { api_module: 'shipment', api_parent_module: 'order', methods: [:all, :select, :create, :update, :delete]},
-      { api_module: 'custom_field', api_parent_module: 'product', methods: [:all, :select, :create, :update, :delete]}
+      { api_module: 'custom_field', api_parent_module: 'product', methods: [:all, :select, :create, :update, :delete]},
+      { api_module: 'address', api_parent_module: 'customer', methods: [:all, :select, :create, :update, :delete]}
   ]. each do |nested_module|
     api_parent_module = nested_module[:api_parent_module]
     api_parent_module_pluralized = nested_module[:api_parent_module].pluralize

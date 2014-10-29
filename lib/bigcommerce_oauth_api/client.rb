@@ -10,6 +10,7 @@ module BigcommerceOAuthAPI
                      :order_message => { api_module: :message, scope: :order, methods: [:all, :select]},
                      :order_shipment => { api_module: :shipment, scope: :order, methods: [:all, :select, :create, :update, :delete]},
                      :customer => { api_module: :customer, scope: :self, methods: [:all, :select, :create, :update, :delete, :count]},
+                     :customer_address => { api_module: :address, scope: :customer, methods: [:all, :select, :create, :update, :delete]},
                      :customer_group => { api_module: :customer_group, scope: :self, methods: [:all, :select, :create, :update, :delete]}
 
   end
