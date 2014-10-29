@@ -5,11 +5,11 @@ require 'bigcommerce_oauth_api/client'
 
 describe BigcommerceOAuthAPI::Client do
   [
-      { api_module: 'product', api_parent_module: 'order', methods: [:all, :one]},
-      { api_module: 'shipping_address', api_parent_module: 'order', methods: [:all, :one]},
-      { api_module: 'message', api_parent_module: 'order', methods: [:all, :one]},
-      { api_module: 'shipment', api_parent_module: 'order', methods: [:all, :one, :create, :update, :delete]},
-      { api_module: 'custom_field', api_parent_module: 'product', methods: [:all, :one, :create, :update, :delete]}
+      { api_module: 'product', api_parent_module: 'order', methods: [:all, :select]},
+      { api_module: 'shipping_address', api_parent_module: 'order', methods: [:all, :select]},
+      { api_module: 'message', api_parent_module: 'order', methods: [:all, :select]},
+      { api_module: 'shipment', api_parent_module: 'order', methods: [:all, :select, :create, :update, :delete]},
+      { api_module: 'custom_field', api_parent_module: 'product', methods: [:all, :select, :create, :update, :delete]}
   ]. each do |nested_module|
     api_parent_module = nested_module[:api_parent_module]
     api_parent_module_pluralized = nested_module[:api_parent_module].pluralize
@@ -36,7 +36,7 @@ describe BigcommerceOAuthAPI::Client do
       end
     end
 
-    if nested_module[:methods].include?(:one)
+    if nested_module[:methods].include?(:select)
       describe ".#{api_parent_module}_#{api_module}" do
         it "gets the #{api_module} with the given id for the given #{api_parent_module}" do
           id = 10
