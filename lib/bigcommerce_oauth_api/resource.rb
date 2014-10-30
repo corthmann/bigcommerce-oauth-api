@@ -29,14 +29,28 @@ module BigcommerceOAuthAPI
       end
     end
 
-    def build_attribute_getter(attribute_name) #:nodoc:
+    def build_attribute_getter(attribute_name)
       "def #{attribute_name}
         if @attributes[:#{attribute_name}] && @attributes[:#{attribute_name}].is_a?(Hash)
-          @attributes[:#{attribute_name}].with_indifferent_access
+          memoize(:#{attribute_name}) do
+            self.class.new(@attributes[:#{attribute_name}])
+          end
         else
           @attributes[:#{attribute_name}]
         end
       end"
+    end
+
+    private
+
+    def memoize(name, &block)
+      var = instance_variable_get("@#{name.to_s}") rescue nil
+      if var.nil? && block_given?
+        var = yield
+        instance_variable_set("@#{name.to_s}", var)
+      end
+
+      var
     end
   end
 end

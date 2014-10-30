@@ -17,9 +17,26 @@ module BigcommerceOAuthAPI
       it 'returns the correct values when accessing through methods' do
         expect(instance.a).to eql('foo')
         expect(instance.b).to eql('bar')
-        expect(instance.c).to be_a HashWithIndifferentAccess
+        expect(instance.c).to be_a Resource
         expect(instance.c['foo']).to eql('bar')
         expect(instance.c[:foo]).to eql('bar')
+        expect(instance.c.foo).to eql('bar')
+      end
+    end
+
+    context 'when initialized with a deeply nested hash' do
+      let(:instance) do
+        described_class.new({a: { b: { c: { d: 'e' } } } })
+      end
+
+      it 'responds to both methods and keys on all level' do
+        expect(instance.respond_to?(:a)).to eql(true)
+        expect(instance.a.respond_to?(:b)).to eql(true)
+        expect(instance.a.b.respond_to?(:c)).to eql(true)
+        expect(instance.a.b.c.respond_to?(:d)).to eql(true)
+        expect(instance[:a][:b][:c][:d]).to eql('e')
+        expect(instance['a']['b']['c']['d']).to eql('e')
+        expect(instance.a.b.c.d).to eql('e')
       end
     end
   end
