@@ -8,127 +8,67 @@ module BigcommerceOAuthAPI
       map.each do |api, method_description|
         api_module = method_description[:api_module]
         api_scope = method_description[:scope]
-        api_methods = method_description[:methods]
-        if api_methods.include?(:all)
-          with_all_action(api_module, api_scope)
-        end
-
-        if api_methods.include?(:select)
-          with_select_action(api_module, api_scope)
-        end
-
-        if api_methods.include?(:create)
-          with_create_action(api_module, api_scope)
-        end
-
-        if api_methods.include?(:update)
-          with_update_action(api_module, api_scope)
-        end
-
-        if api_methods.include?(:delete)
-          with_delete_action(api_module, api_scope)
-        end
-
-        if api_methods.include?(:count)
-          with_count_action(api_module, api_scope)
+        method_description[:methods].each do |method|
+          with_action(method, api_module, api_scope)
         end
       end
     end
 
-    def self.with_all_action(api_module, api_scope)
-      if api_scope == :self
-        class_eval %Q{
-          def #{api_module.to_s.pluralize}(options = {})
-            get('#{api_module.to_s.pluralize}', options)
-          end
-        }
-      else
-        class_eval %Q{
-          def #{api_scope}_#{api_module.to_s.pluralize}(#{api_scope}_id, options = {})
-            get("#{api_scope.to_s.pluralize}/\#{#{api_scope}_id}/#{api_module.to_s.pluralize}", options)
-          end
-        }
+    def self.with_action(method, api_module, api_scope)
+      is_nested = api_scope != :self
+      method_name, method_params, has_options = get_method_name_and_params(method, api_module, api_scope, is_nested)
+      method_path = get_method_path(method, api_module, api_scope, is_nested)
+      request_method = get_request_method(method)
+
+      class_eval %Q{
+        def #{method_name}#{method_params}
+          #{request_method}("#{method_path}"#{( has_options ? ', options' : '')})
+        end
+      }
+    end
+
+    def self.get_method_name_and_params(method, api_module, api_scope, is_nested = false)
+      base = (is_nested ? "#{api_scope}_#{api_module}": api_module).to_s
+      params_base = "(#{(is_nested ? "#{api_scope}_id, ": '')}"
+      has_options = method != :delete
+      case method
+        when :all
+          return base.pluralize, "#{params_base}options = {})", has_options
+        when :count
+          return "#{base.pluralize}_count", "#{params_base}options = {})", has_options
+        when :select
+          return base, "#{params_base}id, options = {})", has_options
+        when :create
+          return "#{method}_#{base}", "#{params_base}options = {})", has_options
+        when :update
+          return "#{method}_#{base}", "#{params_base}id, options = {})", has_options
+        when :delete
+          return "#{method}_#{base}", "#{params_base}id)", has_options
       end
     end
 
-    def self.with_select_action(api_module, api_scope)
-      if api_scope == :self
-        class_eval %Q{
-          def #{api_module}(id, options = {})
-            get("#{api_module.to_s.pluralize}/\#{id}", options)
-          end
-        }
-      else
-        class_eval %Q{
-          def #{api_scope}_#{api_module}(#{api_scope}_id, id, options = {})
-            get("#{api_scope.to_s.pluralize}/\#{#{api_scope}_id}/#{api_module.to_s.pluralize}/\#{id}", options)
-          end
-        }
+    def self.get_method_path(method, api_module, api_scope, is_nested = false)
+      base = (is_nested ? "#{api_scope.to_s.pluralize}/\#{#{api_scope}_id}/#{api_module}": api_module).to_s.pluralize
+      case method
+        when :all, :create
+          return base
+        when :count
+          return "#{base}/count"
+        when :select, :update, :delete
+          return "#{base}/\#{id}"
       end
     end
 
-    def self.with_create_action(api_module, api_scope)
-      if api_scope == :self
-        class_eval %Q{
-          def create_#{api_module}( options = {})
-            post("#{api_module.to_s.pluralize}", options)
-          end
-        }
-      else
-        class_eval %Q{
-          def create_#{api_scope}_#{api_module}(#{api_scope}_id, options = {})
-            post("#{api_scope.to_s.pluralize}/\#{#{api_scope}_id}/#{api_module.to_s.pluralize}", options)
-          end
-        }
-      end
-    end
-
-    def self.with_update_action(api_module, api_scope)
-      if api_scope == :self
-        class_eval %Q{
-          def update_#{api_module}(id, options = {})
-            put("#{api_module.to_s.pluralize}/\#{id}", options)
-          end
-        }
-      else
-        class_eval %Q{
-          def update_#{api_scope}_#{api_module}(#{api_scope}_id, id, options = {})
-            put("#{api_scope.to_s.pluralize}/\#{#{api_scope}_id}/#{api_module.to_s.pluralize}/\#{id}", options)
-          end
-        }
-      end
-    end
-
-    def self.with_delete_action(api_module, api_scope)
-      if api_scope == :self
-        class_eval %Q{
-          def delete_#{api_module}(id, options = {})
-            delete("#{api_module.to_s.pluralize}/\#{id}", options)
-          end
-        }
-      else
-        class_eval %Q{
-          def delete_#{api_scope}_#{api_module}(#{api_scope}_id, id, options = {})
-            delete("#{api_scope.to_s.pluralize}/\#{#{api_scope}_id}/#{api_module.to_s.pluralize}/\#{id}", options)
-          end
-        }
-      end
-    end
-
-
-    def self.with_count_action(api_module, api_scope)
-      if api_scope == :self
-        class_eval %Q{
-          def #{api_module.to_s.pluralize}_count(options = {})
-            get('#{api_module.to_s.pluralize}/count', options)
-          end
-        }
-      else
-        class_eval %Q{
-          def #{api_scope}_#{api_module.to_s.pluralize}_count(#{api_scope}_id, options = {})
-            get("#{api_scope.to_s.pluralize}/\#{#{api_scope}_id}/#{api_module.to_s.pluralize}/count", options)
-          end
-        }
+    def self.get_request_method(method)
+      case method
+        when :all, :count, :select
+          return :get
+        when :create
+          return :post
+        when :update
+          return :put
+        when :delete
+          return :delete
       end
     end
   end
