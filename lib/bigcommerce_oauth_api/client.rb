@@ -15,6 +15,7 @@ module BigcommerceOAuthAPI
                      :order_product => { api_module: :product, scope: :order, methods: [:all, :select]},
                      :order_shipment => { api_module: :shipment, scope: :order, methods: [:all, :select, :create, :update, :delete]},
                      :order_shipping_address => { api_module: :shipping_address, scope: :order, methods: [:all, :select]},
+                     :payment_method => { api_module: :method, scope: :self, methods: [:all], prefix_paths: 'payments', prefix_methods: 'payment'},
                      :product => { api_module: :product, scope: :self, methods: [:all, :select, :create, :update, :delete, :count]},
                      :product_custom_field => { api_module: :custom_field, scope: :product, methods: [:all, :select, :create, :update, :delete]},
                      :redirect => { api_module: :redirect, scope: :self, methods: [:all, :select, :create, :update, :delete]}

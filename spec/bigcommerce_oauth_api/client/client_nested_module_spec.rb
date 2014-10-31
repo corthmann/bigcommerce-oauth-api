@@ -26,7 +26,7 @@ describe BigcommerceOAuthAPI::Client do
     end
 
     if nested_module[:methods].include?(:all)
-      describe ".#{api_parent_module}_#{api_module_pluralized}" do
+      describe ".#{method_prefix}#{api_parent_module}_#{api_module_pluralized}" do
         it "should get a list of #{api_module_pluralized} for the given #{api_parent_module}" do
           parent_id = 10
           stub_get(@client, "#{path_prefix}#{api_parent_module_pluralized}/#{parent_id}/#{api_module_pluralized}").
@@ -40,7 +40,7 @@ describe BigcommerceOAuthAPI::Client do
     end
 
     if nested_module[:methods].include?(:select)
-      describe ".#{api_parent_module}_#{api_module}" do
+      describe ".#{method_prefix}#{api_parent_module}_#{api_module}" do
         it "gets the #{api_module} with the given id for the given #{api_parent_module}" do
           id = 10
           parent_id = 5
@@ -55,7 +55,7 @@ describe BigcommerceOAuthAPI::Client do
     end
 
     if nested_module[:methods].include?(:create)
-      describe ".create_#{api_parent_module}_#{api_module}" do
+      describe ".create_#{method_prefix}#{api_parent_module}_#{api_module}" do
         it "creates a #{api_module} with the given attributes for the given #{api_parent_module}" do
           options = { name: 'A', description: 'B'}
           parent_id = 5
@@ -71,7 +71,7 @@ describe BigcommerceOAuthAPI::Client do
     end
 
     if nested_module[:methods].include?(:update)
-      describe ".update_#{api_parent_module}_#{api_module}" do
+      describe ".update_#{method_prefix}#{api_parent_module}_#{api_module}" do
         it "update the attributes of the #{api_module} with the given id for the #{api_parent_module}" do
           id = 10
           parent_id = 5
@@ -89,7 +89,7 @@ describe BigcommerceOAuthAPI::Client do
     end
 
     if nested_module[:methods].include?(:delete)
-      describe ".delete_#{api_parent_module}_#{api_module}" do
+      describe ".delete_#{method_prefix}#{api_parent_module}_#{api_module}" do
         it "deletes the #{api_module} with the given id for the #{api_parent_module}" do
           id = 10
           parent_id = 5
@@ -104,7 +104,7 @@ describe BigcommerceOAuthAPI::Client do
     end
 
     if nested_module[:methods].include?(:count)
-      describe ".#{api_module_pluralized}_count" do
+      describe ".#{method_prefix}#{api_module_pluralized}_count" do
         it "returns the number of #{api_module_pluralized} for the #{api_parent_module}" do
           parent_id = 5
           stub_get(@client, "#{path_prefix}#{api_parent_module_pluralized}/#{parent_id}/#{api_module_pluralized}/count").
