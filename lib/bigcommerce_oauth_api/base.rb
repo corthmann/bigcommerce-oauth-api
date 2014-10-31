@@ -1,34 +1,44 @@
 require 'active_support/inflector'
+require 'bigcommerce_oauth_api/error'
 
 module BigcommerceOAuthAPI
   class Base
+
     protected
 
     def self.with_api_methods(map)
       map.each do |api, method_description|
         api_module = method_description[:api_module]
         api_scope = method_description[:scope]
+        path_prefix = (method_description.has_key?(:prefix_paths) ? "#{method_description[:prefix_paths]}/" : nil)
+        method_prefix = (method_description.has_key?(:prefix_methods) ? "#{method_description[:prefix_methods]}_" : nil)
         method_description[:methods].each do |method|
-          with_action(method, api_module, api_scope)
+          with_action(method, api_module, api_scope, path_prefix, method_prefix)
         end
       end
     end
 
-    def self.with_action(method, api_module, api_scope)
+    def self.with_action(method, api_module, api_scope, path_prefix = nil, method_prefix = nil)
       is_nested = api_scope != :self
-      method_name, method_params, has_options = get_method_name_and_params(method, api_module, api_scope, is_nested)
+      method_name, method_params, has_options = get_method_name_and_params(method, api_module, api_scope, is_nested, method_prefix)
       method_path = get_method_path(method, api_module, api_scope, is_nested)
       request_method = get_request_method(method)
 
+      # Ensure that existing methods never are overwritten
+      # Raise an error if it is attempted
+      if self.method_defined?(:"#{method_name}")
+        raise MethodAlreadyDefinedError.new("Method already defined: '#{method_name}'")
+      end
+
       class_eval %Q{
         def #{method_name}#{method_params}
-          #{request_method}("#{method_path}"#{( has_options ? ', options' : '')})
+          #{request_method}("#{path_prefix}#{method_path}"#{( has_options ? ', options' : '')})
         end
       }
     end
 
-    def self.get_method_name_and_params(method, api_module, api_scope, is_nested = false)
-      base = (is_nested ? "#{api_scope}_#{api_module}": api_module).to_s
+    def self.get_method_name_and_params(method, api_module, api_scope, is_nested = false, method_prefix = nil)
+      base = (is_nested ? "#{method_prefix}#{api_scope}_#{api_module}": "#{method_prefix}#{api_module}").to_s
       params_base = "(#{(is_nested ? "#{api_scope}_id, ": '')}"
       has_options = method != :delete
       case method

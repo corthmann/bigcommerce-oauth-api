@@ -5,13 +5,18 @@ require 'bigcommerce_oauth_api/client'
 
 describe BigcommerceOAuthAPI::Client do
   [
+      { api_module: 'post', methods: [:all, :select, :create, :update, :delete], prefix_paths: 'blog', prefix_methods: 'blog'},
+      { api_module: 'tag', methods: [:all], prefix_paths: 'blog', prefix_methods: 'blog'},
       { api_module: 'customer', methods: [:all, :select, :create, :update, :delete, :count]},
       { api_module: 'customer_group', methods: [:all, :select, :create, :update, :delete]},
       { api_module: 'order', methods: [:all, :select, :create, :update, :delete, :count]},
       { api_module: 'product', methods: [:all, :select, :create, :update, :delete, :count]},
+      { api_module: 'redirect', methods: [:all, :select, :create, :update, :delete]}
   ]. each do |api_description|
     api_module = api_description[:api_module]
     api_module_pluralized = api_module.pluralize
+    path_prefix = (api_description.has_key?(:prefix_paths) ? "#{api_description[:prefix_paths]}/" : nil)
+    method_prefix = (api_description.has_key?(:prefix_methods) ? "#{api_description[:prefix_methods]}_" : nil)
 
     before do
       @client = BigcommerceOAuthAPI::Client.new(:store_hash => 'TEST_STORE',
@@ -22,10 +27,10 @@ describe BigcommerceOAuthAPI::Client do
     if api_description[:methods].include?(:all)
       describe ".#{api_module_pluralized}" do
         it "should get a list of #{api_module_pluralized}" do
-          stub_get(@client, api_module_pluralized).
+          stub_get(@client, "#{path_prefix}#{api_module_pluralized}").
               to_return(:headers => { :content_type => "application/#{@client.format}" })
-          @client.send(api_module_pluralized.to_sym)
-          expect(a_get(@client, api_module_pluralized).
+          @client.send("#{method_prefix}#{api_module_pluralized}".to_sym)
+          expect(a_get(@client, "#{path_prefix}#{api_module_pluralized}").
                      with(:headers => {'X-Auth-Client' => 'SECRET_ID',
                                        'X-Auth-Token' => 'SECRET_TOKEN'})).to have_been_made
         end
@@ -36,10 +41,10 @@ describe BigcommerceOAuthAPI::Client do
       describe ".#{api_module}" do
         it "gets the #{api_module} with the given id" do
           id = 10
-          stub_get(@client, "#{api_module_pluralized}/#{id}").
+          stub_get(@client, "#{path_prefix}#{api_module_pluralized}/#{id}").
               to_return(:headers => { :content_type => "application/#{@client.format}" })
-          @client.send(api_module.to_sym, id)
-          expect(a_get(@client, "#{api_module_pluralized}/#{id}").
+          @client.send("#{method_prefix}#{api_module}".to_sym, id)
+          expect(a_get(@client, "#{path_prefix}#{api_module_pluralized}/#{id}").
                      with(:headers => {'X-Auth-Client' => 'SECRET_ID',
                                        'X-Auth-Token' => 'SECRET_TOKEN'})).to have_been_made
         end
@@ -50,10 +55,10 @@ describe BigcommerceOAuthAPI::Client do
       describe ".create_#{api_module}" do
         it "creates a #{api_module} with the given attributes" do
           options = { name: 'A', description: 'B'}
-          stub_post(@client, api_module_pluralized).
+          stub_post(@client, "#{path_prefix}#{api_module_pluralized}").
               to_return(:body => options, :headers => { :content_type => "application/#{@client.format}" })
-          @client.send("create_#{api_module}".to_sym, options)
-          expect(a_post(@client, api_module_pluralized).
+          @client.send("create_#{method_prefix}#{api_module}".to_sym, options)
+          expect(a_post(@client, "#{path_prefix}#{api_module_pluralized}").
                      with(:body => options,
                           :headers => {'X-Auth-Client' => 'SECRET_ID',
                                        'X-Auth-Token' => 'SECRET_TOKEN'})).to have_been_made
@@ -66,11 +71,11 @@ describe BigcommerceOAuthAPI::Client do
         it "update the attributes of the #{api_module} with the given id" do
           id = 10
           options = { name: 'A', description: 'B'}
-          stub_put(@client, "#{api_module_pluralized}/#{id}").
+          stub_put(@client, "#{path_prefix}#{api_module_pluralized}/#{id}").
               with(:body => options).
               to_return(:body => '', :headers => { :content_type => "application/#{@client.format}" })
-          @client.send("update_#{api_module}".to_sym, id, options)
-          expect(a_put(@client, "#{api_module_pluralized}/#{id}").
+          @client.send("update_#{method_prefix}#{api_module}".to_sym, id, options)
+          expect(a_put(@client, "#{path_prefix}#{api_module_pluralized}/#{id}").
                      with(:body => options,
                           :headers => {'X-Auth-Client' => 'SECRET_ID',
                                        'X-Auth-Token' => 'SECRET_TOKEN'})).to have_been_made
@@ -82,10 +87,10 @@ describe BigcommerceOAuthAPI::Client do
       describe ".delete_#{api_module}" do
         it "deletes the #{api_module} with the given id" do
           id = 10
-          stub_delete(@client, "#{api_module_pluralized}/#{id}").
+          stub_delete(@client, "#{path_prefix}#{api_module_pluralized}/#{id}").
               to_return(:headers => { :content_type => "application/#{@client.format}" })
-          @client.send("delete_#{api_module}".to_sym, id)
-          expect(a_delete(@client, "#{api_module_pluralized}/#{id}").
+          @client.send("delete_#{method_prefix}#{api_module}".to_sym, id)
+          expect(a_delete(@client, "#{path_prefix}#{api_module_pluralized}/#{id}").
                      with(:headers => {'X-Auth-Client' => 'SECRET_ID',
                                        'X-Auth-Token' => 'SECRET_TOKEN'})).to have_been_made
         end
@@ -95,10 +100,10 @@ describe BigcommerceOAuthAPI::Client do
     if api_description[:methods].include?(:count)
       describe ".#{api_module_pluralized}_count" do
         it "returns the number of #{api_module_pluralized}" do
-          stub_get(@client, "#{api_module_pluralized}/count").
+          stub_get(@client, "#{path_prefix}#{api_module_pluralized}/count").
               to_return(:body => '', :headers => { :content_type => "application/#{@client.format}" })
-          @client.send("#{api_module_pluralized}_count".to_sym)
-          expect(a_get(@client, "#{api_module_pluralized}/count").
+          @client.send("#{method_prefix}#{api_module_pluralized}_count".to_sym)
+          expect(a_get(@client, "#{path_prefix}#{api_module_pluralized}/count").
                      with(:headers => {'X-Auth-Client' => 'SECRET_ID',
                                        'X-Auth-Token' => 'SECRET_TOKEN'})).to have_been_made
         end
