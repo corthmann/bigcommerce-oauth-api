@@ -13,6 +13,7 @@ describe BigcommerceOAuthAPI::Client do
       { api_module: 'state', scope: :self, methods: [:all, :select]},
       { api_module: 'order', methods: [:all, :select, :create, :update, :delete, :count]},
       { api_module: 'product', methods: [:all, :select, :create, :update, :delete, :count]},
+      { api_module: 'coupon', methods: [:all, :select, :create, :update, :delete]},
       { api_module: 'redirect', methods: [:all, :select, :create, :update, :delete]}
   ]. each do |api_description|
     api_module = api_description[:api_module]
