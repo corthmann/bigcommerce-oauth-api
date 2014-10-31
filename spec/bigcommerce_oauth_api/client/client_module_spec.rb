@@ -12,6 +12,7 @@ describe BigcommerceOAuthAPI::Client do
       { api_module: 'country', scope: :self, methods: [:all, :select]},
       { api_module: 'state', scope: :self, methods: [:all, :select]},
       { api_module: 'order', methods: [:all, :select, :create, :update, :delete, :count]},
+      { api_module: 'method', methods: [:all], prefix_paths: 'payments', prefix_methods: 'payment'},
       { api_module: 'product', methods: [:all, :select, :create, :update, :delete, :count]},
       { api_module: 'coupon', methods: [:all, :select, :create, :update, :delete]},
       { api_module: 'redirect', methods: [:all, :select, :create, :update, :delete]}
@@ -28,7 +29,7 @@ describe BigcommerceOAuthAPI::Client do
     end
 
     if api_description[:methods].include?(:all)
-      describe ".#{api_module_pluralized}" do
+      describe ".#{method_prefix}#{api_module_pluralized}" do
         it "should get a list of #{api_module_pluralized}" do
           stub_get(@client, "#{path_prefix}#{api_module_pluralized}").
               to_return(:headers => { :content_type => "application/#{@client.format}" })
@@ -41,7 +42,7 @@ describe BigcommerceOAuthAPI::Client do
     end
 
     if api_description[:methods].include?(:select)
-      describe ".#{api_module}" do
+      describe ".#{method_prefix}#{api_module}" do
         it "gets the #{api_module} with the given id" do
           id = 10
           stub_get(@client, "#{path_prefix}#{api_module_pluralized}/#{id}").
@@ -55,7 +56,7 @@ describe BigcommerceOAuthAPI::Client do
     end
 
     if api_description[:methods].include?(:create)
-      describe ".create_#{api_module}" do
+      describe ".create_#{method_prefix}#{api_module}" do
         it "creates a #{api_module} with the given attributes" do
           options = { name: 'A', description: 'B'}
           stub_post(@client, "#{path_prefix}#{api_module_pluralized}").
@@ -70,7 +71,7 @@ describe BigcommerceOAuthAPI::Client do
     end
 
     if api_description[:methods].include?(:update)
-      describe ".update_#{api_module}" do
+      describe ".update_#{method_prefix}#{api_module}" do
         it "update the attributes of the #{api_module} with the given id" do
           id = 10
           options = { name: 'A', description: 'B'}
@@ -87,7 +88,7 @@ describe BigcommerceOAuthAPI::Client do
     end
 
     if api_description[:methods].include?(:delete)
-      describe ".delete_#{api_module}" do
+      describe ".delete_#{method_prefix}#{api_module}" do
         it "deletes the #{api_module} with the given id" do
           id = 10
           stub_delete(@client, "#{path_prefix}#{api_module_pluralized}/#{id}").
@@ -101,7 +102,7 @@ describe BigcommerceOAuthAPI::Client do
     end
 
     if api_description[:methods].include?(:count)
-      describe ".#{api_module_pluralized}_count" do
+      describe ".#{method_prefix}#{api_module_pluralized}_count" do
         it "returns the number of #{api_module_pluralized}" do
           stub_get(@client, "#{path_prefix}#{api_module_pluralized}/count").
               to_return(:body => '', :headers => { :content_type => "application/#{@client.format}" })
