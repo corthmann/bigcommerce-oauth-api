@@ -16,6 +16,8 @@ describe BigcommerceOAuthAPI::Client do
     api_parent_module_pluralized = nested_module[:api_parent_module].pluralize
     api_module = nested_module[:api_module]
     api_module_pluralized = api_module.pluralize
+    path_prefix = (nested_module.has_key?(:prefix_paths) ? "#{nested_module[:prefix_paths]}/" : nil)
+    method_prefix = (nested_module.has_key?(:prefix_methods) ? "#{nested_module[:prefix_methods]}_" : nil)
 
     before do
       @client = BigcommerceOAuthAPI::Client.new(:store_hash => 'TEST_STORE',
@@ -27,10 +29,10 @@ describe BigcommerceOAuthAPI::Client do
       describe ".#{api_parent_module}_#{api_module_pluralized}" do
         it "should get a list of #{api_module_pluralized} for the given #{api_parent_module}" do
           parent_id = 10
-          stub_get(@client, "#{api_parent_module_pluralized}/#{parent_id}/#{api_module_pluralized}").
+          stub_get(@client, "#{path_prefix}#{api_parent_module_pluralized}/#{parent_id}/#{api_module_pluralized}").
               to_return(:headers => { :content_type => "application/#{@client.format}" })
-          @client.send("#{api_parent_module}_#{api_module_pluralized}".to_sym, parent_id)
-          expect(a_get(@client, "#{api_parent_module_pluralized}/#{parent_id}/#{api_module_pluralized}").
+          @client.send("#{method_prefix}#{api_parent_module}_#{api_module_pluralized}".to_sym, parent_id)
+          expect(a_get(@client, "#{path_prefix}#{api_parent_module_pluralized}/#{parent_id}/#{api_module_pluralized}").
                      with(:headers => {'X-Auth-Client' => 'SECRET_ID',
                                        'X-Auth-Token' => 'SECRET_TOKEN'})).to have_been_made
         end
@@ -42,10 +44,10 @@ describe BigcommerceOAuthAPI::Client do
         it "gets the #{api_module} with the given id for the given #{api_parent_module}" do
           id = 10
           parent_id = 5
-          stub_get(@client, "#{api_parent_module_pluralized}/#{parent_id}/#{api_module_pluralized}/#{id}").
+          stub_get(@client, "#{path_prefix}#{api_parent_module_pluralized}/#{parent_id}/#{api_module_pluralized}/#{id}").
               to_return(:headers => { :content_type => "application/#{@client.format}" })
-          @client.send("#{api_parent_module}_#{api_module}".to_sym, parent_id, id)
-          expect(a_get(@client, "#{api_parent_module_pluralized}/#{parent_id}/#{api_module_pluralized}/#{id}").
+          @client.send("#{method_prefix}#{api_parent_module}_#{api_module}".to_sym, parent_id, id)
+          expect(a_get(@client, "#{path_prefix}#{api_parent_module_pluralized}/#{parent_id}/#{api_module_pluralized}/#{id}").
                      with(:headers => {'X-Auth-Client' => 'SECRET_ID',
                                        'X-Auth-Token' => 'SECRET_TOKEN'})).to have_been_made
         end
@@ -57,10 +59,10 @@ describe BigcommerceOAuthAPI::Client do
         it "creates a #{api_module} with the given attributes for the given #{api_parent_module}" do
           options = { name: 'A', description: 'B'}
           parent_id = 5
-          stub_post(@client, "#{api_parent_module_pluralized}/#{parent_id}/#{api_module_pluralized}").
+          stub_post(@client, "#{path_prefix}#{api_parent_module_pluralized}/#{parent_id}/#{api_module_pluralized}").
               to_return(:body => options, :headers => { :content_type => "application/#{@client.format}" })
-          @client.send("create_#{api_parent_module}_#{api_module}".to_sym, parent_id, options)
-          expect(a_post(@client, "#{api_parent_module_pluralized}/#{parent_id}/#{api_module_pluralized}").
+          @client.send("create_#{method_prefix}#{api_parent_module}_#{api_module}".to_sym, parent_id, options)
+          expect(a_post(@client, "#{path_prefix}#{api_parent_module_pluralized}/#{parent_id}/#{api_module_pluralized}").
                      with(:body => options,
                           :headers => {'X-Auth-Client' => 'SECRET_ID',
                                        'X-Auth-Token' => 'SECRET_TOKEN'})).to have_been_made
@@ -74,11 +76,11 @@ describe BigcommerceOAuthAPI::Client do
           id = 10
           parent_id = 5
           options = { name: 'A', description: 'B'}
-          stub_put(@client, "#{api_parent_module_pluralized}/#{parent_id}/#{api_module_pluralized}/#{id}").
+          stub_put(@client, "#{path_prefix}#{api_parent_module_pluralized}/#{parent_id}/#{api_module_pluralized}/#{id}").
               with(:body => options).
               to_return(:body => '', :headers => { :content_type => "application/#{@client.format}" })
-          @client.send("update_#{api_parent_module}_#{api_module}".to_sym, parent_id, id, options)
-          expect(a_put(@client, "#{api_parent_module_pluralized}/#{parent_id}/#{api_module_pluralized}/#{id}").
+          @client.send("update_#{method_prefix}#{api_parent_module}_#{api_module}".to_sym, parent_id, id, options)
+          expect(a_put(@client, "#{path_prefix}#{api_parent_module_pluralized}/#{parent_id}/#{api_module_pluralized}/#{id}").
                      with(:body => options,
                           :headers => {'X-Auth-Client' => 'SECRET_ID',
                                        'X-Auth-Token' => 'SECRET_TOKEN'})).to have_been_made
@@ -91,10 +93,10 @@ describe BigcommerceOAuthAPI::Client do
         it "deletes the #{api_module} with the given id for the #{api_parent_module}" do
           id = 10
           parent_id = 5
-          stub_delete(@client, "#{api_parent_module_pluralized}/#{parent_id}/#{api_module_pluralized}/#{id}").
+          stub_delete(@client, "#{path_prefix}#{api_parent_module_pluralized}/#{parent_id}/#{api_module_pluralized}/#{id}").
               to_return(:headers => { :content_type => "application/#{@client.format}" })
-          @client.send("delete_#{api_parent_module}_#{api_module}".to_sym, parent_id, id)
-          expect(a_delete(@client, "#{api_parent_module_pluralized}/#{parent_id}/#{api_module_pluralized}/#{id}").
+          @client.send("delete_#{method_prefix}#{api_parent_module}_#{api_module}".to_sym, parent_id, id)
+          expect(a_delete(@client, "#{path_prefix}#{api_parent_module_pluralized}/#{parent_id}/#{api_module_pluralized}/#{id}").
                      with(:headers => {'X-Auth-Client' => 'SECRET_ID',
                                        'X-Auth-Token' => 'SECRET_TOKEN'})).to have_been_made
         end
@@ -105,10 +107,10 @@ describe BigcommerceOAuthAPI::Client do
       describe ".#{api_module_pluralized}_count" do
         it "returns the number of #{api_module_pluralized} for the #{api_parent_module}" do
           parent_id = 5
-          stub_get(@client, "#{api_parent_module_pluralized}/#{parent_id}/#{api_module_pluralized}/count").
+          stub_get(@client, "#{path_prefix}#{api_parent_module_pluralized}/#{parent_id}/#{api_module_pluralized}/count").
               to_return(:body => '', :headers => { :content_type => "application/#{@client.format}" })
-          @client.send("#{api_module_pluralized}_count".to_sym)
-          expect(a_get(@client, "#{api_parent_module_pluralized}/#{parent_id}/#{api_module_pluralized}/count").
+          @client.send("#{method_prefix}#{api_module_pluralized}_count".to_sym)
+          expect(a_get(@client, "#{path_prefix}#{api_parent_module_pluralized}/#{parent_id}/#{api_module_pluralized}/count").
                      with(:headers => {'X-Auth-Client' => 'SECRET_ID',
                                        'X-Auth-Token' => 'SECRET_TOKEN'})).to have_been_made
         end
