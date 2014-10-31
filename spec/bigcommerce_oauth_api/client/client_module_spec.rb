@@ -17,6 +17,7 @@ describe BigcommerceOAuthAPI::Client do
       { api_module: 'coupon', methods: [:all, :select, :create, :update, :delete]},
       { api_module: 'redirect', methods: [:all, :select, :create, :update, :delete]},
       { api_module: 'method', methods: [:all, :select], prefix_paths: 'shipping', prefix_methods: 'shipping'},
+      { api_module: 'tax_class', scope: :self, methods: [:all, :select]},
   ]. each do |api_description|
     api_module = api_description[:api_module]
     api_module_pluralized = api_module.pluralize
