@@ -7,6 +7,8 @@ module BigcommerceOAuthAPI
                      :customer => { api_module: :customer, scope: :self, methods: [:all, :select, :create, :update, :delete, :count]},
                      :customer_address => { api_module: :address, scope: :customer, methods: [:all, :select, :create, :update, :delete]},
                      :customer_group => { api_module: :customer_group, scope: :self, methods: [:all, :select, :create, :update, :delete]},
+                     :geography_country => { api_module: :country, scope: :self, methods: [:all, :select]},
+                     :geography_state => { api_module: :state, scope: :self, methods: [:all, :select]},
                      :order => { api_module: :order, scope: :self, methods: [:all, :select, :create, :update, :delete, :count]},
                      :order_message => { api_module: :message, scope: :order, methods: [:all, :select]},
                      :order_product => { api_module: :product, scope: :order, methods: [:all, :select]},
