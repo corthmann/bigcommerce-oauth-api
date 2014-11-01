@@ -8,9 +8,13 @@ This gem provides a wrapper for the Bigcommerce REST API.
 
 Installation
 -------------
-The gem is currently under development. For it can be installed by adding the following line to your Gemfile.
+You can install this gem by using the followign command:
 ```
-gem 'bigcommerce-oauth-api', github: 'corthmann/bigcommerce-oauth-api-ruby'
+gem install bigcommerce-oauth-api
+```
+or by adding the the following line to your Gemfile.
+```
+gem 'bigcommerce-oauth-api'
 ```
 
 Configuration
