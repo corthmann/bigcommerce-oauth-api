@@ -56,13 +56,39 @@ order[:billing_address][:first_name]
 ```
 Update the name of a customer
 ```
-api.update_customer(101, {first_name: 'Christian'})
+customer = api.update_customer(101, {first_name: 'Christian'})
 ```
 Delete an order shipment
 ```
 order_id = 101
 shipment_id = 1000
 api.delete_order_shipment(order_id, shipment_id)
+```
+Webhooks
+-------------
+In many applications it is an advantage to receive a callback on events rather than polling information. Such callbacks are commonly called webhooks.
+
+The Bigcommerce API allows you to create webhooks for events you want to respond to - for instance every time an order is created.
+```
+# more information on: https://developer.bigcommerce.com/api/webhooks-getting-started
+new_hook = {
+    scope: "store/order/created",
+    destination: "https://app.example.com/order-callback",
+    is_active: true
+}
+hook = api.create_hook(new_hook)
+```
+After creating the webhook as shown above a callback (POST) will be sent to 'https://app.example.com/order-callback' every time an order is created.
+
+The API also allows you to mange hooks like so:
+```
+# get a list of the webhooks
+hooks = api.hooks
+# get the webhook with id = 1234
+hook_id = 1234
+hook = api.hook(hook_id)
+# delete the webhook with id = 1234
+api.delete_hook(hook_id)
 ```
 
 Getting an OAuth Access Token
