@@ -20,5 +20,16 @@ module BigcommerceOAuthAPI
       end
     end
 
+    describe '.store_information' do
+      it 'gets the server time' do
+        stub_get(@client, 'store').
+            to_return(:headers => { :content_type => "application/#{@client.format}" })
+        @client.store_information
+        expect(a_get(@client, 'store').
+                   with(:headers => {'X-Auth-Client' => 'SECRET_ID',
+                                     'X-Auth-Token' => 'SECRET_TOKEN'})).to have_been_made
+      end
+    end
+
   end
 end
