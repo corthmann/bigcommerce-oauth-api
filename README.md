@@ -8,7 +8,7 @@ This gem provides a wrapper for the Bigcommerce REST API.
 
 Installation
 -------------
-You can install this gem by using the followign command:
+You can install this gem by using the following command:
 ```
 gem install bigcommerce-oauth-api
 ```
