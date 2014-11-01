@@ -19,6 +19,8 @@ RSpec.configure do |config|
   config.include WebMock::API
 end
 
+WebMock.disable_net_connect!(:allow => 'codeclimate.com')
+
 def stub_get(client, path)
   stub_request(:get, "#{client.endpoint}/#{client.store_hash}/v2/#{path}")
 end
