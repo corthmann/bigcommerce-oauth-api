@@ -10,7 +10,7 @@ module BigcommerceOAuthAPI
     end
 
     describe '.time' do
-      it 'gets the server time' do
+      it 'returns the server time' do
         stub_get(@client, 'time').
             to_return(:headers => { :content_type => "application/#{@client.format}" })
         @client.time
@@ -21,7 +21,7 @@ module BigcommerceOAuthAPI
     end
 
     describe '.store_information' do
-      it 'gets the server time' do
+      it 'returns the store information' do
         stub_get(@client, 'store').
             to_return(:headers => { :content_type => "application/#{@client.format}" })
         @client.store_information
