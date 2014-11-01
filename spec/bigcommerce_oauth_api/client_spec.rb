@@ -6,7 +6,7 @@ module BigcommerceOAuthAPI
     before do
       @client = BigcommerceOAuthAPI::Client.new(:store_hash => 'TEST_STORE',
                                                 :client_id => 'SECRET_ID',
-                                                :oauth_token => 'SECRET_TOKEN')
+                                                :access_token => 'SECRET_TOKEN')
     end
 
     describe '.time' do

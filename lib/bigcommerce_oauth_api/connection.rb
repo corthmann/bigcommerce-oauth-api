@@ -10,7 +10,7 @@ module BigcommerceOAuthAPI
           :headers => {
               'Accept' => "application/#{format}; charset=utf-8",
               'X-Auth-Client' => client_id,
-              'X-Auth-Token' => oauth_token
+              'X-Auth-Token' => access_token
           },
           :url => "#{endpoint}/#{store_hash}/v2/"
       }

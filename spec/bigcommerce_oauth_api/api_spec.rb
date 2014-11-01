@@ -33,7 +33,7 @@ module BigcommerceOAuthAPI
               :endpoint => 'a',
               :format => 'b',
               :client_id => 'c',
-              :oauth_token => 'd',
+              :access_token => 'd',
               :adapter => 'e',
               :store_hash => 'f'
           }

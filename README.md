@@ -2,6 +2,9 @@ bigcommerce-oauth-api-ruby
 ==========================
 [![Code Climate](https://codeclimate.com/github/corthmann/bigcommerce-oauth-api-ruby/badges/gpa.svg)](https://codeclimate.com/github/corthmann/bigcommerce-oauth-api-ruby)
 [![Test Coverage](https://codeclimate.com/github/corthmann/bigcommerce-oauth-api-ruby/badges/coverage.svg)](https://codeclimate.com/github/corthmann/bigcommerce-oauth-api-ruby)
+[![Dependency Status](https://gemnasium.com/corthmann/bigcommerce-oauth-api-ruby.svg)](https://gemnasium.com/corthmann/bigcommerce-oauth-api-ruby)
+
+This gem provides a wrapper for the Bigcommerce REST API.
 
 Installation
 -------------
@@ -17,17 +20,49 @@ The gem can be configured in two ways. Either by initializing the API with certa
 BigcommerceOAuthAPI.configuration do |config|
     config.store_hash = 'YOU STORE ID'
     config.client_id = 'YOUR CLIENT ID'
-    config.oauth_token = 'YOUR OAUTH ACCESS TOKEN'
+    config.access_token = 'YOUR OAUTH ACCESS TOKEN'
 end
 ```
 
 Or by passing options to a new client instance.
 ```
-BigcommerceOAuthAPI::Client.new(
+api = BigcommerceOAuthAPI::Client.new(
                                 :store_hash => 'YOUR STORE ID',
-                                :config.client_id = 'YOUR CLIENT ID',
-                                :config.oauth_token = 'YOUR OAUTH ACCESS TOKEN'
+                                :config.client_id => 'YOUR CLIENT ID',
+                                :config.access_token => 'YOUR OAUTH ACCESS TOKEN'
                                 )
+```
+
+Using the API
+-------------
+Get a list of products:
+```
+products = api.products
+```
+Get orders with order_id >= 100
+```
+orders = api.orders({ min_id: 100 })
+```
+Get the order with id = 101
+```
+order = api.order(101)
+```
+All resource attributes can be accessed both using methods or as a hash with keys as either strings or keys.
+```
+# each of the following lines return the first name listed in the order billing address
+order.billing_address.first_name
+order['billing_address']['first_name']
+order[:billing_address][:first_name]
+```
+Update the name of a customer
+```
+api.update_customer(101, {first_name: 'Christian'})
+```
+Delete an order shipment
+```
+order_id = 101
+shipment_id = 1000
+api.delete_order_shipment(order_id, shipment_id)
 ```
 
 Getting an OAuth Access Token

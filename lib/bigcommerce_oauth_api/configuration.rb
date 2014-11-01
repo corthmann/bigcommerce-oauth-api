@@ -8,14 +8,14 @@ module BigcommerceOAuthAPI
         :endpoint,
         :adapter,
         :client_id,
-        :oauth_token,
+        :access_token,
         :format
     ].freeze
 
     DEFAULT_STORE_HASH = nil
     DEFAULT_ENDPOINT = 'https://api.bigcommerce.com/stores'.freeze
     DEFAULT_CLIENT_ID = nil
-    DEFAULT_OAUTH_TOKEN = nil
+    DEFAULT_ACCESS_TOKEN = nil
     DEFAULT_FORMAT = :json
     DEFAULT_ADAPTER = Faraday.default_adapter
 
@@ -30,7 +30,7 @@ module BigcommerceOAuthAPI
       self.endpoint = DEFAULT_ENDPOINT
       self.format = DEFAULT_FORMAT
       self.client_id = DEFAULT_CLIENT_ID
-      self.oauth_token = DEFAULT_OAUTH_TOKEN
+      self.access_token = DEFAULT_ACCESS_TOKEN
       self.adapter = DEFAULT_ADAPTER
     end
 
