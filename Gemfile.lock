@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bigcommerce-oauth-api (1.0.0)
+    bigcommerce-oauth-api (1.0.1)
       activesupport (>= 3)
       faraday
       faraday_middleware

@@ -29,7 +29,8 @@ module BigcommerceOAuthAPI
                      :product_custom_field => { api_module: :custom_field, scope: :product, methods: [:all, :select, :create, :update, :delete]},
                      :redirect => { api_module: :redirect, scope: :self, methods: [:all, :select, :create, :update, :delete]},
                      :shipping_method => { api_module: :method, scope: :self, methods: [:all, :select], prefix_paths: 'shipping', prefix_methods: 'shipping'},
-                     :tax_class => { api_module: :tax_class, scope: :self, methods: [:all, :select]}
+                     :tax_class => { api_module: :tax_class, scope: :self, methods: [:all, :select]},
+                     :web_hook => { api_module: :hook, scope: :self, methods: [:all, :select, :create, :update, :delete]}
 
   end
 end
