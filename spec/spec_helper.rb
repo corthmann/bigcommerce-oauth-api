@@ -1,6 +1,11 @@
 require 'simplecov'
+require 'codeclimate-test-reporter'
 
 SimpleCov.start do
+  formatter SimpleCov::Formatter::MultiFormatter[
+    SimpleCov::Formatter::HTMLFormatter,
+    CodeClimate::TestReporter::Formatter
+  ]
   add_group('BigcommerceOAuthAPI', 'lib/bigcommerce_oauth_api')
   add_group('Faraday', 'lib/faraday')
   add_group('Specs', 'spec')
