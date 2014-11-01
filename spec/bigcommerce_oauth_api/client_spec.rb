@@ -1,5 +1,6 @@
 require 'spec_helper'
 require 'bigcommerce_oauth_api/client'
+require 'bigcommerce_oauth_api/error'
 
 module BigcommerceOAuthAPI
   describe BigcommerceOAuthAPI::Client do
@@ -7,6 +8,26 @@ module BigcommerceOAuthAPI
       @client = BigcommerceOAuthAPI::Client.new(:store_hash => 'TEST_STORE',
                                                 :client_id => 'SECRET_ID',
                                                 :access_token => 'SECRET_TOKEN')
+    end
+
+    describe 'when using with_api_methods' do
+      context 'and one of those actions would overwrite a defined method' do
+        it 'raises MethodAlreadyDefinedError' do
+          # The required client attempts to overwrite the 'post' method which is used to make HTTP POST requests
+          expect {
+            require 'support/method_already_defined_client'
+          }.to raise_error(BigcommerceOAuthAPI::MethodAlreadyDefinedError, "Method already defined: 'post'")
+        end
+      end
+
+      context 'and two api definitions would define methods with the same name' do
+        it 'raises MethodAlreadyDefinedError' do
+          # The required client has duplicate api definitions
+          expect {
+            require 'support/duplicate_api_definition_client'
+          }.to raise_error(BigcommerceOAuthAPI::MethodAlreadyDefinedError, "Method already defined: 'states'")
+        end
+      end
     end
 
     describe '.time' do
