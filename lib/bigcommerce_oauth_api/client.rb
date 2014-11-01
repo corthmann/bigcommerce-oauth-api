@@ -2,6 +2,11 @@ require 'bigcommerce_oauth_api/api'
 
 module BigcommerceOAuthAPI
   class Client < API
+
+    def time
+      get('time')
+    end
+
     with_api_methods :blog_post => { api_module: :post, scope: :self, methods: [:all, :select, :create, :update, :delete], prefix_paths: 'blog', prefix_methods: 'blog'},
                      :blog_tag => { api_module: :tag, scope: :self, methods: [:all], prefix_paths: 'blog', prefix_methods: 'blog'},
                      :customer => { api_module: :customer, scope: :self, methods: [:all, :select, :create, :update, :delete, :count]},
@@ -21,8 +26,6 @@ module BigcommerceOAuthAPI
                      :redirect => { api_module: :redirect, scope: :self, methods: [:all, :select, :create, :update, :delete]},
                      :shipping_method => { api_module: :method, scope: :self, methods: [:all, :select], prefix_paths: 'shipping', prefix_methods: 'shipping'},
                      :tax_class => { api_module: :tax_class, scope: :self, methods: [:all, :select]}
-
-
 
   end
 end
