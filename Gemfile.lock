@@ -2,9 +2,9 @@ PATH
   remote: .
   specs:
     bigcommerce-oauth-api (1.0.2)
-      activesupport (>= 3)
-      faraday
-      faraday_middleware
+      activesupport (~> 4)
+      faraday (~> 0)
+      faraday_middleware (~> 0)
 
 GEM
   remote: https://rubygems.org/
@@ -65,8 +65,8 @@ PLATFORMS
 DEPENDENCIES
   bigcommerce-oauth-api!
   codeclimate-test-reporter
-  rake
-  rspec (>= 3)
-  simplecov
-  simplecov-rcov
-  webmock
+  rake (~> 10)
+  rspec (~> 3)
+  simplecov (~> 0)
+  simplecov-rcov (~> 0)
+  webmock (~> 1)
