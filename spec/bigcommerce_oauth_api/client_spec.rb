@@ -53,7 +53,7 @@ module BigcommerceOAuthAPI
     end
 
     describe '.product_googleproductsearch' do
-      it 'returns the store information' do
+      it 'returns the google product search mappings for a product' do
         product_id = 10
         stub_get(@client, "products/#{product_id}/googleproductsearch").
             to_return(:headers => { :content_type => "application/#{@client.format}" })
