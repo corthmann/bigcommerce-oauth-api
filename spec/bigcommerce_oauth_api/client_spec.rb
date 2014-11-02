@@ -52,5 +52,17 @@ module BigcommerceOAuthAPI
       end
     end
 
+    describe '.product_googleproductsearch' do
+      it 'returns the store information' do
+        product_id = 10
+        stub_get(@client, "products/#{product_id}/googleproductsearch").
+            to_return(:headers => { :content_type => "application/#{@client.format}" })
+        @client.product_googleproductsearch(product_id)
+        expect(a_get(@client, "products/#{product_id}/googleproductsearch").
+                   with(:headers => {'X-Auth-Client' => 'SECRET_ID',
+                                     'X-Auth-Token' => 'SECRET_TOKEN'})).to have_been_made
+      end
+    end
+
   end
 end

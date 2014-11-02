@@ -11,6 +11,10 @@ module BigcommerceOAuthAPI
       get('store')
     end
 
+    def product_googleproductsearch(product_id, options = {})
+      get("products/#{product_id}/googleproductsearch", options)
+    end
+
     with_api_methods :blog_post => { api_module: :post, scope: :self, methods: [:all, :select, :create, :update, :delete], prefix_paths: 'blog', prefix_methods: 'blog'},
                      :blog_tag => { api_module: :tag, scope: :self, methods: [:all], prefix_paths: 'blog', prefix_methods: 'blog'},
                      :brand => { api_module: :brand, scope: :self, methods: [:all, :select, :create, :update, :delete]},
