@@ -16,6 +16,7 @@ describe BigcommerceOAuthAPI::Client do
       { api_module: 'discount_rule', api_parent_module: 'product', methods: [:all, :select, :create, :update, :delete]},
       { api_module: 'image', api_parent_module: 'product', methods: [:all, :select, :create, :update, :delete]},
       { api_module: 'option', api_parent_module: 'product', methods: [:all, :select]},
+      { api_module: 'review', api_parent_module: 'product', methods: [:all]},
       { api_module: 'address', api_parent_module: 'customer', methods: [:all, :select, :create, :update, :delete]}
   ]. each do |nested_module|
     api_parent_module = nested_module[:api_parent_module]
