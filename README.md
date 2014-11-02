@@ -96,6 +96,50 @@ hook = api.hook(hook_id)
 api.delete_hook(hook_id)
 ```
 
+API Support
+-------------
+The following APIs are currently supported:
+
+API | Included from
+--- | ---
+blog post | 1.0.2
+blog tag | 1.0.2
+brand api | 1.1.0
+bulk pricing (discount rules) | 1.1.0
+category | 1.1.0
+customer api | 1.0.2
+customer address | 1.0.2
+customer group | 1.0.2
+geography country | 1.0.2
+geography state | 1.0.2
+marketing coupon | 1.0.2
+option | 1.1.0
+option set | 1.1.0
+option set option | 1.1.0
+option set value | 1.1.0
+order | 1.0.2
+order message | 1.0.2
+order product | 1.0.2
+order shipment | 1.0.2
+order shipping address | 1.0.2
+payment method | 1.0.2
+product | 1.0.2
+product configurable field | 1.1.0
+product custom field | 1.0.2
+product googleproductsearch | 1.1.0
+product image | 1.1.0
+product option | 1.1.0
+product review | 1.1.0
+product rules | 1.1.0
+product video | 1.1.0
+product SKU | 1.1.0
+redirect | 1.0.2
+shipping method api | 1.0.2
+store information | 1.0.2
+system (time) | 1.0.2
+tax class | 1.0.2
+web hook | 1.0.2
+
 Getting an OAuth Access Token
 -------------
 Currently the Bigcommerce API is only focused on making the OAuth API available for 3rd party development through Apps.
