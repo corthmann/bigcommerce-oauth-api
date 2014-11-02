@@ -14,6 +14,7 @@ module BigcommerceOAuthAPI
     with_api_methods :blog_post => { api_module: :post, scope: :self, methods: [:all, :select, :create, :update, :delete], prefix_paths: 'blog', prefix_methods: 'blog'},
                      :blog_tag => { api_module: :tag, scope: :self, methods: [:all], prefix_paths: 'blog', prefix_methods: 'blog'},
                      :brand => { api_module: :brand, scope: :self, methods: [:all, :select, :create, :update, :delete]},
+                     :category => { api_module: :category, scope: :self, methods: [:all, :select, :create, :update, :delete]},
                      :customer => { api_module: :customer, scope: :self, methods: [:all, :select, :create, :update, :delete, :count]},
                      :customer_address => { api_module: :address, scope: :customer, methods: [:all, :select, :create, :update, :delete]},
                      :customer_group => { api_module: :customer_group, scope: :self, methods: [:all, :select, :create, :update, :delete]},

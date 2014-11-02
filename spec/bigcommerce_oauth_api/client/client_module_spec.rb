@@ -8,6 +8,7 @@ describe BigcommerceOAuthAPI::Client do
       { api_module: 'post', methods: [:all, :select, :create, :update, :delete], prefix_paths: 'blog', prefix_methods: 'blog'},
       { api_module: 'tag', methods: [:all], prefix_paths: 'blog', prefix_methods: 'blog'},
       { api_module: 'brand', methods: [:all, :select, :create, :update, :delete]},
+      { api_module: 'category', methods: [:all, :select, :create, :update, :delete]},
       { api_module: 'customer', methods: [:all, :select, :create, :update, :delete, :count]},
       { api_module: 'customer_group', methods: [:all, :select, :create, :update, :delete]},
       { api_module: 'country', scope: :self, methods: [:all, :select]},
