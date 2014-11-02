@@ -12,6 +12,7 @@ describe BigcommerceOAuthAPI::Client do
       { api_module: 'configurable_field', api_parent_module: 'product', methods: [:all, :select, :delete]},
       { api_module: 'custom_field', api_parent_module: 'product', methods: [:all, :select, :create, :update, :delete]},
       { api_module: 'option', api_parent_module: 'option_set', methods: [:all, :select, :create, :update, :delete]},
+      { api_module: 'value', api_parent_module: 'option_set', methods: [:all, :select, :create, :update, :delete]},
       { api_module: 'discount_rule', api_parent_module: 'product', methods: [:all, :select, :create, :update, :delete]},
       { api_module: 'address', api_parent_module: 'customer', methods: [:all, :select, :create, :update, :delete]}
   ]. each do |nested_module|
