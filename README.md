@@ -1,4 +1,4 @@
-bigcommerce-oauth-api-ruby
+bigcommerce-oauth-api
 ==========================
 [![Gem Version](https://badge.fury.io/rb/bigcommerce-oauth-api.svg)](http://badge.fury.io/rb/bigcommerce-oauth-api)
 [![Code Climate](https://codeclimate.com/github/corthmann/bigcommerce-oauth-api-ruby/badges/gpa.svg)](https://codeclimate.com/github/corthmann/bigcommerce-oauth-api-ruby)
