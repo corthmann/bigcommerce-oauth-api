@@ -15,6 +15,8 @@ describe BigcommerceOAuthAPI::Client do
       { api_module: 'state', scope: :self, methods: [:all, :select]},
       { api_module: 'order', methods: [:all, :select, :create, :update, :delete, :count]},
       { api_module: 'method', methods: [:all], prefix_paths: 'payments', prefix_methods: 'payment'},
+      { api_module: 'option', methods: [:all, :select, :create, :update, :delete]},
+      { api_module: 'option_set', methods: [:all, :select, :create, :update, :delete]},
       { api_module: 'product', methods: [:all, :select, :create, :update, :delete, :count]},
       { api_module: 'coupon', methods: [:all, :select, :create, :update, :delete]},
       { api_module: 'redirect', methods: [:all, :select, :create, :update, :delete]},

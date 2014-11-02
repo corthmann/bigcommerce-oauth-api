@@ -25,6 +25,8 @@ module BigcommerceOAuthAPI
                      :geography_country => { api_module: :country, scope: :self, methods: [:all, :select]},
                      :geography_state => { api_module: :state, scope: :self, methods: [:all, :select]},
                      :marketing_coupons => { api_module: :coupon, scope: :self, methods: [:all, :select, :create, :update, :delete]},
+                     :option => { api_module: :option, scope: :self, methods: [:all, :select, :create, :update, :delete]},
+                     :option_set => { api_module: :option_set, scope: :self, methods: [:all, :select, :create, :update, :delete]},
                      :order => { api_module: :order, scope: :self, methods: [:all, :select, :create, :update, :delete, :count]},
                      :order_message => { api_module: :message, scope: :order, methods: [:all, :select]},
                      :order_product => { api_module: :product, scope: :order, methods: [:all, :select]},
