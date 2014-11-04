@@ -67,7 +67,7 @@ describe BigcommerceOAuthAPI::Client do
         it "creates a #{api_module} with the given attributes" do
           options = { name: 'A', description: 'B'}
           stub_post(@client, "#{path_prefix}#{api_module_pluralized}").
-              to_return(:body => options, :headers => { :content_type => "application/#{@client.format}" })
+              to_return(:body => options.to_json, :headers => { :content_type => "application/#{@client.format}" })
           @client.send("create_#{method_prefix}#{api_module}".to_sym, options)
           expect(a_post(@client, "#{path_prefix}#{api_module_pluralized}").
                      with(:body => options,
