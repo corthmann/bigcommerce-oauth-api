@@ -35,3 +35,6 @@ build/
 
 # Ignore WebStorm ( JetBrains ) config
 /.idea
+
+# Ignore Gem lock file
+Gemfile.lock
