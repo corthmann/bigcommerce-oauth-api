@@ -1,9 +1,9 @@
 bigcommerce-oauth-api
 ==========================
 [![Gem Version](https://badge.fury.io/rb/bigcommerce-oauth-api.svg)](http://badge.fury.io/rb/bigcommerce-oauth-api)
-[![Code Climate](https://codeclimate.com/github/corthmann/bigcommerce-oauth-api-ruby/badges/gpa.svg)](https://codeclimate.com/github/corthmann/bigcommerce-oauth-api-ruby)
-[![Test Coverage](https://codeclimate.com/github/corthmann/bigcommerce-oauth-api-ruby/badges/coverage.svg)](https://codeclimate.com/github/corthmann/bigcommerce-oauth-api-ruby)
-[![Dependency Status](https://gemnasium.com/corthmann/bigcommerce-oauth-api-ruby.svg)](https://gemnasium.com/corthmann/bigcommerce-oauth-api-ruby)
+[![Code Climate](https://codeclimate.com/github/corthmann/bigcommerce-oauth-api/badges/gpa.svg)](https://codeclimate.com/github/corthmann/bigcommerce-oauth-api)
+[![Test Coverage](https://codeclimate.com/github/corthmann/bigcommerce-oauth-api/badges/coverage.svg)](https://codeclimate.com/github/corthmann/bigcommerce-oauth-api)
+[![Dependency Status](https://gemnasium.com/corthmann/bigcommerce-oauth-api.svg)](https://gemnasium.com/corthmann/bigcommerce-oauth-api)
 
 This gem provides a wrapper for the Bigcommerce REST API.
 
