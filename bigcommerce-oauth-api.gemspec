@@ -9,6 +9,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Christian Orthmann"]
   s.email       = 'christian.orthmann@gmail.com'
   s.require_path = 'lib'
+  s.files       = `git ls-files`.split("\n") - %w(.rvmrc .gitignore)
+  s.test_files  = `git ls-files -- {test,spec,features}/*`.split("\n") - %w(.rvmrc .gitignore)
   s.homepage    = 'http://rubygems.org/gems/bigcommerce-oauth-api'
   s.license     = 'MIT'
 
