@@ -1,4 +1,4 @@
-require File.expand_path('../lib/bigcommerce_oauth_api/version', __FILE__)
+require File.expand_path('../lib/bigcommerce-oauth-api/version', __FILE__)
 
 Gem::Specification.new do |s|
   s.name        = 'bigcommerce-oauth-api'

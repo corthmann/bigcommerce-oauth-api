@@ -1,3 +1,10 @@
+### 1.1.1 (2014-11-04)
+
+Bugfixes:
+
+    - correct lib folder name and adjust require statements
+
+
 ### 1.1.0 (2014-11-02)
 
 Features:
