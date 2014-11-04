@@ -3,6 +3,8 @@
 Bugfixes:
 
     - correct lib folder name and adjust require statements
+    - rename repository from bigcommerce-oauth-api-ruby to bugcommerce-oauth-api
+    - update markdown badges
 
 
 ### 1.1.0 (2014-11-02)
