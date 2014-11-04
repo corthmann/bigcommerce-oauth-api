@@ -1,3 +1,10 @@
+### 1.1.3 (In progress)
+
+Bugfixes:
+
+    - return nil on HTTP 204
+    - make Resource objects comparable using .eql? and ==
+
 ### 1.1.2 (2014-11-04)
 
 Bugfixes:

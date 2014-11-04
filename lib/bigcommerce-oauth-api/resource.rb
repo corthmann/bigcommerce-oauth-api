@@ -14,6 +14,14 @@ module BigcommerceOAuthAPI
       @attributes[key.to_sym] = value
     end
 
+    def ==(other)
+      self.instance_variable_get(:@attributes).to_h == other.instance_variable_get(:@attributes).to_h
+    end
+
+    def eql?(other)
+      self == other
+    end
+
     def respond_to?(method_name)
       super(method_name) ? true : @attributes.include?(method_name.to_s.gsub(/(\?$)|(=$)/, '').to_sym)
     end
