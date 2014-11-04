@@ -1,3 +1,10 @@
+### 1.1.2 (2014-11-04)
+
+Bugfixes:
+
+    - fix broken gemspec
+    - remove Gemfile.lock from git and add it to gitignore
+
 ### 1.1.1 (2014-11-04)
 
 Bugfixes:
