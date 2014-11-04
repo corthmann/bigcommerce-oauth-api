@@ -1,5 +1,5 @@
 require 'spec_helper'
-require 'bigcommerce_oauth_api/api'
+require 'bigcommerce-oauth-api/api'
 
 module BigcommerceOAuthAPI
   describe BigcommerceOAuthAPI::API do

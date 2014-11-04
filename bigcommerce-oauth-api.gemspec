@@ -3,7 +3,7 @@ require File.expand_path('../lib/bigcommerce_oauth_api/version', __FILE__)
 Gem::Specification.new do |s|
   s.name        = 'bigcommerce-oauth-api'
   s.version     = BigcommerceOAuthAPI::VERSION.dup
-  s.date        = '2014-11-02'
+  s.date        = '2014-11-04'
   s.summary     = "Ruby wrapper for the Bigcommerce REST API using OAuth"
   s.description = "Connect Ruby applications with the Bigcommerce REST API using OAuth"
   s.authors     = ["Christian Orthmann"]

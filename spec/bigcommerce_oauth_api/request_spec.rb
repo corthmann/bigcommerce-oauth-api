@@ -1,5 +1,5 @@
-require 'bigcommerce_oauth_api/request'
-require 'bigcommerce_oauth_api/client'
+require 'bigcommerce-oauth-api/request'
+require 'bigcommerce-oauth-api/client'
 
 describe BigcommerceOAuthAPI::Request do
   describe '#get' do

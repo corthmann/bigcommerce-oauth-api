@@ -1,5 +1,5 @@
 require 'spec_helper'
-require 'bigcommerce_oauth_api/resource'
+require 'bigcommerce-oauth-api/resource'
 
 module BigcommerceOAuthAPI
   describe BigcommerceOAuthAPI::Resource do

@@ -1,6 +1,6 @@
-require 'bigcommerce_oauth_api/connection'
-require 'bigcommerce_oauth_api/request'
-require 'bigcommerce_oauth_api/base'
+require 'bigcommerce-oauth-api/connection'
+require 'bigcommerce-oauth-api/request'
+require 'bigcommerce-oauth-api/base'
 
 module BigcommerceOAuthAPI
   class API < Base

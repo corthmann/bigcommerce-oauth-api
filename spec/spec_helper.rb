@@ -8,12 +8,12 @@ SimpleCov.start do
     SimpleCov::Formatter::RcovFormatter,
     CodeClimate::TestReporter::Formatter
   ]
-  add_group('BigcommerceOAuthAPI', 'lib/bigcommerce_oauth_api')
+  add_group('BigcommerceOAuthAPI', 'lib/bigcommerce-oauth-api')
   add_group('Faraday', 'lib/faraday')
   add_group('Specs', 'spec')
 end
 
-require 'bigcommerce_oauth_api'
+require 'bigcommerce-oauth-api'
 
 require 'rspec'
 require 'webmock/rspec'

@@ -1,6 +1,6 @@
 require 'spec_helper'
-require 'bigcommerce_oauth_api/client'
-require 'bigcommerce_oauth_api/error'
+require 'bigcommerce-oauth-api/client'
+require 'bigcommerce-oauth-api/error'
 
 module BigcommerceOAuthAPI
   describe BigcommerceOAuthAPI::Client do

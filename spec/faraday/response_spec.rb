@@ -1,5 +1,5 @@
 require 'spec_helper'
-require 'bigcommerce_oauth_api'
+require 'bigcommerce-oauth-api'
 
 describe Faraday::Response do
   before do

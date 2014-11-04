@@ -1,16 +1,22 @@
-require 'bigcommerce_oauth_api/api'
+require 'bigcommerce-oauth-api/api'
 
 module BigcommerceOAuthAPI
   class Client < API
 
+    ##
+    # get server time
     def time
       get('time')
     end
 
+    ##
+    # get basic store information
     def store_information
       get('store')
     end
 
+    ##
+    # Gets the Google Product Search mappings for a product.
     def product_googleproductsearch(product_id, options = {})
       get("products/#{product_id}/googleproductsearch", options)
     end

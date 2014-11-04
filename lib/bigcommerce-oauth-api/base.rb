@@ -1,5 +1,5 @@
 require 'active_support/inflector'
-require 'bigcommerce_oauth_api/error'
+require 'bigcommerce-oauth-api/error'
 
 module BigcommerceOAuthAPI
   class Base

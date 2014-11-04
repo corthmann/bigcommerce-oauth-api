@@ -1,4 +1,4 @@
-require 'bigcommerce_oauth_api/resource'
+require 'bigcommerce-oauth-api/resource'
 
 module BigcommerceOAuthAPI
   module Request

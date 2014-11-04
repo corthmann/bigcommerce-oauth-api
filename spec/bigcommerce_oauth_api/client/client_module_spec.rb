@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'active_support/inflector'
-require 'bigcommerce_oauth_api'
-require 'bigcommerce_oauth_api/client'
+require 'bigcommerce-oauth-api'
+require 'bigcommerce-oauth-api/client'
 
 describe BigcommerceOAuthAPI::Client do
   [
