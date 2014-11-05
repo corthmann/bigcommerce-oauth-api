@@ -14,8 +14,20 @@ module BigcommerceOAuthAPI
       @attributes[key.to_sym] = value
     end
 
+    def ==(other)
+      self.to_h == other.to_h
+    end
+
+    def eql?(other)
+      self == other
+    end
+
     def respond_to?(method_name)
       super(method_name) ? true : @attributes.include?(method_name.to_s.gsub(/(\?$)|(=$)/, '').to_sym)
+    end
+
+    def to_h
+      @attributes.to_h
     end
 
     def method_missing(method_sym, *arguments)

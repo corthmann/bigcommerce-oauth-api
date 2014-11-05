@@ -1,3 +1,11 @@
+### 1.1.3 (2014-11-05)
+
+Bugfixes:
+
+    - return nil on HTTP 204
+    - make Resource objects comparable using .eql? and ==
+    - add rdoc markup for dynamically added methods
+
 ### 1.1.2 (2014-11-04)
 
 Bugfixes:
