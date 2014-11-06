@@ -33,8 +33,8 @@ Or by passing options to a new client instance.
 ```
 api = BigcommerceOAuthAPI::Client.new(
                                 :store_hash => 'YOUR STORE ID',
-                                :config.client_id => 'YOUR CLIENT ID',
-                                :config.access_token => 'YOUR OAUTH ACCESS TOKEN'
+                                :client_id => 'YOUR CLIENT ID',
+                                :access_token => 'YOUR OAUTH ACCESS TOKEN'
                                 )
 ```
 
