@@ -41,9 +41,6 @@ module BigcommerceOAuthAPI
   # 501 HTTP
   class NotImplemented < Error; end
 
-  # 502 HTTP
-  class BadGateway < Error; end
-
   # 503 HTTP
   class ServiceUnavailable < Error; end
 

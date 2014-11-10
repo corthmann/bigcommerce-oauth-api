@@ -21,7 +21,6 @@ describe Faraday::Response do
       429 => BigcommerceOAuthAPI::TooManyRequests,
       500 => BigcommerceOAuthAPI::InternalServerError,
       501 => BigcommerceOAuthAPI::NotImplemented,
-      502 => BigcommerceOAuthAPI::BadGateway,
       503 => BigcommerceOAuthAPI::ServiceUnavailable,
       507 => BigcommerceOAuthAPI::InsufficientStorage
   }.each do |status, exception|
