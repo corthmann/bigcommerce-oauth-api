@@ -10,10 +10,19 @@ describe Faraday::Response do
 
   {
       400 => BigcommerceOAuthAPI::BadRequest,
+      401 => BigcommerceOAuthAPI::Unauthorized,
+      403 => BigcommerceOAuthAPI::Forbidden,
       404 => BigcommerceOAuthAPI::NotFound,
+      405 => BigcommerceOAuthAPI::MethodNotAllowed,
+      406 => BigcommerceOAuthAPI::NotAcceptable,
+      409 => BigcommerceOAuthAPI::Conflict ,
+      413 => BigcommerceOAuthAPI::RequestEntityTooLarge,
+      415 => BigcommerceOAuthAPI::UnsupportedMediaType,
       429 => BigcommerceOAuthAPI::TooManyRequests,
       500 => BigcommerceOAuthAPI::InternalServerError,
-      502 => BigcommerceOAuthAPI::BadGateway
+      501 => BigcommerceOAuthAPI::NotImplemented,
+      503 => BigcommerceOAuthAPI::ServiceUnavailable,
+      507 => BigcommerceOAuthAPI::InsufficientStorage
   }.each do |status, exception|
     context "when HTTP status is #{status}" do
       before do
