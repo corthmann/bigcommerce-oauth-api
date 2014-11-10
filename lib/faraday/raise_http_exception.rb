@@ -17,6 +17,7 @@ module FaradayMiddleware
           when 429 then raise BigcommerceOAuthAPI::TooManyRequests,        response[:response_headers]['X-Retry-After']
           when 500 then raise BigcommerceOAuthAPI::InternalServerError,    response[:body]
           when 501 then raise BigcommerceOAuthAPI::NotImplemented,         response[:body]
+          when 502 then raise BigcommerceOAuthAPI::BadGateway,             response[:body]
           when 503 then raise BigcommerceOAuthAPI::ServiceUnavailable,     response[:body]
           when 507 then raise BigcommerceOAuthAPI::InsufficientStorage,    response[:body]
         end

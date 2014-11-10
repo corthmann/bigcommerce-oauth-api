@@ -1,3 +1,9 @@
+### 1.1.4 (2014-11-10)
+
+Bugfixes:
+
+    - add the missing error codes returned from the Bigcommerce API
+
 ### 1.1.3 (2014-11-05)
 
 Bugfixes:

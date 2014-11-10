@@ -52,7 +52,7 @@ Get the order with id = 101
 ```
 order = api.order(101)
 ```
-All resource attributes can be accessed both using methods or as a hash with keys as either strings or keys.
+All resource attributes can be accessed both using methods or as a hash with keys as either strings or symbols.
 ```
 # each of the following lines return the first name listed in the order billing address
 order.billing_address.first_name
