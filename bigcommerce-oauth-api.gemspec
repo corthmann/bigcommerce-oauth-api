@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency('webmock', '~> 1')
   s.add_development_dependency('simplecov', '~> 0')
   s.add_development_dependency('simplecov-rcov', '~> 0')
+  s.add_development_dependency('yard', '~> 0')
   s.add_runtime_dependency('faraday', '~> 0')
   s.add_runtime_dependency('faraday_middleware', '~> 0')
   s.add_runtime_dependency('activesupport', '>= 3.0.0', '< 5.0.0')

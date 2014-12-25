@@ -1,3 +1,9 @@
+### 1.1.5 (TBD)
+
+Features:
+
+    - add yard documentation
+
 ### 1.1.4 (2014-11-10)
 
 Bugfixes:
