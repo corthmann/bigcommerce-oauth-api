@@ -56,950 +56,410 @@ module BigcommerceOAuthAPI
                      :tax_class => { api_module: :tax_class, scope: :self, methods: [:all, :select]},
                      :web_hook => { api_module: :hook, scope: :self, methods: [:all, :select, :create, :update, :delete]}
 
-    ##
-    # :method: blog_posts
+    # @!method blog_posts(options = {})
     # gets a list of posts
-    #
-    # :call-seq:
-    #   blog_posts(options = {})
 
-    ##
-    # :method: blog_post
+    # @!method blog_post(id, options = {})
     # gets the post with the given id
-    #
-    # :call-seq:
-    #   blog_post(id, options = {})
 
-    ##
-    # :method: create_blog_post
+    # @!method create_blog_post(options = {})
     # creates a post with the given attributes
-    #
-    # :call-seq:
-    #   create_blog_post(options = {})
 
-    ##
-    # :method: update_blog_post
+    # @!method update_blog_post(id, options = {})
     # updates a post with the given attributes
-    #
-    # :call-seq:
-    #   update_blog_post(id, options = {})
 
-    ##
-    # :method: delete_blog_post
+    # @!method delete_blog_post(id)
     # deletes the post with the given id
-    #
-    # :call-seq:
-    #   delete_blog_post(id)
 
-    ##
-    # :method: blog_tags
+    # @!method blog_tags(options = {})
     # gets a list of tags
-    #
-    # :call-seq:
-    #   blog_tags(options = {})
 
-    ##
-    # :method: brands
+    # @!method brands(options = {})
     # gets a list of brands
-    #
-    # :call-seq:
-    #   brands(options = {})
 
-    ##
-    # :method: brand
+    # @!method brand(id, options = {})
     # gets the brand with the given id
-    #
-    # :call-seq:
-    #   brand(id, options = {})
 
-    ##
-    # :method: create_brand
+    # @!method create_brand(options = {})
     # creates a brand with the given attributes
-    #
-    # :call-seq:
-    #   create_brand(options = {})
 
-    ##
-    # :method: update_brand
+    # @!method update_brand(id, options = {})
     # updates a brand with the given attributes
-    #
-    # :call-seq:
-    #   update_brand(id, options = {})
 
-    ##
-    # :method: delete_brand
+    # @!method delete_brand(id)
     # deletes the brand with the given id
-    #
-    # :call-seq:
-    #   delete_brand(id)
 
-    ##
-    # :method: categories
+    # @!method categories(options = {})
     # gets a list of categories
-    #
-    # :call-seq:
-    #   categories(options = {})
 
-    ##
-    # :method: category
+    # @!method category(id, options = {})
     # gets the category with the given id
-    #
-    # :call-seq:
-    #   category(id, options = {})
 
-    ##
-    # :method: create_category
+    # @!method create_category(options = {})
     # creates a category with the given attributes
-    #
-    # :call-seq:
-    #   create_category(options = {})
 
-    ##
-    # :method: update_category
+    # @!method update_category(id, options = {})
     # updates a category with the given attributes
-    #
-    # :call-seq:
-    #   update_category(id, options = {})
 
-    ##
-    # :method: delete_category
+    # @!method delete_category(id)
     # deletes the category with the given id
-    #
-    # :call-seq:
-    #   delete_category(id)
 
-    ##
-    # :method: customers
+    # @!method customers(options = {})
     # gets a list of customers
-    #
-    # :call-seq:
-    #   customers(options = {})
 
-    ##
-    # :method: customer
+    # @!method customer(id, options = {})
     # gets the customer with the given id
-    #
-    # :call-seq:
-    #   customer(id, options = {})
 
-    ##
-    # :method: create_customer
+    # @!method create_customer(options = {})
     # creates a customer with the given attributes
-    #
-    # :call-seq:
-    #   create_customer(options = {})
 
-    ##
-    # :method: update_customer
+    # @!method update_customer(id, options = {})
     # updates a customer with the given attributes
-    #
-    # :call-seq:
-    #   update_customer(id, options = {})
 
-    ##
-    # :method: delete_customer
+    # @!method delete_customer(id)
     # deletes the customer with the given id
-    #
-    # :call-seq:
-    #   delete_customer(id)
 
-    ##
-    # :method: customers_count
+    # @!method customers_count(options = {})
     # counts the number of customers
-    #
-    # :call-seq:
-    #   customers_count(options = {})
 
-    ##
-    # :method: customer_addresses
+    # @!method customer_addresses(customer_id, options = {})
     # gets a list of addresses for the given customer
-    #
-    # :call-seq:
-    #   customer_addresses(customer_id, options = {})
 
-    ##
-    # :method: customer_address
+    # @!method customer_address(customer_id, id, options = {})
     # gets the address with the given id for the given customer
-    #
-    # :call-seq:
-    #   customer_address(customer_id, id, options = {})
 
-    ##
-    # :method: create_customer_address
+    # @!method create_customer_address(customer_id, options = {})
     # creates a address with the given attributes for the given customer
-    #
-    # :call-seq:
-    #   create_customer_address(customer_id, options = {})
 
-    ##
-    # :method: update_customer_address
+    # @!method update_customer_address(customer_id, id, options = {})
     # updates a address with the given attributes for the given customer
-    #
-    # :call-seq:
-    #   update_customer_address(customer_id, id, options = {})
 
-    ##
-    # :method: delete_customer_address
+    # @!method delete_customer_address(customer_id, id)
     # deletes the address with the given id for the given customer
-    #
-    # :call-seq:
-    #   delete_customer_address(customer_id, id)
 
-    ##
-    # :method: customer_groups
+    # @!method customer_groups(options = {})
     # gets a list of customer_groups
-    #
-    # :call-seq:
-    #   customer_groups(options = {})
 
-    ##
-    # :method: customer_group
+    # @!method customer_group(id, options = {})
     # gets the customer_group with the given id
-    #
-    # :call-seq:
-    #   customer_group(id, options = {})
 
-    ##
-    # :method: create_customer_group
+    # @!method create_customer_group(options = {})
     # creates a customer_group with the given attributes
-    #
-    # :call-seq:
-    #   create_customer_group(options = {})
 
-    ##
-    # :method: update_customer_group
+    # @!method update_customer_group(id, options = {})
     # updates a customer_group with the given attributes
-    #
-    # :call-seq:
-    #   update_customer_group(id, options = {})
 
-    ##
-    # :method: delete_customer_group
+    # @!method delete_customer_group(id)
     # deletes the customer_group with the given id
-    #
-    # :call-seq:
-    #   delete_customer_group(id)
 
-    ##
-    # :method: countries
+    # @!method countries(options = {})
     # gets a list of countries
-    #
-    # :call-seq:
-    #   countries(options = {})
 
-    ##
-    # :method: country
+    # @!method country(id, options = {})
     # gets the country with the given id
-    #
-    # :call-seq:
-    #   country(id, options = {})
 
-    ##
-    # :method: states
+    # @!method states(options = {})
     # gets a list of states
-    #
-    # :call-seq:
-    #   states(options = {})
 
-    ##
-    # :method: state
+    # @!method state(id, options = {})
     # gets the state with the given id
-    #
-    # :call-seq:
-    #   state(id, options = {})
 
-    ##
-    # :method: coupons
+    # @!method coupons(options = {})
     # gets a list of coupons
-    #
-    # :call-seq:
-    #   coupons(options = {})
 
-    ##
-    # :method: coupon
+    # @!method coupon(id, options = {})
     # gets the coupon with the given id
-    #
-    # :call-seq:
-    #   coupon(id, options = {})
 
-    ##
-    # :method: create_coupon
+    # @!method create_coupon(options = {})
     # creates a coupon with the given attributes
-    #
-    # :call-seq:
-    #   create_coupon(options = {})
 
-    ##
-    # :method: update_coupon
+    # @!method update_coupon(id, options = {})
     # updates a coupon with the given attributes
-    #
-    # :call-seq:
-    #   update_coupon(id, options = {})
 
-    ##
-    # :method: delete_coupon
+    # @!method delete_coupon(id)
     # deletes the coupon with the given id
-    #
-    # :call-seq:
-    #   delete_coupon(id)
 
-    ##
-    # :method: options
+    # @!method options(options = {})
     # gets a list of options
-    #
-    # :call-seq:
-    #   options(options = {})
 
-    ##
-    # :method: option
+    # @!method option(id, options = {})
     # gets the option with the given id
-    #
-    # :call-seq:
-    #   option(id, options = {})
 
-    ##
-    # :method: create_option
+    # @!method create_option(options = {})
     # creates a option with the given attributes
-    #
-    # :call-seq:
-    #   create_option(options = {})
 
-    ##
-    # :method: update_option
+    # @!method update_option(id, options = {})
     # updates a option with the given attributes
-    #
-    # :call-seq:
-    #   update_option(id, options = {})
 
-    ##
-    # :method: delete_option
+    # @!method delete_option(id)
     # deletes the option with the given id
-    #
-    # :call-seq:
-    #   delete_option(id)
 
-    ##
-    # :method: option_sets
+    # @!method option_sets(options = {})
     # gets a list of option_sets
-    #
-    # :call-seq:
-    #   option_sets(options = {})
 
-    ##
-    # :method: option_set
+    # @!method option_set(id, options = {})
     # gets the option_set with the given id
-    #
-    # :call-seq:
-    #   option_set(id, options = {})
 
-    ##
-    # :method: create_option_set
+    # @!method create_option_set(options = {})
     # creates a option_set with the given attributes
-    #
-    # :call-seq:
-    #   create_option_set(options = {})
 
-    ##
-    # :method: update_option_set
+    # @!method update_option_set(id, options = {})
     # updates a option_set with the given attributes
-    #
-    # :call-seq:
-    #   update_option_set(id, options = {})
 
-    ##
-    # :method: delete_option_set
+    # @!method delete_option_set(id)
     # deletes the option_set with the given id
-    #
-    # :call-seq:
-    #   delete_option_set(id)
 
-    ##
-    # :method: option_set_options
+    # @!method option_set_options(option_set_id, options = {})
     # gets a list of options for the given option_set
-    #
-    # :call-seq:
-    #   option_set_options(option_set_id, options = {})
 
-    ##
-    # :method: option_set_option
+    # @!method option_set_option(option_set_id, id, options = {})
     # gets the option with the given id for the given option_set
-    #
-    # :call-seq:
-    #   option_set_option(option_set_id, id, options = {})
 
-    ##
-    # :method: create_option_set_option
+    # @!method create_option_set_option(option_set_id, options = {})
     # creates a option with the given attributes for the given option_set
-    #
-    # :call-seq:
-    #   create_option_set_option(option_set_id, options = {})
 
-    ##
-    # :method: update_option_set_option
+    # @!method update_option_set_option(option_set_id, id, options = {})
     # updates a option with the given attributes for the given option_set
-    #
-    # :call-seq:
-    #   update_option_set_option(option_set_id, id, options = {})
 
-    ##
-    # :method: delete_option_set_option
+    # @!method delete_option_set_option(option_set_id, id)
     # deletes the option with the given id for the given option_set
-    #
-    # :call-seq:
-    #   delete_option_set_option(option_set_id, id)
 
-    ##
-    # :method: option_set_values
+    # @!method option_set_values(option_set_id, options = {})
     # gets a list of values for the given option_set
-    #
-    # :call-seq:
-    #   option_set_values(option_set_id, options = {})
 
-    ##
-    # :method: option_set_value
+    # @!method option_set_value(option_set_id, id, options = {})
     # gets the value with the given id for the given option_set
-    #
-    # :call-seq:
-    #   option_set_value(option_set_id, id, options = {})
 
-    ##
-    # :method: create_option_set_value
+    # @!method create_option_set_value(option_set_id, options = {})
     # creates a value with the given attributes for the given option_set
-    #
-    # :call-seq:
-    #   create_option_set_value(option_set_id, options = {})
 
-    ##
-    # :method: update_option_set_value
+    # @!method update_option_set_value(option_set_id, id, options = {})
     # updates a value with the given attributes for the given option_set
-    #
-    # :call-seq:
-    #   update_option_set_value(option_set_id, id, options = {})
 
-    ##
-    # :method: delete_option_set_value
+    # @!method delete_option_set_value(option_set_id, id)
     # deletes the value with the given id for the given option_set
-    #
-    # :call-seq:
-    #   delete_option_set_value(option_set_id, id)
 
-    ##
-    # :method: orders
+    # @!method orders(options = {})
     # gets a list of orders
-    #
-    # :call-seq:
-    #   orders(options = {})
 
-    ##
-    # :method: order
+    # @!method order(id, options = {})
     # gets the order with the given id
-    #
-    # :call-seq:
-    #   order(id, options = {})
 
-    ##
-    # :method: create_order
+    # @!method create_order(options = {})
     # creates a order with the given attributes
-    #
-    # :call-seq:
-    #   create_order(options = {})
 
-    ##
-    # :method: update_order
+    # @!method update_order(id, options = {})
     # updates a order with the given attributes
-    #
-    # :call-seq:
-    #   update_order(id, options = {})
 
-    ##
-    # :method: delete_order
+    # @!method delete_order(id)
     # deletes the order with the given id
-    #
-    # :call-seq:
-    #   delete_order(id)
 
-    ##
-    # :method: orders_count
+    # @!method orders_count(options = {})
     # counts the number of orders
-    #
-    # :call-seq:
-    #   orders_count(options = {})
 
-    ##
-    # :method: order_messages
+    # @!method order_messages(order_id, options = {})
     # gets a list of messages for the given order
-    #
-    # :call-seq:
-    #   order_messages(order_id, options = {})
 
-    ##
-    # :method: order_message
+    # @!method order_message(order_id, id, options = {})
     # gets the message with the given id for the given order
-    #
-    # :call-seq:
-    #   order_message(order_id, id, options = {})
 
-    ##
-    # :method: order_products
+    # @!method order_products(order_id, options = {})
     # gets a list of products for the given order
-    #
-    # :call-seq:
-    #   order_products(order_id, options = {})
 
-    ##
-    # :method: order_product
+    # @!method order_product(order_id, id, options = {})
     # gets the product with the given id for the given order
-    #
-    # :call-seq:
-    #   order_product(order_id, id, options = {})
 
-    ##
-    # :method: order_shipments
+    # @!method order_shipments(order_id, options = {})
     # gets a list of shipments for the given order
-    #
-    # :call-seq:
-    #   order_shipments(order_id, options = {})
 
-    ##
-    # :method: order_shipment
+    # @!method order_shipment(order_id, id, options = {})
     # gets the shipment with the given id for the given order
-    #
-    # :call-seq:
-    #   order_shipment(order_id, id, options = {})
 
-    ##
-    # :method: create_order_shipment
+    # @!method create_order_shipment(order_id, options = {})
     # creates a shipment with the given attributes for the given order
-    #
-    # :call-seq:
-    #   create_order_shipment(order_id, options = {})
 
-    ##
-    # :method: update_order_shipment
+    # @!method update_order_shipment(order_id, id, options = {})
     # updates a shipment with the given attributes for the given order
-    #
-    # :call-seq:
-    #   update_order_shipment(order_id, id, options = {})
 
-    ##
-    # :method: delete_order_shipment
+    # @!method delete_order_shipment(order_id, id)
     # deletes the shipment with the given id for the given order
-    #
-    # :call-seq:
-    #   delete_order_shipment(order_id, id)
 
-    ##
-    # :method: order_shipping_addresses
+    # @!method order_shipping_addresses(order_id, options = {})
     # gets a list of shipping_addresses for the given order
-    #
-    # :call-seq:
-    #   order_shipping_addresses(order_id, options = {})
 
-    ##
-    # :method: order_shipping_address
+    # @!method order_shipping_address(order_id, id, options = {})
     # gets the shipping_address with the given id for the given order
-    #
-    # :call-seq:
-    #   order_shipping_address(order_id, id, options = {})
 
-    ##
-    # :method: payment_methods
+    # @!method payment_methods(options = {})
     # gets a list of methods
-    #
-    # :call-seq:
-    #   payment_methods(options = {})
 
-    ##
-    # :method: products
+    # @!method products(options = {})
     # gets a list of products
-    #
-    # :call-seq:
-    #   products(options = {})
 
-    ##
-    # :method: product
+    # @!method product(id, options = {})
     # gets the product with the given id
-    #
-    # :call-seq:
-    #   product(id, options = {})
 
-    ##
-    # :method: create_product
+    # @!method create_product(options = {})
     # creates a product with the given attributes
-    #
-    # :call-seq:
-    #   create_product(options = {})
 
-    ##
-    # :method: update_product
+    # @!method update_product(id, options = {})
     # updates a product with the given attributes
-    #
-    # :call-seq:
-    #   update_product(id, options = {})
 
-    ##
-    # :method: delete_product
+    # @!method delete_product(id)
     # deletes the product with the given id
-    #
-    # :call-seq:
-    #   delete_product(id)
 
-    ##
-    # :method: products_count
+    # @!method products_count(options = {})
     # counts the number of products
-    #
-    # :call-seq:
-    #   products_count(options = {})
 
-    ##
-    # :method: product_custom_fields
+    # @!method product_custom_fields(product_id, options = {})
     # gets a list of custom_fields for the given product
-    #
-    # :call-seq:
-    #   product_custom_fields(product_id, options = {})
 
-    ##
-    # :method: product_custom_field
+    # @!method product_custom_field(product_id, id, options = {})
     # gets the custom_field with the given id for the given product
-    #
-    # :call-seq:
-    #   product_custom_field(product_id, id, options = {})
 
-    ##
-    # :method: create_product_custom_field
+    # @!method create_product_custom_field(product_id, options = {})
     # creates a custom_field with the given attributes for the given product
-    #
-    # :call-seq:
-    #   create_product_custom_field(product_id, options = {})
 
-    ##
-    # :method: update_product_custom_field
+    # @!method update_product_custom_field(product_id, id, options = {})
     # updates a custom_field with the given attributes for the given product
-    #
-    # :call-seq:
-    #   update_product_custom_field(product_id, id, options = {})
 
-    ##
-    # :method: delete_product_custom_field
+    # @!method delete_product_custom_field(product_id, id)
     # deletes the custom_field with the given id for the given product
-    #
-    # :call-seq:
-    #   delete_product_custom_field(product_id, id)
 
-    ##
-    # :method: product_discount_rules
+    # @!method product_discount_rules(product_id, options = {})
     # gets a list of discount_rules for the given product
-    #
-    # :call-seq:
-    #   product_discount_rules(product_id, options = {})
 
-    ##
-    # :method: product_discount_rule
+    # @!method product_discount_rule(product_id, id, options = {})
     # gets the discount_rule with the given id for the given product
-    #
-    # :call-seq:
-    #   product_discount_rule(product_id, id, options = {})
 
-    ##
-    # :method: create_product_discount_rule
+    # @!method create_product_discount_rule(product_id, options = {})
     # creates a discount_rule with the given attributes for the given product
-    #
-    # :call-seq:
-    #   create_product_discount_rule(product_id, options = {})
 
-    ##
-    # :method: update_product_discount_rule
+    # @!method update_product_discount_rule(product_id, id, options = {})
     # updates a discount_rule with the given attributes for the given product
-    #
-    # :call-seq:
-    #   update_product_discount_rule(product_id, id, options = {})
 
-    ##
-    # :method: delete_product_discount_rule
+    # @!method delete_product_discount_rule(product_id, id)
     # deletes the discount_rule with the given id for the given product
-    #
-    # :call-seq:
-    #   delete_product_discount_rule(product_id, id)
 
-    ##
-    # :method: product_configurable_fields
+    # @!method product_configurable_fields(product_id, options = {})
     # gets a list of configurable_fields for the given product
-    #
-    # :call-seq:
-    #   product_configurable_fields(product_id, options = {})
 
-    ##
-    # :method: product_configurable_field
+    # @!method product_configurable_field(product_id, id, options = {})
     # gets the configurable_field with the given id for the given product
-    #
-    # :call-seq:
-    #   product_configurable_field(product_id, id, options = {})
 
-    ##
-    # :method: delete_product_configurable_field
+    # @!method delete_product_configurable_field(product_id, id)
     # deletes the configurable_field with the given id for the given product
-    #
-    # :call-seq:
-    #   delete_product_configurable_field(product_id, id)
 
-    ##
-    # :method: product_images
+    # @!method product_images(product_id, options = {})
     # gets a list of images for the given product
-    #
-    # :call-seq:
-    #   product_images(product_id, options = {})
 
-    ##
-    # :method: product_image
+    # @!method product_image(product_id, id, options = {})
     # gets the image with the given id for the given product
-    #
-    # :call-seq:
-    #   product_image(product_id, id, options = {})
 
-    ##
-    # :method: create_product_image
+    # @!method create_product_image(product_id, options = {})
     # creates a image with the given attributes for the given product
-    #
-    # :call-seq:
-    #   create_product_image(product_id, options = {})
 
-    ##
-    # :method: update_product_image
+    # @!method update_product_image(product_id, id, options = {})
     # updates a image with the given attributes for the given product
-    #
-    # :call-seq:
-    #   update_product_image(product_id, id, options = {})
 
-    ##
-    # :method: delete_product_image
+    # @!method delete_product_image(product_id, id)
     # deletes the image with the given id for the given product
-    #
-    # :call-seq:
-    #   delete_product_image(product_id, id)
 
-    ##
-    # :method: product_options
+    # @!method product_options(product_id, options = {})
     # gets a list of options for the given product
-    #
-    # :call-seq:
-    #   product_options(product_id, options = {})
 
-    ##
-    # :method: product_option
+    # @!method product_option(product_id, id, options = {})
     # gets the option with the given id for the given product
-    #
-    # :call-seq:
-    #   product_option(product_id, id, options = {})
 
-    ##
-    # :method: product_reviews
+    # @!method product_reviews(product_id, options = {})
     # gets a list of reviews for the given product
-    #
-    # :call-seq:
-    #   product_reviews(product_id, options = {})
 
-    ##
-    # :method: product_rules
+    # @!method product_rules(product_id, options = {})
     # gets a list of rules for the given product
-    #
-    # :call-seq:
-    #   product_rules(product_id, options = {})
 
-    ##
-    # :method: product_rule
+    # @!method product_rule(product_id, id, options = {})
     # gets the rule with the given id for the given product
-    #
-    # :call-seq:
-    #   product_rule(product_id, id, options = {})
 
-    ##
-    # :method: create_product_rule
+    # @!method create_product_rule(product_id, options = {})
     # creates a rule with the given attributes for the given product
-    #
-    # :call-seq:
-    #   create_product_rule(product_id, options = {})
 
-    ##
-    # :method: update_product_rule
+    # @!method update_product_rule(product_id, id, options = {})
     # updates a rule with the given attributes for the given product
-    #
-    # :call-seq:
-    #   update_product_rule(product_id, id, options = {})
 
-    ##
-    # :method: delete_product_rule
+    # @!method delete_product_rule(product_id, id)
     # deletes the rule with the given id for the given product
-    #
-    # :call-seq:
-    #   delete_product_rule(product_id, id)
 
-    ##
-    # :method: product_videos
+    # @!method product_videos(product_id, options = {})
     # gets a list of videos for the given product
-    #
-    # :call-seq:
-    #   product_videos(product_id, options = {})
 
-    ##
-    # :method: product_video
+    # @!method product_video(product_id, id, options = {})
     # gets the video with the given id for the given product
-    #
-    # :call-seq:
-    #   product_video(product_id, id, options = {})
 
-    ##
-    # :method: create_product_video
+    # @!method create_product_video(product_id, options = {})
     # creates a video with the given attributes for the given product
-    #
-    # :call-seq:
-    #   create_product_video(product_id, options = {})
 
-    ##
-    # :method: update_product_video
+    # @!method update_product_video(product_id, id, options = {})
     # updates a video with the given attributes for the given product
-    #
-    # :call-seq:
-    #   update_product_video(product_id, id, options = {})
 
-    ##
-    # :method: delete_product_video
+    # @!method delete_product_video(product_id, id)
     # deletes the video with the given id for the given product
-    #
-    # :call-seq:
-    #   delete_product_video(product_id, id)
 
-    ##
-    # :method: product_skus
+    # @!method product_skus(product_id, options = {})
     # gets a list of skus for the given product
-    #
-    # :call-seq:
-    #   product_skus(product_id, options = {})
 
-    ##
-    # :method: product_sku
+    # @!method product_sku(product_id, id, options = {})
     # gets the sku with the given id for the given product
-    #
-    # :call-seq:
-    #   product_sku(product_id, id, options = {})
 
-    ##
-    # :method: create_product_sku
+    # @!method create_product_sku(product_id, options = {})
     # creates a sku with the given attributes for the given product
-    #
-    # :call-seq:
-    #   create_product_sku(product_id, options = {})
 
-    ##
-    # :method: update_product_sku
+    # @!method update_product_sku(product_id, id, options = {})
     # updates a sku with the given attributes for the given product
-    #
-    # :call-seq:
-    #   update_product_sku(product_id, id, options = {})
 
-    ##
-    # :method: delete_product_sku
+    # @!method delete_product_sku(product_id, id)
     # deletes the sku with the given id for the given product
-    #
-    # :call-seq:
-    #   delete_product_sku(product_id, id)
 
-    ##
-    # :method: redirects
+    # @!method redirects(options = {})
     # gets a list of redirects
-    #
-    # :call-seq:
-    #   redirects(options = {})
 
-    ##
-    # :method: redirect
+    # @!method redirect(id, options = {})
     # gets the redirect with the given id
-    #
-    # :call-seq:
-    #   redirect(id, options = {})
 
-    ##
-    # :method: create_redirect
+    # @!method create_redirect(options = {})
     # creates a redirect with the given attributes
-    #
-    # :call-seq:
-    #   create_redirect(options = {})
 
-    ##
-    # :method: update_redirect
+    # @!method update_redirect(id, options = {})
     # updates a redirect with the given attributes
-    #
-    # :call-seq:
-    #   update_redirect(id, options = {})
 
-    ##
-    # :method: delete_redirect
+    # @!method delete_redirect(id)
     # deletes the redirect with the given id
-    #
-    # :call-seq:
-    #   delete_redirect(id)
 
-    ##
-    # :method: shipping_methods
+    # @!method shipping_methods(options = {})
     # gets a list of methods
-    #
-    # :call-seq:
-    #   shipping_methods(options = {})
 
-    ##
-    # :method: shipping_method
+    # @!method shipping_method(id, options = {})
     # gets the method with the given id
-    #
-    # :call-seq:
-    #   shipping_method(id, options = {})
 
-    ##
-    # :method: tax_classes
+    # @!method tax_classes(options = {})
     # gets a list of tax_classes
-    #
-    # :call-seq:
-    #   tax_classes(options = {})
 
-    ##
-    # :method: tax_class
+    # @!method tax_class(id, options = {})
     # gets the tax_class with the given id
-    #
-    # :call-seq:
-    #   tax_class(id, options = {})
 
-    ##
-    # :method: hooks
+    # @!method hooks(options = {})
     # gets a list of hooks
-    #
-    # :call-seq:
-    #   hooks(options = {})
 
-    ##
-    # :method: hook
+    # @!method hook(id, options = {})
     # gets the hook with the given id
-    #
-    # :call-seq:
-    #   hook(id, options = {})
 
-    ##
-    # :method: create_hook
+    # @!method create_hook(options = {})
     # creates a hook with the given attributes
-    #
-    # :call-seq:
-    #   create_hook(options = {})
 
-    ##
-    # :method: update_hook
+    # @!method update_hook(id, options = {})
     # updates a hook with the given attributes
-    #
-    # :call-seq:
-    #   update_hook(id, options = {})
 
-    ##
-    # :method: delete_hook
+    # @!method delete_hook(id)
     # deletes the hook with the given id
-    #
-    # :call-seq:
-    #   delete_hook(id)
 
   end
 end

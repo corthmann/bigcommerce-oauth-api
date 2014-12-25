@@ -1,3 +1,9 @@
+### 1.1.5 (2014-12-25)
+
+Features:
+
+    - add yard documentation
+
 ### 1.1.4 (2014-11-10)
 
 Bugfixes:
