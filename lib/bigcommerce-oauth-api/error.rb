@@ -53,5 +53,8 @@ module BigcommerceOAuthAPI
   # Raised if the client attempts to define an api method that already is defined elsewhere.
   # Specs will catch this type of error since it will be thrown upon initialization.
   class MethodAlreadyDefinedError < Error; end
+
+  # Raised if the client attempts to use a non-legacy api with a legacy configuration.
+  class NonLegacyApi < Error; end
 end
 

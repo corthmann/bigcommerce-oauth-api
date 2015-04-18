@@ -7,16 +7,24 @@ module BigcommerceOAuthAPI
 
     def connection
       options = {
-          :headers => {
-              'Accept' => "application/#{format}; charset=utf-8",
-              'X-Auth-Client' => client_id,
-              'X-Auth-Token' => access_token
-          },
-          :url => "#{endpoint}/#{store_hash}/v2/"
+        :headers => {
+          'Accept' => "application/#{format}; charset=utf-8"
+        }
       }
+      if is_legacy?
+        options[:url] = "#{endpoint}/api/v2/"
+      else
+        options[:headers]['X-Auth-Client'] = client_id
+        options[:headers]['X-Auth-Token'] = access_token
+        options[:url] = "#{endpoint}/#{store_hash}/v2/"
+      end
 
       Faraday::Connection.new(options) do |connection|
         connection.use Faraday::Request::UrlEncoded
+        if is_legacy?
+          connection.use Faraday::Request::BasicAuthentication, user_name, api_key
+        end
+
         case format.to_s.downcase
         when 'json' then connection.use Faraday::Response::ParseJson
         end

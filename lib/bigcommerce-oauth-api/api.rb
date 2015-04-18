@@ -22,6 +22,10 @@ module BigcommerceOAuthAPI
       conf
     end
 
+    def is_legacy?
+      !user_name.nil? && !api_key.nil? && endpoint != Configuration::DEFAULT_ENDPOINT
+    end
+
     include Connection
     include Request
   end

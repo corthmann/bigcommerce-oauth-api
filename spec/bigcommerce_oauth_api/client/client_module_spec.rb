@@ -22,101 +22,188 @@ describe BigcommerceOAuthAPI::Client do
       { api_module: 'redirect', methods: [:all, :select, :create, :update, :delete]},
       { api_module: 'method', methods: [:all, :select], prefix_paths: 'shipping', prefix_methods: 'shipping'},
       { api_module: 'tax_class', scope: :self, methods: [:all, :select]},
-      { api_module: 'hook', methods: [:all, :select, :create, :update, :delete]},
+      { api_module: 'hook', methods: [:all, :select, :create, :update, :delete], legacy: false},
   ]. each do |api_description|
     api_module = api_description[:api_module]
     api_module_pluralized = api_module.pluralize
     path_prefix = (api_description.has_key?(:prefix_paths) ? "#{api_description[:prefix_paths]}/" : nil)
     method_prefix = (api_description.has_key?(:prefix_methods) ? "#{api_description[:prefix_methods]}_" : nil)
+    has_legacy_support = (api_description.has_key?(:legacy) ? api_description[:legacy] : true)
 
-    before do
-      @client = BigcommerceOAuthAPI::Client.new(:store_hash => 'TEST_STORE',
-                                                :client_id => 'SECRET_ID',
-                                                :access_token => 'SECRET_TOKEN')
-    end
-
-    if api_description[:methods].include?(:all)
-      describe ".#{method_prefix}#{api_module_pluralized}" do
-        it "should get a list of #{api_module_pluralized}" do
-          stub_get(@client, "#{path_prefix}#{api_module_pluralized}").
-              to_return(:headers => { :content_type => "application/#{@client.format}" })
-          @client.send("#{method_prefix}#{api_module_pluralized}".to_sym)
-          expect(a_get(@client, "#{path_prefix}#{api_module_pluralized}").
-                     with(:headers => {'X-Auth-Client' => 'SECRET_ID',
-                                       'X-Auth-Token' => 'SECRET_TOKEN'})).to have_been_made
+    [:legacy, :oauth].each do |config_type|
+      context "given a #{config_type} configuration" do
+        before do
+          @client = case config_type
+                      when :legacy
+                        BigcommerceOAuthAPI::Client.new(:endpoint => 'http://example.bigcommerce.com',
+                                                        :user_name => 'USER',
+                                                        :api_key => 'API_KEY')
+                      when :oauth
+                        BigcommerceOAuthAPI::Client.new(:store_hash => 'TEST_STORE',
+                                                        :client_id => 'SECRET_ID',
+                                                        :access_token => 'SECRET_TOKEN')
+                    end
         end
-      end
-    end
 
-    if api_description[:methods].include?(:select)
-      describe ".#{method_prefix}#{api_module}" do
-        it "gets the #{api_module} with the given id" do
-          id = 10
-          stub_get(@client, "#{path_prefix}#{api_module_pluralized}/#{id}").
-              to_return(:headers => { :content_type => "application/#{@client.format}" })
-          @client.send("#{method_prefix}#{api_module}".to_sym, id)
-          expect(a_get(@client, "#{path_prefix}#{api_module_pluralized}/#{id}").
-                     with(:headers => {'X-Auth-Client' => 'SECRET_ID',
-                                       'X-Auth-Token' => 'SECRET_TOKEN'})).to have_been_made
+        if api_description[:methods].include?(:all)
+          describe ".#{method_prefix}#{api_module_pluralized}" do
+            if config_type == :legacy && !has_legacy_support
+              it 'should raise a non legacy api error' do
+                expect { @client.send("#{method_prefix}#{api_module_pluralized}".to_sym) }.
+                    to raise_error(BigcommerceOAuthAPI::NonLegacyApi)
+              end
+            else
+              it "should get a list of #{api_module_pluralized}" do
+                stub_get(@client, "#{path_prefix}#{api_module_pluralized}").
+                    to_return(:headers => { :content_type => "application/#{@client.format}" })
+                @client.send("#{method_prefix}#{api_module_pluralized}".to_sym)
+                if config_type == :legacy
+                  expect(a_get(@client, "#{path_prefix}#{api_module_pluralized}")).to have_been_made
+                else
+                  expect(a_get(@client, "#{path_prefix}#{api_module_pluralized}").
+                             with(:headers => {'X-Auth-Client' => 'SECRET_ID',
+                                               'X-Auth-Token' => 'SECRET_TOKEN'})).to have_been_made
+                end
+              end
+
+            end
+          end
         end
-      end
-    end
 
-    if api_description[:methods].include?(:create)
-      describe ".create_#{method_prefix}#{api_module}" do
-        it "creates a #{api_module} with the given attributes" do
-          options = { name: 'A', description: 'B'}
-          stub_post(@client, "#{path_prefix}#{api_module_pluralized}").
-              to_return(:body => options.to_json, :headers => { :content_type => "application/#{@client.format}" })
-          @client.send("create_#{method_prefix}#{api_module}".to_sym, options)
-          expect(a_post(@client, "#{path_prefix}#{api_module_pluralized}").
-                     with(:body => options,
-                          :headers => {'X-Auth-Client' => 'SECRET_ID',
-                                       'X-Auth-Token' => 'SECRET_TOKEN'})).to have_been_made
+        if api_description[:methods].include?(:select)
+          describe ".#{method_prefix}#{api_module}" do
+            if config_type == :legacy && !has_legacy_support
+              it 'should raise a non legacy api error' do
+                id = 10
+                expect { @client.send("#{method_prefix}#{api_module}".to_sym, id) }.
+                    to raise_error(BigcommerceOAuthAPI::NonLegacyApi)
+              end
+            else
+              it "gets the #{api_module} with the given id" do
+                id = 10
+                stub_get(@client, "#{path_prefix}#{api_module_pluralized}/#{id}").
+                    to_return(:headers => { :content_type => "application/#{@client.format}" })
+                @client.send("#{method_prefix}#{api_module}".to_sym, id)
+                if config_type == :legacy
+                  expect(a_get(@client, "#{path_prefix}#{api_module_pluralized}/#{id}")).to have_been_made
+                else
+                  expect(a_get(@client, "#{path_prefix}#{api_module_pluralized}/#{id}").
+                             with(:headers => {'X-Auth-Client' => 'SECRET_ID',
+                                               'X-Auth-Token' => 'SECRET_TOKEN'})).to have_been_made
+                end
+              end
+            end
+          end
         end
-      end
-    end
 
-    if api_description[:methods].include?(:update)
-      describe ".update_#{method_prefix}#{api_module}" do
-        it "update the attributes of the #{api_module} with the given id" do
-          id = 10
-          options = { name: 'A', description: 'B'}
-          stub_put(@client, "#{path_prefix}#{api_module_pluralized}/#{id}").
-              with(:body => options).
-              to_return(:body => '', :headers => { :content_type => "application/#{@client.format}" })
-          @client.send("update_#{method_prefix}#{api_module}".to_sym, id, options)
-          expect(a_put(@client, "#{path_prefix}#{api_module_pluralized}/#{id}").
-                     with(:body => options,
-                          :headers => {'X-Auth-Client' => 'SECRET_ID',
-                                       'X-Auth-Token' => 'SECRET_TOKEN'})).to have_been_made
+        if api_description[:methods].include?(:create)
+          describe ".create_#{method_prefix}#{api_module}" do
+            if config_type == :legacy && !has_legacy_support
+              it 'should raise a non legacy api error' do
+                options = { name: 'A', description: 'B'}
+                expect { @client.send("create_#{method_prefix}#{api_module}".to_sym, options) }.
+                    to raise_error(BigcommerceOAuthAPI::NonLegacyApi)
+              end
+            else
+              it "creates a #{api_module} with the given attributes" do
+                options = { name: 'A', description: 'B'}
+                stub_post(@client, "#{path_prefix}#{api_module_pluralized}").
+                    to_return(:body => options.to_json, :headers => { :content_type => "application/#{@client.format}" })
+
+                @client.send("create_#{method_prefix}#{api_module}".to_sym, options)
+                if config_type == :legacy
+                  expect(a_post(@client, "#{path_prefix}#{api_module_pluralized}")).to have_been_made
+                else
+                  expect(a_post(@client, "#{path_prefix}#{api_module_pluralized}").
+                             with(:body => options,
+                                  :headers => {'X-Auth-Client' => 'SECRET_ID',
+                                               'X-Auth-Token' => 'SECRET_TOKEN'})).to have_been_made
+                end
+              end
+            end
+          end
         end
-      end
-    end
 
-    if api_description[:methods].include?(:delete)
-      describe ".delete_#{method_prefix}#{api_module}" do
-        it "deletes the #{api_module} with the given id" do
-          id = 10
-          stub_delete(@client, "#{path_prefix}#{api_module_pluralized}/#{id}").
-              to_return(:headers => { :content_type => "application/#{@client.format}" })
-          @client.send("delete_#{method_prefix}#{api_module}".to_sym, id)
-          expect(a_delete(@client, "#{path_prefix}#{api_module_pluralized}/#{id}").
-                     with(:headers => {'X-Auth-Client' => 'SECRET_ID',
-                                       'X-Auth-Token' => 'SECRET_TOKEN'})).to have_been_made
+        if api_description[:methods].include?(:update)
+          describe ".update_#{method_prefix}#{api_module}" do
+            if config_type == :legacy && !has_legacy_support
+              it 'should raise a non legacy api error' do
+                id = 10
+                options = { name: 'A', description: 'B'}
+                expect { @client.send("update_#{method_prefix}#{api_module}".to_sym, id, options) }.
+                    to raise_error(BigcommerceOAuthAPI::NonLegacyApi)
+              end
+            else
+              it "update the attributes of the #{api_module} with the given id" do
+                id = 10
+                options = { name: 'A', description: 'B'}
+                stub_put(@client, "#{path_prefix}#{api_module_pluralized}/#{id}").
+                    with(:body => options).
+                    to_return(:body => '', :headers => { :content_type => "application/#{@client.format}" })
+
+                @client.send("update_#{method_prefix}#{api_module}".to_sym, id, options)
+                if config_type == :legacy
+                  expect(a_put(@client, "#{path_prefix}#{api_module_pluralized}/#{id}")).
+                             to have_been_made
+                else
+                  expect(a_put(@client, "#{path_prefix}#{api_module_pluralized}/#{id}").
+                             with(:body => options,
+                                  :headers => {'X-Auth-Client' => 'SECRET_ID',
+                                               'X-Auth-Token' => 'SECRET_TOKEN'})).to have_been_made
+                end
+              end
+            end
+          end
         end
-      end
-    end
 
-    if api_description[:methods].include?(:count)
-      describe ".#{method_prefix}#{api_module_pluralized}_count" do
-        it "returns the number of #{api_module_pluralized}" do
-          stub_get(@client, "#{path_prefix}#{api_module_pluralized}/count").
-              to_return(:body => '', :headers => { :content_type => "application/#{@client.format}" })
-          @client.send("#{method_prefix}#{api_module_pluralized}_count".to_sym)
-          expect(a_get(@client, "#{path_prefix}#{api_module_pluralized}/count").
-                     with(:headers => {'X-Auth-Client' => 'SECRET_ID',
-                                       'X-Auth-Token' => 'SECRET_TOKEN'})).to have_been_made
+        if api_description[:methods].include?(:delete)
+          describe ".delete_#{method_prefix}#{api_module}" do
+            if config_type == :legacy && !has_legacy_support
+              it 'should raise a non legacy api error' do
+                id = 10
+                expect { @client.send("delete_#{method_prefix}#{api_module}".to_sym, id) }.
+                    to raise_error(BigcommerceOAuthAPI::NonLegacyApi)
+              end
+            else
+              it "deletes the #{api_module} with the given id" do
+                id = 10
+                stub_delete(@client, "#{path_prefix}#{api_module_pluralized}/#{id}").
+                    to_return(:headers => { :content_type => "application/#{@client.format}" })
+                @client.send("delete_#{method_prefix}#{api_module}".to_sym, id)
+                if config_type == :legacy
+                  expect(a_delete(@client, "#{path_prefix}#{api_module_pluralized}/#{id}")).to have_been_made
+                else
+                  expect(a_delete(@client, "#{path_prefix}#{api_module_pluralized}/#{id}").
+                             with(:headers => {'X-Auth-Client' => 'SECRET_ID',
+                                               'X-Auth-Token' => 'SECRET_TOKEN'})).to have_been_made
+                end
+              end
+            end
+          end
+        end
+
+        if api_description[:methods].include?(:count)
+          describe ".#{method_prefix}#{api_module_pluralized}_count" do
+            if config_type == :legacy && !has_legacy_support
+              it 'should raise a non legacy api error' do
+                expect { @client.send("#{method_prefix}#{api_module_pluralized}_count".to_sym) }.
+                    to raise_error(BigcommerceOAuthAPI::NonLegacyApi)
+              end
+            else
+              it "returns the number of #{api_module_pluralized}" do
+                stub_get(@client, "#{path_prefix}#{api_module_pluralized}/count").
+                    to_return(:body => '', :headers => { :content_type => "application/#{@client.format}" })
+                @client.send("#{method_prefix}#{api_module_pluralized}_count".to_sym)
+                if config_type == :legacy
+                  expect(a_get(@client, "#{path_prefix}#{api_module_pluralized}/count")).to have_been_made
+                else
+                  expect(a_get(@client, "#{path_prefix}#{api_module_pluralized}/count").
+                             with(:headers => {'X-Auth-Client' => 'SECRET_ID',
+                                               'X-Auth-Token' => 'SECRET_TOKEN'})).to have_been_made
+                end
+              end
+            end
+          end
         end
       end
     end

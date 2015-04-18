@@ -54,7 +54,7 @@ module BigcommerceOAuthAPI
                      :redirect => { api_module: :redirect, scope: :self, methods: [:all, :select, :create, :update, :delete]},
                      :shipping_method => { api_module: :method, scope: :self, methods: [:all, :select], prefix_paths: 'shipping', prefix_methods: 'shipping'},
                      :tax_class => { api_module: :tax_class, scope: :self, methods: [:all, :select]},
-                     :web_hook => { api_module: :hook, scope: :self, methods: [:all, :select, :create, :update, :delete]}
+                     :web_hook => { api_module: :hook, scope: :self, methods: [:all, :select, :create, :update, :delete], legacy: false }
 
     # @!method blog_posts(options = {})
     # gets a list of posts
