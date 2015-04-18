@@ -11,8 +11,7 @@ describe BigcommerceOAuthAPI::Client do
       { api_module: 'category', methods: [:all, :select, :create, :update, :delete]},
       { api_module: 'customer', methods: [:all, :select, :create, :update, :delete, :count]},
       { api_module: 'customer_group', methods: [:all, :select, :create, :update, :delete]},
-      { api_module: 'country', scope: :self, methods: [:all, :select]},
-      { api_module: 'state', scope: :self, methods: [:all, :select]},
+      { api_module: 'country', scope: :self, methods: [:all, :select, :count]},
       { api_module: 'order', methods: [:all, :select, :create, :update, :delete, :count]},
       { api_module: 'method', methods: [:all], prefix_paths: 'payments', prefix_methods: 'payment'},
       { api_module: 'option', methods: [:all, :select, :create, :update, :delete]},
@@ -22,7 +21,7 @@ describe BigcommerceOAuthAPI::Client do
       { api_module: 'redirect', methods: [:all, :select, :create, :update, :delete]},
       { api_module: 'method', methods: [:all, :select], prefix_paths: 'shipping', prefix_methods: 'shipping'},
       { api_module: 'tax_class', scope: :self, methods: [:all, :select]},
-      { api_module: 'hook', methods: [:all, :select, :create, :update, :delete], legacy: false},
+      { api_module: 'hook', methods: [:all, :select, :create, :update, :delete], legacy: false}
   ]. each do |api_description|
     api_module = api_description[:api_module]
     api_module_pluralized = api_module.pluralize
