@@ -137,6 +137,13 @@ module BigcommerceOAuthAPI
     #   delete_brand(id)
 
     ##
+    # :method: brands_count
+    # returns the number of brands
+    #
+    # :call-seq:
+    #   brands_count(options = {})
+
+    ##
     # :method: categories
     # gets a list of categories
     #
@@ -361,6 +368,13 @@ module BigcommerceOAuthAPI
     #   delete_coupon(id)
 
     ##
+    # :method: coupons_count
+    # returns the number of coupons
+    #
+    # :call-seq:
+    #   coupons_count(options = {})
+
+    ##
     # :method: options
     # gets a list of options
     #
@@ -394,6 +408,13 @@ module BigcommerceOAuthAPI
     #
     # :call-seq:
     #   delete_option(id)
+
+    ##
+    # :method: options_count
+    # returns the number of options
+    #
+    # :call-seq:
+    #   options_count(options = {})
 
     ##
     # :method: option_sets
@@ -431,6 +452,13 @@ module BigcommerceOAuthAPI
     #   delete_option_set(id)
 
     ##
+    # :method: option_sets_count
+    # returns the number of option_sets
+    #
+    # :call-seq:
+    #   option_sets_count(options = {})
+
+    ##
     # :method: option_set_options
     # gets a list of options for the given option_set
     #
@@ -466,39 +494,53 @@ module BigcommerceOAuthAPI
     #   delete_option_set_option(option_set_id, id)
 
     ##
-    # :method: option_set_values
-    # gets a list of values for the given option_set
+    # :method: option_values
+    # gets a list of values for the given option
     #
     # :call-seq:
-    #   option_set_values(option_set_id, options = {})
+    #   option_values(option_id, options = {})
 
     ##
-    # :method: option_set_value
-    # gets the value with the given id for the given option_set
+    # :method: option_value
+    # gets the value with the given id for the given option
     #
     # :call-seq:
-    #   option_set_value(option_set_id, id, options = {})
+    #   option_value(option_id, id, options = {})
 
     ##
-    # :method: create_option_set_value
-    # creates a value with the given attributes for the given option_set
+    # :method: create_option_value
+    # creates a value with the given attributes for the given option
     #
     # :call-seq:
-    #   create_option_set_value(option_set_id, options = {})
+    #   create_option_value(option_id, options = {})
 
     ##
-    # :method: update_option_set_value
-    # update the attributes of the value with the given id for the given option_set
+    # :method: update_option_value
+    # update the attributes of the value with the given id for the given option
     #
     # :call-seq:
-    #   update_option_set_value(option_set_id, id, options = {})
+    #   update_option_value(option_id, id, options = {})
 
     ##
-    # :method: delete_option_set_value
-    # deletes the value with the given id for the given option_set
+    # :method: delete_option_value
+    # deletes the value with the given id for the given option
     #
     # :call-seq:
-    #   delete_option_set_value(option_set_id, id)
+    #   delete_option_value(option_id, id)
+
+    ##
+    # :method: order_statuses
+    # gets a list of order_statuses
+    #
+    # :call-seq:
+    #   order_statuses(options = {})
+
+    ##
+    # :method: order_status
+    # gets the order_status with the given id
+    #
+    # :call-seq:
+    #   order_status(id, options = {})
 
     ##
     # :method: orders
@@ -543,6 +585,20 @@ module BigcommerceOAuthAPI
     #   orders_count(options = {})
 
     ##
+    # :method: order_coupons
+    # gets a list of coupons for the given order
+    #
+    # :call-seq:
+    #   order_coupons(order_id, options = {})
+
+    ##
+    # :method: order_coupon
+    # gets the coupon with the given id for the given order
+    #
+    # :call-seq:
+    #   order_coupon(order_id, id, options = {})
+
+    ##
     # :method: order_messages
     # gets a list of messages for the given order
     #
@@ -569,6 +625,13 @@ module BigcommerceOAuthAPI
     #
     # :call-seq:
     #   order_product(order_id, id, options = {})
+
+    ##
+    # :method: order_products_count
+    # returns the number of products for the given order
+    #
+    # :call-seq:
+    #   order_products_count(order_id, options = {})
 
     ##
     # :method: order_shipments
@@ -618,6 +681,20 @@ module BigcommerceOAuthAPI
     #
     # :call-seq:
     #   order_shipping_address(order_id, id, options = {})
+
+    ##
+    # :method: order_taxes
+    # gets a list of taxes for the given order
+    #
+    # :call-seq:
+    #   order_taxes(order_id, options = {})
+
+    ##
+    # :method: order_tax
+    # gets the tax with the given id for the given order
+    #
+    # :call-seq:
+    #   order_tax(order_id, id, options = {})
 
     ##
     # :method: payment_methods
@@ -739,6 +816,13 @@ module BigcommerceOAuthAPI
     #   delete_product_discount_rule(product_id, id)
 
     ##
+    # :method: product_discount_rules_count
+    # returns the number of discount_rules for the given product
+    #
+    # :call-seq:
+    #   product_discount_rules_count(product_id, options = {})
+
+    ##
     # :method: product_configurable_fields
     # gets a list of configurable_fields for the given product
     #
@@ -758,6 +842,13 @@ module BigcommerceOAuthAPI
     #
     # :call-seq:
     #   delete_product_configurable_field(product_id, id)
+
+    ##
+    # :method: product_configurable_fields_count
+    # returns the number of configurable_fields for the given product
+    #
+    # :call-seq:
+    #   product_configurable_fields_count(product_id, options = {})
 
     ##
     # :method: product_images
@@ -793,6 +884,13 @@ module BigcommerceOAuthAPI
     #
     # :call-seq:
     #   delete_product_image(product_id, id)
+
+    ##
+    # :method: product_images_count
+    # returns the number of images for the given product
+    #
+    # :call-seq:
+    #   product_images_count(product_id, options = {})
 
     ##
     # :method: product_options
@@ -851,6 +949,13 @@ module BigcommerceOAuthAPI
     #   delete_product_rule(product_id, id)
 
     ##
+    # :method: product_rules_count
+    # returns the number of rules for the given product
+    #
+    # :call-seq:
+    #   product_rules_count(product_id, options = {})
+
+    ##
     # :method: product_videos
     # gets a list of videos for the given product
     #
@@ -884,6 +989,13 @@ module BigcommerceOAuthAPI
     #
     # :call-seq:
     #   delete_product_video(product_id, id)
+
+    ##
+    # :method: product_videos_count
+    # returns the number of videos for the given product
+    #
+    # :call-seq:
+    #   product_videos_count(product_id, options = {})
 
     ##
     # :method: product_skus
@@ -921,6 +1033,13 @@ module BigcommerceOAuthAPI
     #   delete_product_sku(product_id, id)
 
     ##
+    # :method: product_skus_count
+    # returns the number of skus for the given product
+    #
+    # :call-seq:
+    #   product_skus_count(product_id, options = {})
+
+    ##
     # :method: redirects
     # gets a list of redirects
     #
@@ -954,6 +1073,13 @@ module BigcommerceOAuthAPI
     #
     # :call-seq:
     #   delete_redirect(id)
+
+    ##
+    # :method: redirects_count
+    # returns the number of redirects
+    #
+    # :call-seq:
+    #   redirects_count(options = {})
 
     ##
     # :method: shipping_methods
