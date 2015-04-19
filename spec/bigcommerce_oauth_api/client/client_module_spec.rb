@@ -7,7 +7,7 @@ describe BigcommerceOAuthAPI::Client do
   [
       { api_module: 'post', methods: [:all, :select, :create, :update, :delete], prefix_paths: 'blog', prefix_methods: 'blog'},
       { api_module: 'tag', methods: [:all], prefix_paths: 'blog', prefix_methods: 'blog'},
-      { api_module: 'brand', methods: [:all, :select, :create, :update, :delete]},
+      { api_module: 'brand', methods: [:all, :select, :create, :update, :delete, :count]},
       { api_module: 'category', methods: [:all, :select, :create, :update, :delete]},
       { api_module: 'customer', methods: [:all, :select, :create, :update, :delete, :count]},
       { api_module: 'customer_group', methods: [:all, :select, :create, :update, :delete]},
@@ -17,8 +17,8 @@ describe BigcommerceOAuthAPI::Client do
       { api_module: 'option', methods: [:all, :select, :create, :update, :delete]},
       { api_module: 'option_set', methods: [:all, :select, :create, :update, :delete]},
       { api_module: 'product', methods: [:all, :select, :create, :update, :delete, :count]},
-      { api_module: 'coupon', methods: [:all, :select, :create, :update, :delete]},
-      { api_module: 'redirect', methods: [:all, :select, :create, :update, :delete]},
+      { api_module: 'coupon', methods: [:all, :select, :create, :update, :delete, :count]},
+      { api_module: 'redirect', methods: [:all, :select, :create, :update, :delete, :count]},
       { api_module: 'method', methods: [:all, :select], prefix_paths: 'shipping', prefix_methods: 'shipping'},
       { api_module: 'tax_class', scope: :self, methods: [:all, :select]},
       { api_module: 'hook', methods: [:all, :select, :create, :update, :delete], legacy: false}
