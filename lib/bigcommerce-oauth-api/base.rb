@@ -10,15 +10,16 @@ module BigcommerceOAuthAPI
       map.each do |api, method_description|
         api_module = method_description[:api_module]
         api_scope = method_description[:scope]
+        is_legacy = (method_description[:legacy].nil? ? true : method_description[:legacy])
         path_prefix = (method_description.has_key?(:prefix_paths) ? "#{method_description[:prefix_paths]}/" : nil)
         method_prefix = (method_description.has_key?(:prefix_methods) ? "#{method_description[:prefix_methods]}_" : nil)
         method_description[:methods].each do |method|
-          with_action(method, api_module, api_scope, path_prefix, method_prefix)
+          with_action(method, api_module, api_scope, path_prefix, method_prefix, is_legacy)
         end
       end
     end
 
-    def self.with_action(method, api_module, api_scope, path_prefix = nil, method_prefix = nil)
+    def self.with_action(method, api_module, api_scope, path_prefix = nil, method_prefix = nil, is_legacy = true)
       is_nested = api_scope != :self
       method_name, method_params, has_options = get_method_name_and_params(method, api_module, api_scope, is_nested, method_prefix)
       method_path = get_method_path(method, api_module, api_scope, is_nested)
@@ -32,6 +33,7 @@ module BigcommerceOAuthAPI
 
       class_eval %Q{
         def #{method_name}#{method_params}
+          #{(is_legacy ? '' : 'raise NonLegacyApi.new if is_legacy?')}
           #{request_method}("#{path_prefix}#{method_path}"#{( has_options ? ', options' : '')})
         end
       }

@@ -23,34 +23,43 @@ end
 
 WebMock.disable_net_connect!(:allow => 'codeclimate.com')
 
+def client_request_url(client, path)
+  if client.is_legacy?
+    protocol, domain = client.endpoint.split('://')
+    "#{protocol}://#{client.user_name}:#{client.api_key}@#{domain}/api/v2/#{path}"
+  else
+    "#{client.endpoint}/#{client.store_hash}/v2/#{path}"
+  end
+end
+
 def stub_get(client, path)
-  stub_request(:get, "#{client.endpoint}/#{client.store_hash}/v2/#{path}")
+  stub_request(:get, client_request_url(client, path))
 end
 
 def stub_post(client, path)
-  stub_request(:post, "#{client.endpoint}/#{client.store_hash}/v2/#{path}")
+  stub_request(:post, client_request_url(client, path))
 end
 
 def stub_put(client, path)
-  stub_request(:put, "#{client.endpoint}/#{client.store_hash}/v2/#{path}")
+  stub_request(:put, client_request_url(client, path))
 end
 
 def stub_delete(client, path)
-  stub_request(:delete, "#{client.endpoint}/#{client.store_hash}/v2/#{path}")
+  stub_request(:delete, client_request_url(client, path))
 end
 
 def a_get(client, path)
-  a_request(:get, "#{client.endpoint}/#{client.store_hash}/v2/#{path}")
+  a_request(:get, client_request_url(client, path))
 end
 
 def a_post(client, path)
-  a_request(:post, "#{client.endpoint}/#{client.store_hash}/v2/#{path}")
+  a_request(:post, client_request_url(client, path))
 end
 
 def a_put(client, path)
-  a_request(:put, "#{client.endpoint}/#{client.store_hash}/v2/#{path}")
+  a_request(:put, client_request_url(client, path))
 end
 
 def a_delete(client, path)
-  a_request(:delete, "#{client.endpoint}/#{client.store_hash}/v2/#{path}")
+  a_request(:delete, client_request_url(client, path))
 end

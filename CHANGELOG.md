@@ -1,3 +1,20 @@
+### 1.2.0 (2015-04-19)
+
+Features:
+
+    - add legacy api support
+    - add omniref and revert to using rdoc
+    - add order coupon apis
+    - add order tax apis
+    - add order statuses apis
+
+Bugfixes:
+
+    - update geography apis
+    - add a few missing "count" apis
+    - fix option value api
+    - update docs
+
 ### 1.1.5 (2014-12-25)
 
 Features:

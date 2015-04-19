@@ -1,5 +1,6 @@
 bigcommerce-oauth-api
 ==========================
+[![bigcommerce-oauth-api API Documentation](https://www.omniref.com/ruby/gems/bigcommerce-oauth-api.png)](https://www.omniref.com/ruby/gems/bigcommerce-oauth-api)
 [![Gem Version](https://badge.fury.io/rb/bigcommerce-oauth-api.svg)](http://badge.fury.io/rb/bigcommerce-oauth-api)
 [![Code Climate](https://codeclimate.com/github/corthmann/bigcommerce-oauth-api/badges/gpa.svg)](https://codeclimate.com/github/corthmann/bigcommerce-oauth-api)
 [![Test Coverage](https://codeclimate.com/github/corthmann/bigcommerce-oauth-api/badges/coverage.svg)](https://codeclimate.com/github/corthmann/bigcommerce-oauth-api)
@@ -20,26 +21,41 @@ gem 'bigcommerce-oauth-api'
 
 Configuration
 -------------
-The gem can be configured in two ways. Either by initializing the API with certain options.
+The gem can be configured either by module or class configuration. Starting from v1.2.0 `bigcommerce-oauth-api` supports both OAuth and legacy authentication.
 ```
+# module oauth configuration
 BigcommerceOAuthAPI.configuration do |config|
     config.store_hash = 'YOU STORE ID'
     config.client_id = 'YOUR CLIENT ID'
     config.access_token = 'YOUR OAUTH ACCESS TOKEN'
 end
-```
 
-Or by passing options to a new client instance.
-```
+# module legacy (basic auth) configuration
+BigcommerceOAuthAPI.configuration do |config|
+    config.endpoint = 'YOU STORE URL (https://store-XYZ.mybigcommerce.com)'
+    config.user_name = 'API USER NAME'
+    config.api_key = 'API KEY'
+end
+
+# class oauth configuration
 api = BigcommerceOAuthAPI::Client.new(
                                 :store_hash => 'YOUR STORE ID',
                                 :client_id => 'YOUR CLIENT ID',
                                 :access_token => 'YOUR OAUTH ACCESS TOKEN'
                                 )
+
+# class legacy (basic auth) configuration
+api = BigcommerceOAuthAPI::Client.new(
+                                :endpoint => 'YOU STORE URL (ex. https://store-XYZ.mybigcommerce.com)',
+                                :user_name => 'API USER NAME',
+                                :api_key => 'API KEY'
+                                )
 ```
 
 Using the API
 -------------
+It is recommended to use the Omniref documentation as a method reference in combination the official api documentation.
+
 Get a list of products:
 ```
 products = api.products
@@ -69,6 +85,7 @@ order_id = 101
 shipment_id = 1000
 api.delete_order_shipment(order_id, shipment_id)
 ```
+
 Webhooks
 -------------
 In many applications it is an advantage to receive a callback on events rather than polling information. Such callbacks are commonly called webhooks.
@@ -100,45 +117,48 @@ API Support
 -------------
 The following APIs are currently supported:
 
-API | Included from
---- | ---
-blog post | 1.0.2
-blog tag | 1.0.2
-brand api | 1.1.0
-bulk pricing (discount rules) | 1.1.0
-category | 1.1.0
-customer api | 1.0.2
-customer address | 1.0.2
-customer group | 1.0.2
-geography country | 1.0.2
-geography state | 1.0.2
-marketing coupon | 1.0.2
-option | 1.1.0
-option set | 1.1.0
-option set option | 1.1.0
-option set value | 1.1.0
-order | 1.0.2
-order message | 1.0.2
-order product | 1.0.2
-order shipment | 1.0.2
-order shipping address | 1.0.2
-payment method | 1.0.2
-product | 1.0.2
-product configurable field | 1.1.0
-product custom field | 1.0.2
-product googleproductsearch | 1.1.0
-product image | 1.1.0
-product option | 1.1.0
-product review | 1.1.0
-product rules | 1.1.0
-product video | 1.1.0
-product SKU | 1.1.0
-redirect | 1.0.2
-shipping method api | 1.0.2
-store information | 1.0.2
-system (time) | 1.0.2
-tax class | 1.0.2
-web hook | 1.0.2
+API | Gem Version | Official Documentation
+--- | --- | ---
+blog post | 1.0.2 | https://developer.bigcommerce.com/api/stores/v2/blog/posts
+blog tag | 1.0.2 | https://developer.bigcommerce.com/api/stores/v2/blog/tags
+brand api | 1.1.0 | https://developer.bigcommerce.com/api/stores/v2/brands
+bulk pricing (discount rules) | 1.1.0 | https://developer.bigcommerce.com/api/stores/v2/products/discount_rules
+category | 1.1.0 | https://developer.bigcommerce.com/api/stores/v2/categories
+customer api | 1.0.2 | https://developer.bigcommerce.com/api/stores/v2/customers
+customer address | 1.0.2 | https://developer.bigcommerce.com/api/stores/v2/customers/addresses
+customer group | 1.0.2 | https://developer.bigcommerce.com/api/stores/v2/customer_groups
+geography country | 1.0.2 | https://developer.bigcommerce.com/api/stores/v2/countries
+geography state | 1.0.2 | https://developer.bigcommerce.com/api/stores/v2/countries/states
+marketing coupon | 1.0.2 | https://developer.bigcommerce.com/api/stores/v2/coupons
+option | 1.1.0 | https://developer.bigcommerce.com/api/stores/v2/options
+option set | 1.1.0 | https://developer.bigcommerce.com/api/stores/v2/option_sets
+option set option | 1.1.0 | https://developer.bigcommerce.com/api/stores/v2/option_sets/options
+option value | 1.2.0 | https://developer.bigcommerce.com/api/stores/v2/options/values
+order | 1.0.2 | https://developer.bigcommerce.com/api/stores/v2/orders
+order coupon | 1.2.0 | https://developer.bigcommerce.com/api/stores/v2/orders/coupons
+order message | 1.0.2 | https://developer.bigcommerce.com/api/stores/v2/orders/messages
+order product | 1.0.2 | https://developer.bigcommerce.com/api/stores/v2/orders/products
+order shipment | 1.0.2 | https://developer.bigcommerce.com/api/stores/v2/orders/shipments
+order shipping address | 1.0.2 | https://developer.bigcommerce.com/api/stores/v2/orders/shipping_addresses
+order statuses | 1.2.0 | https://developer.bigcommerce.com/api/stores/v2/order_statuses
+order tax | 1.2.0 | https://developer.bigcommerce.com/api/stores/v2/orders/taxes
+payment method | 1.0.2 | https://developer.bigcommerce.com/api/stores/v2/payments/methods
+product | 1.0.2 | https://developer.bigcommerce.com/api/stores/v2/products
+product configurable field | 1.1.0 | https://developer.bigcommerce.com/api/stores/v2/products/configurable_fields
+product custom field | 1.0.2 | https://developer.bigcommerce.com/api/stores/v2/products/custom_fields
+product googleproductsearch | 1.1.0 | https://developer.bigcommerce.com/api/stores/v2/products/googleproductsearch
+product image | 1.1.0 | https://developer.bigcommerce.com/api/stores/v2/products/images
+product option | 1.1.0 | https://developer.bigcommerce.com/api/stores/v2/products/options
+product review | 1.1.0 | https://developer.bigcommerce.com/api/stores/v2/products/reviews
+product rules | 1.1.0 | https://developer.bigcommerce.com/api/stores/v2/products/rules
+product video | 1.1.0 | https://developer.bigcommerce.com/api/stores/v2/products/videos
+product SKU | 1.1.0 | https://developer.bigcommerce.com/api/stores/v2/products/skus
+redirect | 1.0.2 | https://developer.bigcommerce.com/api/stores/v2/redirects
+shipping method api | 1.0.2 | https://developer.bigcommerce.com/api/stores/v2/shipping/methods
+store information | 1.0.2 | https://developer.bigcommerce.com/api/stores/v2/store_information
+system (time) | 1.0.2 | https://developer.bigcommerce.com/api/stores/v2/time
+tax class | 1.0.2 | https://developer.bigcommerce.com/api/stores/v2/tax_classes
+web hook | 1.0.2 | https://developer.bigcommerce.com/api/stores/v2/webhooks
 
 Getting an OAuth Access Token
 -------------

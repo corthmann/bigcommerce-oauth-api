@@ -9,7 +9,10 @@ module BigcommerceOAuthAPI
         :adapter,
         :client_id,
         :access_token,
-        :format
+        :format,
+        # legacy authentication
+        :user_name,
+        :api_key
     ].freeze
 
     DEFAULT_STORE_HASH = nil
@@ -18,6 +21,8 @@ module BigcommerceOAuthAPI
     DEFAULT_ACCESS_TOKEN = nil
     DEFAULT_FORMAT = :json
     DEFAULT_ADAPTER = Faraday.default_adapter
+    DEFAULT_USER_NAME = nil
+    DEFAULT_API_KEY = nil
 
     attr_accessor *VALID_OPTIONS_KEYS
 
@@ -32,6 +37,8 @@ module BigcommerceOAuthAPI
       self.client_id = DEFAULT_CLIENT_ID
       self.access_token = DEFAULT_ACCESS_TOKEN
       self.adapter = DEFAULT_ADAPTER
+      self.user_name = DEFAULT_USER_NAME
+      self.api_key = DEFAULT_API_KEY
     end
 
     def configure
