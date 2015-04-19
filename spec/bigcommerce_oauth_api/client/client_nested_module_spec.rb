@@ -48,13 +48,14 @@ describe BigcommerceOAuthAPI::Client do
 
         if nested_module[:methods].include?(:all)
           describe ".#{method_prefix}#{api_parent_module}_#{api_module_pluralized}" do
-            if config_type == :legacy && !has_legacy_support
-              it 'should raise a non legacy api error' do
-                parent_id = 10
-                expect { @client.send("#{method_prefix}#{api_parent_module}_#{api_module_pluralized}".to_sym, parent_id) }.
-                    to raise_error(BigcommerceOAuthAPI::NonLegacyApi)
-              end
-            else
+            # NOTICE! Currently all the nested APIs have legacy support
+            # if config_type == :legacy && !has_legacy_support
+            #   it 'should raise a non legacy api error' do
+            #     parent_id = 10
+            #     expect { @client.send("#{method_prefix}#{api_parent_module}_#{api_module_pluralized}".to_sym, parent_id) }.
+            #         to raise_error(BigcommerceOAuthAPI::NonLegacyApi)
+            #   end
+            # else
               it "should get a list of #{api_module_pluralized} for the given #{api_parent_module}" do
                 parent_id = 10
                 stub_get(@client, "#{path_prefix}#{api_parent_module_pluralized}/#{parent_id}/#{api_module_pluralized}").
@@ -69,20 +70,21 @@ describe BigcommerceOAuthAPI::Client do
                                                'X-Auth-Token' => 'SECRET_TOKEN'})).to have_been_made
                 end
               end
-            end
+            # end
           end
         end
 
         if nested_module[:methods].include?(:select)
           describe ".#{method_prefix}#{api_parent_module}_#{api_module}" do
-            if config_type == :legacy && !has_legacy_support
-              it 'should raise a non legacy api error' do
-                id = 10
-                parent_id = 5
-                expect { @client.send("#{method_prefix}#{api_parent_module}_#{api_module}".to_sym, parent_id, id) }.
-                    to raise_error(BigcommerceOAuthAPI::NonLegacyApi)
-              end
-            else
+            # NOTICE! Currently all the nested APIs have legacy support
+            # if config_type == :legacy && !has_legacy_support
+            #   it 'should raise a non legacy api error' do
+            #     id = 10
+            #     parent_id = 5
+            #     expect { @client.send("#{method_prefix}#{api_parent_module}_#{api_module}".to_sym, parent_id, id) }.
+            #         to raise_error(BigcommerceOAuthAPI::NonLegacyApi)
+            #   end
+            # else
               it "gets the #{api_module} with the given id for the given #{api_parent_module}" do
                 id = 10
                 parent_id = 5
@@ -98,20 +100,21 @@ describe BigcommerceOAuthAPI::Client do
                                                'X-Auth-Token' => 'SECRET_TOKEN'})).to have_been_made
                 end
               end
-            end
+            # end
           end
         end
 
         if nested_module[:methods].include?(:create)
           describe ".create_#{method_prefix}#{api_parent_module}_#{api_module}" do
-            if config_type == :legacy && !has_legacy_support
-              it 'should raise a non legacy api error' do
-                options = { name: 'A', description: 'B'}
-                parent_id = 5
-                expect { @client.send("create_#{method_prefix}#{api_parent_module}_#{api_module}".to_sym, parent_id, options) }.
-                    to raise_error(BigcommerceOAuthAPI::NonLegacyApi)
-              end
-            else
+            # NOTICE! Currently all the nested APIs have legacy support
+            # if config_type == :legacy && !has_legacy_support
+            #   it 'should raise a non legacy api error' do
+            #     options = { name: 'A', description: 'B'}
+            #     parent_id = 5
+            #     expect { @client.send("create_#{method_prefix}#{api_parent_module}_#{api_module}".to_sym, parent_id, options) }.
+            #         to raise_error(BigcommerceOAuthAPI::NonLegacyApi)
+            #   end
+            # else
               it "creates a #{api_module} with the given attributes for the given #{api_parent_module}" do
                 options = { name: 'A', description: 'B'}
                 parent_id = 5
@@ -128,21 +131,22 @@ describe BigcommerceOAuthAPI::Client do
                                                'X-Auth-Token' => 'SECRET_TOKEN'})).to have_been_made
                 end
               end
-            end
+            # end
           end
         end
 
         if nested_module[:methods].include?(:update)
           describe ".update_#{method_prefix}#{api_parent_module}_#{api_module}" do
-            if config_type == :legacy && !has_legacy_support
-              it 'should raise a non legacy api error' do
-                options = { name: 'A', description: 'B'}
-                id = 10
-                parent_id = 5
-                expect { @client.send("update_#{method_prefix}#{api_parent_module}_#{api_module}".to_sym, parent_id, id, options) }.
-                    to raise_error(BigcommerceOAuthAPI::NonLegacyApi)
-              end
-            else
+            # NOTICE! Currently all the nested APIs have legacy support
+            # if config_type == :legacy && !has_legacy_support
+            #   it 'should raise a non legacy api error' do
+            #     options = { name: 'A', description: 'B'}
+            #     id = 10
+            #     parent_id = 5
+            #     expect { @client.send("update_#{method_prefix}#{api_parent_module}_#{api_module}".to_sym, parent_id, id, options) }.
+            #         to raise_error(BigcommerceOAuthAPI::NonLegacyApi)
+            #   end
+            # else
               it "update the attributes of the #{api_module} with the given id for the #{api_parent_module}" do
                 id = 10
                 parent_id = 5
@@ -161,20 +165,21 @@ describe BigcommerceOAuthAPI::Client do
                                                'X-Auth-Token' => 'SECRET_TOKEN'})).to have_been_made
                 end
               end
-            end
+            # end
           end
         end
 
         if nested_module[:methods].include?(:delete)
           describe ".delete_#{method_prefix}#{api_parent_module}_#{api_module}" do
-            if config_type == :legacy && !has_legacy_support
-              it 'should raise a non legacy api error' do
-                id = 10
-                parent_id = 5
-                expect { @client.send("delete_#{method_prefix}#{api_parent_module}_#{api_module}".to_sym, parent_id, id) }.
-                    to raise_error(BigcommerceOAuthAPI::NonLegacyApi)
-              end
-            else
+            # NOTICE! Currently all the nested APIs have legacy support
+            # if config_type == :legacy && !has_legacy_support
+            #   it 'should raise a non legacy api error' do
+            #     id = 10
+            #     parent_id = 5
+            #     expect { @client.send("delete_#{method_prefix}#{api_parent_module}_#{api_module}".to_sym, parent_id, id) }.
+            #         to raise_error(BigcommerceOAuthAPI::NonLegacyApi)
+            #   end
+            # else
               it "deletes the #{api_module} with the given id for the #{api_parent_module}" do
                 id = 10
                 parent_id = 5
@@ -190,19 +195,20 @@ describe BigcommerceOAuthAPI::Client do
                                                'X-Auth-Token' => 'SECRET_TOKEN'})).to have_been_made
                 end
               end
-            end
+            # end
           end
         end
 
         if nested_module[:methods].include?(:count)
           describe ".#{method_prefix}#{api_parent_module}_#{api_module_pluralized}_count" do
-            if config_type == :legacy && !has_legacy_support
-              it 'should raise a non legacy api error' do
-                parent_id = 5
-                expect { @client.send("#{method_prefix}#{api_parent_module}_#{api_module_pluralized}_count".to_sym, parent_id) }.
-                    to raise_error(BigcommerceOAuthAPI::NonLegacyApi)
-              end
-            else
+            # NOTICE! Currently all the nested APIs have legacy support
+            # if config_type == :legacy && !has_legacy_support
+            #   it 'should raise a non legacy api error' do
+            #     parent_id = 5
+            #     expect { @client.send("#{method_prefix}#{api_parent_module}_#{api_module_pluralized}_count".to_sym, parent_id) }.
+            #         to raise_error(BigcommerceOAuthAPI::NonLegacyApi)
+            #   end
+            # else
               it "returns the number of #{api_module_pluralized} for the #{api_parent_module}" do
                 parent_id = 5
                 stub_get(@client, "#{path_prefix}#{api_parent_module_pluralized}/#{parent_id}/#{api_module_pluralized}/count").
@@ -217,7 +223,7 @@ describe BigcommerceOAuthAPI::Client do
                                                'X-Auth-Token' => 'SECRET_TOKEN'})).to have_been_made
                 end
               end
-            end
+            # end
           end
         end
       end
