@@ -4,8 +4,8 @@ Gem::Specification.new do |s|
   s.name        = 'bigcommerce-oauth-api'
   s.version     = BigcommerceOAuthAPI::VERSION.dup
   s.date        = '2015-04-19'
-  s.summary     = "Ruby client library for Bigcommerce APIs using OAuth and basic authentication"
-  s.description = "Connect Ruby applications with Bigcommerce APIs using OAuth and basic authentication"
+  s.summary     = "Ruby client library for Bigcommerce APIs with OAuth and basic authentication support"
+  s.description = "Connect Ruby applications to Bigcommerce APIs through OAuth or basic authentication"
   s.authors     = ["Christian Orthmann"]
   s.email       = 'christian.orthmann@gmail.com'
   s.require_path = 'lib'
