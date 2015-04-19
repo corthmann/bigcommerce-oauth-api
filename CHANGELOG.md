@@ -1,3 +1,14 @@
+### 1.2.0 (2015-04-19)
+
+Features:
+
+    - add legacy api support
+    - add omniref and revert to using rdoc
+
+Bugfixes:
+
+    - update geography apis
+
 ### 1.1.5 (2014-12-25)
 
 Features:
