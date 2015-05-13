@@ -8,9 +8,15 @@ module BigcommerceOAuthAPI
     def connection
       options = {
         :headers => {
-          'Accept' => "application/#{format}; charset=utf-8"
+          'Accept' => "application/#{format}; charset=utf-8",
+          'Content-Type' => "application/#{format}"
         }
       }
+
+      if !if_modified_since.nil?
+        options[:headers]['If-Modified-Since'] = if_modified_since.to_s
+      end
+
       if is_legacy?
         options[:url] = "#{endpoint}/api/v2/"
       else
