@@ -27,6 +27,20 @@ describe BigcommerceOAuthAPI::Request do
       end
     end
 
+    context 'given a request that returns an array' do
+      it 'should parse the response and into an array of resource objects' do
+        path = '/awesome/1/path/1'
+        options = [{ foo: 'bar', bar: { oof: 'rab' } }, { bar: 'bar', bar: { rab: 'rab' } }]
+        url = @client.send(:connection).build_url(path).to_s
+        stub_request(:get, url).to_return(:status => 200, :body => options.to_json, :headers => {
+                                                            content_type: 'application/json' })
+        expect(@client.get(path, {})).to eql(options.map { |entry| BigcommerceOAuthAPI::Resource.new(entry) } )
+        expect(a_request(:get, url).
+                   with(:headers => {'X-Auth-Client' => 'SECRET_ID',
+                                     'X-Auth-Token' => 'SECRET_TOKEN'})).to have_been_made
+      end
+    end
+
     context 'given a request that returns no content' do
       it 'returns nil' do
         path = '/awesome/1/path/1'
@@ -41,5 +55,18 @@ describe BigcommerceOAuthAPI::Request do
       end
     end
 
+    context 'given a request that returns not modified' do
+      it 'returns nil' do
+        path = '/awesome/1/path/1'
+        url = @client.send(:connection).build_url(path).to_s
+        stub_request(:get, url).to_return(:status => 304, :body => '', :headers => { content_type: 'application/json' })
+
+        expect(@client.get(path, {})).to be_nil
+        expect(a_request(:get, url).
+                   with(:headers => {'X-Auth-Client' => 'SECRET_ID',
+                                     'X-Auth-Token' => 'SECRET_TOKEN'})).to have_been_made
+
+      end
+    end
   end
 end
