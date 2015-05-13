@@ -8,8 +8,8 @@ module BigcommerceOAuthAPI
     def connection
       options = {
         :headers => {
-          'Accept' => "application/#{format}; charset=utf-8",
-          'Content-Type' => "application/#{format}"
+          'Accept' => "application/#{format}; charset=utf-8"#,
+          #'Content-Type' => "application/#{format}"
         }
       }
 
@@ -26,13 +26,14 @@ module BigcommerceOAuthAPI
       end
 
       Faraday::Connection.new(options) do |connection|
+        connection.request :json
         connection.use Faraday::Request::UrlEncoded
         if is_legacy?
           connection.use Faraday::Request::BasicAuthentication, user_name, api_key
         end
 
         case format.to_s.downcase
-        when 'json' then connection.use Faraday::Response::ParseJson
+        when 'json' then connection.response :json, :content_type => /\bjson$/
         end
         connection.use FaradayMiddleware::RaiseHttpException
         connection.adapter(adapter)
