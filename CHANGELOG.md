@@ -1,3 +1,13 @@
+### 1.2.1 (2015-05-14)
+
+Features:
+
+    - added support for 'If-Modified-Since' requests.
+
+Bugfixes:
+
+    - PUT/POST as json with content-type headers.
+
 ### 1.2.0 (2015-04-19)
 
 Features:

@@ -11,6 +11,11 @@ module BigcommerceOAuthAPI
           'Accept' => "application/#{format}; charset=utf-8"
         }
       }
+
+      if !if_modified_since.nil?
+        options[:headers]['If-Modified-Since'] = if_modified_since.to_s
+      end
+
       if is_legacy?
         options[:url] = "#{endpoint}/api/v2/"
       else
@@ -20,13 +25,14 @@ module BigcommerceOAuthAPI
       end
 
       Faraday::Connection.new(options) do |connection|
+        connection.request :json
         connection.use Faraday::Request::UrlEncoded
         if is_legacy?
           connection.use Faraday::Request::BasicAuthentication, user_name, api_key
         end
 
         case format.to_s.downcase
-        when 'json' then connection.use Faraday::Response::ParseJson
+        when 'json' then connection.response :json, :content_type => /\bjson$/
         end
         connection.use FaradayMiddleware::RaiseHttpException
         connection.adapter(adapter)

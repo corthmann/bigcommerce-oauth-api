@@ -36,6 +36,7 @@ module BigcommerceOAuthAPI
               :access_token => 'd',
               :adapter => 'e',
               :store_hash => 'f',
+              :if_modified_since => 'i',
               :user_name => 'g',
               :api_key => 'h',
           }

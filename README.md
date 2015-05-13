@@ -52,6 +52,8 @@ api = BigcommerceOAuthAPI::Client.new(
                                 )
 ```
 
+Starting from v1.2.1 `bigcommerce-oauth-api` supports the `If-Modified-Since` header described on https://developer.bigcommerce.com/api/req-headers. As all other configurations, the header can be set with both module and instance configuration using the key `if_modified_since`.
+
 Using the API
 -------------
 It is recommended to use the Omniref documentation as a method reference in combination the official api documentation.
