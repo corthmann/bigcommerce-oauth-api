@@ -32,7 +32,7 @@ module BigcommerceOAuthAPI
         end
       end
 
-      if response.status == 204
+      if response.status == 204 || response.status == 304
         nil
       elsif response.body.is_a?(Array)
         response.body.map { |resource| Resource.new(resource) }

@@ -8,8 +8,7 @@ module BigcommerceOAuthAPI
     def connection
       options = {
         :headers => {
-          'Accept' => "application/#{format}; charset=utf-8"#,
-          #'Content-Type' => "application/#{format}"
+          'Accept' => "application/#{format}; charset=utf-8"
         }
       }
 
