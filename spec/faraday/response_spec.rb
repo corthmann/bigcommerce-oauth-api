@@ -23,7 +23,8 @@ describe Faraday::Response do
       501 => BigcommerceOAuthAPI::NotImplemented,
       502 => BigcommerceOAuthAPI::BadGateway,
       503 => BigcommerceOAuthAPI::ServiceUnavailable,
-      507 => BigcommerceOAuthAPI::InsufficientStorage
+      507 => BigcommerceOAuthAPI::InsufficientStorage,
+      509 => BigcommerceOAuthAPI::BandwidthLimitExceeded
   }.each do |status, exception|
     context "when HTTP status is #{status}" do
       before do

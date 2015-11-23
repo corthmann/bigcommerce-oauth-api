@@ -50,6 +50,10 @@ module BigcommerceOAuthAPI
   # 507 HTTP
   class InsufficientStorage < Error; end
 
+  # 509 HTTP (deprecated)
+  # Returned to apps using Basic Authentication that have exceeded their rate limits.
+  class BandwidthLimitExceeded < Error; end
+
   # Raised if the client attempts to define an api method that already is defined elsewhere.
   # Specs will catch this type of error since it will be thrown upon initialization.
   class MethodAlreadyDefinedError < Error; end

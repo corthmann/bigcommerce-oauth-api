@@ -20,6 +20,7 @@ module FaradayMiddleware
           when 502 then raise BigcommerceOAuthAPI::BadGateway,             response[:body]
           when 503 then raise BigcommerceOAuthAPI::ServiceUnavailable,     response[:body]
           when 507 then raise BigcommerceOAuthAPI::InsufficientStorage,    response[:body]
+          when 509 then raise BigcommerceOAuthAPI::BandwidthLimitExceeded, response[:body]
         end
       end
     end
