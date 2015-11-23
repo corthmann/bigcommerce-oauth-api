@@ -7,7 +7,7 @@ module BigcommerceOAuthAPI
     protected
 
     def self.with_api_methods(map)
-      map.each do |api, method_description|
+      map.each do |_, method_description|
         api_module = method_description[:api_module]
         api_scope = method_description[:scope]
         is_legacy = (method_description[:legacy].nil? ? true : method_description[:legacy])

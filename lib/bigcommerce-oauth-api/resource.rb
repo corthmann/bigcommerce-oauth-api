@@ -31,9 +31,8 @@ module BigcommerceOAuthAPI
     end
 
     def method_missing(method_sym, *arguments)
-      method_name = method_sym.to_s
-      attribute_name = method_name.gsub(/(\?$)|(=$)/, '')
-      if @attributes.include?(method_name.to_sym)
+      if @attributes.include?(method_sym)
+        attribute_name = method_sym.to_s.gsub(/(\?$)|(=$)/, '')
         self.instance_eval build_attribute_getter(attribute_name)
         send(method_sym, *arguments)
       else

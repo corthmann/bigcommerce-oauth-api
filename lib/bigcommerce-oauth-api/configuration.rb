@@ -11,6 +11,7 @@ module BigcommerceOAuthAPI
         :access_token,
         :format,
         :if_modified_since,
+        :typecast_to_resource,
         # legacy authentication
         :user_name,
         :api_key
@@ -23,6 +24,7 @@ module BigcommerceOAuthAPI
     DEFAULT_FORMAT = :json
     DEFAULT_ADAPTER = Faraday.default_adapter
     DEFAULT_IF_MODIFIED_SINCE = nil
+    DEFAULT_TYPECAST_TO_RESOURCE = true # if set to false then response-objects with be of type Hash.
     DEFAULT_USER_NAME = nil
     DEFAULT_API_KEY = nil
 
@@ -40,6 +42,7 @@ module BigcommerceOAuthAPI
       self.access_token = DEFAULT_ACCESS_TOKEN
       self.adapter = DEFAULT_ADAPTER
       self.if_modified_since = DEFAULT_IF_MODIFIED_SINCE
+      self.typecast_to_resource = DEFAULT_TYPECAST_TO_RESOURCE
       self.user_name = DEFAULT_USER_NAME
       self.api_key = DEFAULT_API_KEY
     end
