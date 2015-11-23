@@ -40,6 +40,8 @@ module BigcommerceOAuthAPI
               :typecast_to_resource => 'j',
               :user_name => 'g',
               :api_key => 'h',
+              :timeout => 'k',
+              :open_timeout => 'l'
           }
         end
 

@@ -27,6 +27,9 @@ module BigcommerceOAuthAPI
       Faraday::Connection.new(options) do |connection|
         connection.request :json
         connection.use Faraday::Request::UrlEncoded
+        connection.options.timeout =  10 # open/read timeout in seconds
+        connection.options.open_timeout = 10 # connection open timeout in seconds
+
         if is_legacy?
           connection.use Faraday::Request::BasicAuthentication, user_name, api_key
         end
