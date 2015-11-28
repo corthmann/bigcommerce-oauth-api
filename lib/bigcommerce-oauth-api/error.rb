@@ -61,4 +61,3 @@ module BigcommerceOAuthAPI
   # Raised if the client attempts to use a non-legacy api with a legacy configuration.
   class NonLegacyApi < Error; end
 end
-
