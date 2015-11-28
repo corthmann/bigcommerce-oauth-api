@@ -1,3 +1,15 @@
+### 1.3.0 (2015-11-28)
+
+Features:
+
+    - added configuration to opt-out of using BigcommerceOAuthAPI::Resource.
+    - added configuration to set faraday timeout options.
+    - remove omniref and revert to using yard documentation.
+
+Bugfixes:
+
+    - add handling of Bandwidth Limit Exceeded errors.
+
 ### 1.2.1 (2015-05-14)
 
 Features:

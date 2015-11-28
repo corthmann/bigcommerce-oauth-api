@@ -1,6 +1,5 @@
 bigcommerce-oauth-api
 ==========================
-[![bigcommerce-oauth-api API Documentation](https://www.omniref.com/ruby/gems/bigcommerce-oauth-api.png)](https://www.omniref.com/ruby/gems/bigcommerce-oauth-api)
 [![Gem Version](https://badge.fury.io/rb/bigcommerce-oauth-api.svg)](http://badge.fury.io/rb/bigcommerce-oauth-api)
 [![Code Climate](https://codeclimate.com/github/corthmann/bigcommerce-oauth-api/badges/gpa.svg)](https://codeclimate.com/github/corthmann/bigcommerce-oauth-api)
 [![Test Coverage](https://codeclimate.com/github/corthmann/bigcommerce-oauth-api/badges/coverage.svg)](https://codeclimate.com/github/corthmann/bigcommerce-oauth-api)
@@ -54,9 +53,11 @@ api = BigcommerceOAuthAPI::Client.new(
 
 Starting from v1.2.1 `bigcommerce-oauth-api` supports the `If-Modified-Since` header described on https://developer.bigcommerce.com/api/req-headers. As all other configurations, the header can be set with both module and instance configuration using the key `if_modified_since`.
 
+Starting from v1.3.0 `bigcommerce-oauth-api` allows you to opt-out of using `BigcommerceOAuthAPI::Resource` through the `typecast_to_resource` configuration. Setting this configuration to `false` ensures that any response object will be of type `Hash` instead of `BigcommerceOAuthAPI::Resource`.
+
 Using the API
 -------------
-It is recommended to use the Omniref documentation as a method reference in combination the official api documentation.
+It is recommended to use this documentation in combination the official api documentation on https://developer.bigcommerce.com/api/
 
 Get a list of products:
 ```
@@ -164,10 +165,10 @@ web hook | 1.0.2 | https://developer.bigcommerce.com/api/stores/v2/webhooks
 
 Getting an OAuth Access Token
 -------------
-Currently the Bigcommerce API is only focused on making the OAuth API available for 3rd party development through Apps.
-This is quite frustrating especially if you want to use the API to make custom integrations for your webshop.
+The Bigcommerce API focused on making OAuth available for 3rd party development through Apps.
+Bigcommerce currently recommends using basic authentication when developing custom (private) integrations for your webshop.
 
-However, it is actually possible to aquire access tokens without publishing an App for Bigcommerce.
+However, it is actually possible to aquire access tokens without publishing an App for Bigcommerce by following these steps:
 
 1.  Go to http://developer.bigcommerce.com
 

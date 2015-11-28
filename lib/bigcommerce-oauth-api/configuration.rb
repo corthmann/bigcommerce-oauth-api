@@ -6,14 +6,19 @@ module BigcommerceOAuthAPI
     VALID_OPTIONS_KEYS = [
         :store_hash,
         :endpoint,
-        :adapter,
         :client_id,
         :access_token,
         :format,
         :if_modified_since,
         # legacy authentication
         :user_name,
-        :api_key
+        :api_key,
+        # connection / faraday
+        :adapter,
+        :timeout,
+        :open_timeout,
+        # library
+        :typecast_to_resource
     ].freeze
 
     DEFAULT_STORE_HASH = nil
@@ -23,8 +28,11 @@ module BigcommerceOAuthAPI
     DEFAULT_FORMAT = :json
     DEFAULT_ADAPTER = Faraday.default_adapter
     DEFAULT_IF_MODIFIED_SINCE = nil
+    DEFAULT_TYPECAST_TO_RESOURCE = true # if set to false then response-objects with be of type Hash.
     DEFAULT_USER_NAME = nil
     DEFAULT_API_KEY = nil
+    DEFAULT_TIMEOUT = 5
+    DEFAULT_OPEN_TIMEOUT = 2
 
     attr_accessor *VALID_OPTIONS_KEYS
 
@@ -40,8 +48,11 @@ module BigcommerceOAuthAPI
       self.access_token = DEFAULT_ACCESS_TOKEN
       self.adapter = DEFAULT_ADAPTER
       self.if_modified_since = DEFAULT_IF_MODIFIED_SINCE
+      self.typecast_to_resource = DEFAULT_TYPECAST_TO_RESOURCE
       self.user_name = DEFAULT_USER_NAME
       self.api_key = DEFAULT_API_KEY
+      self.timeout = DEFAULT_TIMEOUT
+      self.open_timeout = DEFAULT_OPEN_TIMEOUT
     end
 
     def configure

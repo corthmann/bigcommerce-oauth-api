@@ -59,1090 +59,723 @@ module BigcommerceOAuthAPI
                      :tax_class => { api_module: :tax_class, scope: :self, methods: [:all, :select]},
                      :web_hook => { api_module: :hook, scope: :self, methods: [:all, :select, :create, :update, :delete], legacy: false }
 
-    ##
-    # :method: blog_posts
+    # @!method blog_posts(options = {})
+    # @param [Hash] options the filters for the posts
     # gets a list of posts
-    #
-    # :call-seq:
-    #   blog_posts(options = {})
 
-    ##
-    # :method: blog_post
+    # @!method blog_post(id, options = {})
+    # @param [Integer] id the identifier for the post
     # gets the post with the given id
-    #
-    # :call-seq:
-    #   blog_post(id, options = {})
 
-    ##
-    # :method: create_blog_post
+    # @!method create_blog_post(options = {})
+    # @param [Hash] options the attributes for the post
     # creates a post with the given attributes
-    #
-    # :call-seq:
-    #   create_blog_post(options = {})
 
-    ##
-    # :method: update_blog_post
+    # @!method update_blog_post(id, options = {})
+    # @param [Integer] id the identifier for the post
+    # @param [Hash] options the attributes for the post
     # update the attributes of the post with the given id
-    #
-    # :call-seq:
-    #   update_blog_post(id, options = {})
 
-    ##
-    # :method: delete_blog_post
+    # @!method delete_blog_post(id)
+    # @param [Integer] id the identifier for the post
     # deletes the post with the given id
-    #
-    # :call-seq:
-    #   delete_blog_post(id)
 
-    ##
-    # :method: blog_tags
+    # @!method blog_tags(options = {})
+    # @param [Hash] options the filters for the tags
     # gets a list of tags
-    #
-    # :call-seq:
-    #   blog_tags(options = {})
 
-    ##
-    # :method: brands
+    # @!method brands(options = {})
+    # @param [Hash] options the filters for the brands
     # gets a list of brands
-    #
-    # :call-seq:
-    #   brands(options = {})
 
-    ##
-    # :method: brand
+    # @!method brand(id, options = {})
+    # @param [Integer] id the identifier for the brand
     # gets the brand with the given id
-    #
-    # :call-seq:
-    #   brand(id, options = {})
 
-    ##
-    # :method: create_brand
+    # @!method create_brand(options = {})
+    # @param [Hash] options the attributes for the brand
     # creates a brand with the given attributes
-    #
-    # :call-seq:
-    #   create_brand(options = {})
 
-    ##
-    # :method: update_brand
+    # @!method update_brand(id, options = {})
+    # @param [Integer] id the identifier for the brand
+    # @param [Hash] options the attributes for the brand
     # update the attributes of the brand with the given id
-    #
-    # :call-seq:
-    #   update_brand(id, options = {})
 
-    ##
-    # :method: delete_brand
+    # @!method delete_brand(id)
+    # @param [Integer] id the identifier for the brand
     # deletes the brand with the given id
-    #
-    # :call-seq:
-    #   delete_brand(id)
 
-    ##
-    # :method: brands_count
+    # @!method brands_count(options = {})
+    # @param [Hash] options the filters for the brands
     # returns the number of brands
-    #
-    # :call-seq:
-    #   brands_count(options = {})
 
-    ##
-    # :method: categories
+    # @!method categories(options = {})
+    # @param [Hash] options the filters for the categories
     # gets a list of categories
-    #
-    # :call-seq:
-    #   categories(options = {})
 
-    ##
-    # :method: category
+    # @!method category(id, options = {})
+    # @param [Integer] id the identifier for the category
     # gets the category with the given id
-    #
-    # :call-seq:
-    #   category(id, options = {})
 
-    ##
-    # :method: create_category
+    # @!method create_category(options = {})
+    # @param [Hash] options the attributes for the category
     # creates a category with the given attributes
-    #
-    # :call-seq:
-    #   create_category(options = {})
 
-    ##
-    # :method: update_category
+    # @!method update_category(id, options = {})
+    # @param [Integer] id the identifier for the category
+    # @param [Hash] options the attributes for the category
     # update the attributes of the category with the given id
-    #
-    # :call-seq:
-    #   update_category(id, options = {})
 
-    ##
-    # :method: delete_category
+    # @!method delete_category(id)
+    # @param [Integer] id the identifier for the category
     # deletes the category with the given id
-    #
-    # :call-seq:
-    #   delete_category(id)
 
-    ##
-    # :method: customers
+    # @!method customers(options = {})
+    # @param [Hash] options the filters for the customers
     # gets a list of customers
-    #
-    # :call-seq:
-    #   customers(options = {})
 
-    ##
-    # :method: customer
+    # @!method customer(id, options = {})
+    # @param [Integer] id the identifier for the customer
     # gets the customer with the given id
-    #
-    # :call-seq:
-    #   customer(id, options = {})
 
-    ##
-    # :method: create_customer
+    # @!method create_customer(options = {})
+    # @param [Hash] options the attributes for the customer
     # creates a customer with the given attributes
-    #
-    # :call-seq:
-    #   create_customer(options = {})
 
-    ##
-    # :method: update_customer
+    # @!method update_customer(id, options = {})
+    # @param [Integer] id the identifier for the customer
+    # @param [Hash] options the attributes for the customer
     # update the attributes of the customer with the given id
-    #
-    # :call-seq:
-    #   update_customer(id, options = {})
 
-    ##
-    # :method: delete_customer
+    # @!method delete_customer(id)
+    # @param [Integer] id the identifier for the customer
     # deletes the customer with the given id
-    #
-    # :call-seq:
-    #   delete_customer(id)
 
-    ##
-    # :method: customers_count
+    # @!method customers_count(options = {})
+    # @param [Hash] options the filters for the customers
     # returns the number of customers
-    #
-    # :call-seq:
-    #   customers_count(options = {})
 
-    ##
-    # :method: customer_addresses
+    # @!method customer_addresses(customer_id, options = {})
+    # @param [Integer] customer_id the identifier for the customer
+    # @param [Hash] options the filters for the addresses
     # gets a list of addresses for the given customer
-    #
-    # :call-seq:
-    #   customer_addresses(customer_id, options = {})
 
-    ##
-    # :method: customer_address
+    # @!method customer_address(customer_id, id, options = {})
+    # @param [Integer] id the identifier for the address
+    # @param [Integer] customer_id the identifier for the customer
     # gets the address with the given id for the given customer
-    #
-    # :call-seq:
-    #   customer_address(customer_id, id, options = {})
 
-    ##
-    # :method: create_customer_address
+    # @!method create_customer_address(customer_id, options = {})
+    # @param [Integer] customer_id the identifier for the customer
+    # @param [Hash] options the attributes for the address
     # creates a address with the given attributes for the given customer
-    #
-    # :call-seq:
-    #   create_customer_address(customer_id, options = {})
 
-    ##
-    # :method: update_customer_address
+    # @!method update_customer_address(customer_id, id, options = {})
+    # @param [Integer] id the identifier for the address
+    # @param [Integer] customer_id the identifier for the customer
+    # @param [Hash] options the attributes for the address
     # update the attributes of the address with the given id for the given customer
-    #
-    # :call-seq:
-    #   update_customer_address(customer_id, id, options = {})
 
-    ##
-    # :method: delete_customer_address
+    # @!method delete_customer_address(customer_id, id)
+    # @param [Integer] id the identifier for the address
+    # @param [Integer] customer_id the identifier for the customer
     # deletes the address with the given id for the given customer
-    #
-    # :call-seq:
-    #   delete_customer_address(customer_id, id)
 
-    ##
-    # :method: customer_groups
+    # @!method customer_groups(options = {})
+    # @param [Hash] options the filters for the customer_groups
     # gets a list of customer_groups
-    #
-    # :call-seq:
-    #   customer_groups(options = {})
 
-    ##
-    # :method: customer_group
+    # @!method customer_group(id, options = {})
+    # @param [Integer] id the identifier for the customer_group
     # gets the customer_group with the given id
-    #
-    # :call-seq:
-    #   customer_group(id, options = {})
 
-    ##
-    # :method: create_customer_group
+    # @!method create_customer_group(options = {})
+    # @param [Hash] options the attributes for the customer_group
     # creates a customer_group with the given attributes
-    #
-    # :call-seq:
-    #   create_customer_group(options = {})
 
-    ##
-    # :method: update_customer_group
+    # @!method update_customer_group(id, options = {})
+    # @param [Integer] id the identifier for the customer_group
+    # @param [Hash] options the attributes for the customer_group
     # update the attributes of the customer_group with the given id
-    #
-    # :call-seq:
-    #   update_customer_group(id, options = {})
 
-    ##
-    # :method: delete_customer_group
+    # @!method delete_customer_group(id)
+    # @param [Integer] id the identifier for the customer_group
     # deletes the customer_group with the given id
-    #
-    # :call-seq:
-    #   delete_customer_group(id)
 
-    ##
-    # :method: countries
+    # @!method countries(options = {})
+    # @param [Hash] options the filters for the countries
     # gets a list of countries
-    #
-    # :call-seq:
-    #   countries(options = {})
 
-    ##
-    # :method: country
+    # @!method country(id, options = {})
+    # @param [Integer] id the identifier for the country
     # gets the country with the given id
-    #
-    # :call-seq:
-    #   country(id, options = {})
 
-    ##
-    # :method: countries_count
+    # @!method countries_count(options = {})
+    # @param [Hash] options the filters for the countries
     # returns the number of countries
-    #
-    # :call-seq:
-    #   countries_count(options = {})
 
-    ##
-    # :method: country_states
+    # @!method country_states(country_id, options = {})
+    # @param [Integer] country_id the identifier for the country
+    # @param [Hash] options the filters for the states
     # gets a list of states for the given country
-    #
-    # :call-seq:
-    #   country_states(country_id, options = {})
 
-    ##
-    # :method: country_state
+    # @!method country_state(country_id, id, options = {})
+    # @param [Integer] id the identifier for the state
+    # @param [Integer] country_id the identifier for the country
     # gets the state with the given id for the given country
-    #
-    # :call-seq:
-    #   country_state(country_id, id, options = {})
 
-    ##
-    # :method: country_states_count
+    # @!method country_states_count(country_id, options = {})
+    # @param [Integer] country_id the identifier for the country
+    # @param [Hash] options the filters for the states
     # returns the number of states for the given country
-    #
-    # :call-seq:
-    #   country_states_count(country_id, options = {})
 
-    ##
-    # :method: coupons
+    # @!method coupons(options = {})
+    # @param [Hash] options the filters for the coupons
     # gets a list of coupons
-    #
-    # :call-seq:
-    #   coupons(options = {})
 
-    ##
-    # :method: coupon
+    # @!method coupon(id, options = {})
+    # @param [Integer] id the identifier for the coupon
     # gets the coupon with the given id
-    #
-    # :call-seq:
-    #   coupon(id, options = {})
 
-    ##
-    # :method: create_coupon
+    # @!method create_coupon(options = {})
+    # @param [Hash] options the attributes for the coupon
     # creates a coupon with the given attributes
-    #
-    # :call-seq:
-    #   create_coupon(options = {})
 
-    ##
-    # :method: update_coupon
+    # @!method update_coupon(id, options = {})
+    # @param [Integer] id the identifier for the coupon
+    # @param [Hash] options the attributes for the coupon
     # update the attributes of the coupon with the given id
-    #
-    # :call-seq:
-    #   update_coupon(id, options = {})
 
-    ##
-    # :method: delete_coupon
+    # @!method delete_coupon(id)
+    # @param [Integer] id the identifier for the coupon
     # deletes the coupon with the given id
-    #
-    # :call-seq:
-    #   delete_coupon(id)
 
-    ##
-    # :method: coupons_count
+    # @!method coupons_count(options = {})
+    # @param [Hash] options the filters for the coupons
     # returns the number of coupons
-    #
-    # :call-seq:
-    #   coupons_count(options = {})
 
-    ##
-    # :method: options
+    # @!method options(options = {})
+    # @param [Hash] options the filters for the options
     # gets a list of options
-    #
-    # :call-seq:
-    #   options(options = {})
 
-    ##
-    # :method: option
+    # @!method option(id, options = {})
+    # @param [Integer] id the identifier for the option
     # gets the option with the given id
-    #
-    # :call-seq:
-    #   option(id, options = {})
 
-    ##
-    # :method: create_option
+    # @!method create_option(options = {})
+    # @param [Hash] options the attributes for the option
     # creates a option with the given attributes
-    #
-    # :call-seq:
-    #   create_option(options = {})
 
-    ##
-    # :method: update_option
+    # @!method update_option(id, options = {})
+    # @param [Integer] id the identifier for the option
+    # @param [Hash] options the attributes for the option
     # update the attributes of the option with the given id
-    #
-    # :call-seq:
-    #   update_option(id, options = {})
 
-    ##
-    # :method: delete_option
+    # @!method delete_option(id)
+    # @param [Integer] id the identifier for the option
     # deletes the option with the given id
-    #
-    # :call-seq:
-    #   delete_option(id)
 
-    ##
-    # :method: options_count
+    # @!method options_count(options = {})
+    # @param [Hash] options the filters for the options
     # returns the number of options
-    #
-    # :call-seq:
-    #   options_count(options = {})
 
-    ##
-    # :method: option_sets
+    # @!method option_sets(options = {})
+    # @param [Hash] options the filters for the option_sets
     # gets a list of option_sets
-    #
-    # :call-seq:
-    #   option_sets(options = {})
 
-    ##
-    # :method: option_set
+    # @!method option_set(id, options = {})
+    # @param [Integer] id the identifier for the option_set
     # gets the option_set with the given id
-    #
-    # :call-seq:
-    #   option_set(id, options = {})
 
-    ##
-    # :method: create_option_set
+    # @!method create_option_set(options = {})
+    # @param [Hash] options the attributes for the option_set
     # creates a option_set with the given attributes
-    #
-    # :call-seq:
-    #   create_option_set(options = {})
 
-    ##
-    # :method: update_option_set
+    # @!method update_option_set(id, options = {})
+    # @param [Integer] id the identifier for the option_set
+    # @param [Hash] options the attributes for the option_set
     # update the attributes of the option_set with the given id
-    #
-    # :call-seq:
-    #   update_option_set(id, options = {})
 
-    ##
-    # :method: delete_option_set
+    # @!method delete_option_set(id)
+    # @param [Integer] id the identifier for the option_set
     # deletes the option_set with the given id
-    #
-    # :call-seq:
-    #   delete_option_set(id)
 
-    ##
-    # :method: option_sets_count
+    # @!method option_sets_count(options = {})
+    # @param [Hash] options the filters for the option_sets
     # returns the number of option_sets
-    #
-    # :call-seq:
-    #   option_sets_count(options = {})
 
-    ##
-    # :method: option_set_options
+    # @!method option_set_options(option_set_id, options = {})
+    # @param [Integer] option_set_id the identifier for the option_set
+    # @param [Hash] options the filters for the options
     # gets a list of options for the given option_set
-    #
-    # :call-seq:
-    #   option_set_options(option_set_id, options = {})
 
-    ##
-    # :method: option_set_option
+    # @!method option_set_option(option_set_id, id, options = {})
+    # @param [Integer] id the identifier for the option
+    # @param [Integer] option_set_id the identifier for the option_set
     # gets the option with the given id for the given option_set
-    #
-    # :call-seq:
-    #   option_set_option(option_set_id, id, options = {})
 
-    ##
-    # :method: create_option_set_option
+    # @!method create_option_set_option(option_set_id, options = {})
+    # @param [Integer] option_set_id the identifier for the option_set
+    # @param [Hash] options the attributes for the option
     # creates a option with the given attributes for the given option_set
-    #
-    # :call-seq:
-    #   create_option_set_option(option_set_id, options = {})
 
-    ##
-    # :method: update_option_set_option
+    # @!method update_option_set_option(option_set_id, id, options = {})
+    # @param [Integer] id the identifier for the option
+    # @param [Integer] option_set_id the identifier for the option_set
+    # @param [Hash] options the attributes for the option
     # update the attributes of the option with the given id for the given option_set
-    #
-    # :call-seq:
-    #   update_option_set_option(option_set_id, id, options = {})
 
-    ##
-    # :method: delete_option_set_option
+    # @!method delete_option_set_option(option_set_id, id)
+    # @param [Integer] id the identifier for the option
+    # @param [Integer] option_set_id the identifier for the option_set
     # deletes the option with the given id for the given option_set
-    #
-    # :call-seq:
-    #   delete_option_set_option(option_set_id, id)
 
-    ##
-    # :method: option_values
+    # @!method option_values(option_id, options = {})
+    # @param [Integer] option_id the identifier for the option
+    # @param [Hash] options the filters for the values
     # gets a list of values for the given option
-    #
-    # :call-seq:
-    #   option_values(option_id, options = {})
 
-    ##
-    # :method: option_value
+    # @!method option_value(option_id, id, options = {})
+    # @param [Integer] id the identifier for the value
+    # @param [Integer] option_id the identifier for the option
     # gets the value with the given id for the given option
-    #
-    # :call-seq:
-    #   option_value(option_id, id, options = {})
 
-    ##
-    # :method: create_option_value
+    # @!method create_option_value(option_id, options = {})
+    # @param [Integer] option_id the identifier for the option
+    # @param [Hash] options the attributes for the value
     # creates a value with the given attributes for the given option
-    #
-    # :call-seq:
-    #   create_option_value(option_id, options = {})
 
-    ##
-    # :method: update_option_value
+    # @!method update_option_value(option_id, id, options = {})
+    # @param [Integer] id the identifier for the value
+    # @param [Integer] option_id the identifier for the option
+    # @param [Hash] options the attributes for the value
     # update the attributes of the value with the given id for the given option
-    #
-    # :call-seq:
-    #   update_option_value(option_id, id, options = {})
 
-    ##
-    # :method: delete_option_value
+    # @!method delete_option_value(option_id, id)
+    # @param [Integer] id the identifier for the value
+    # @param [Integer] option_id the identifier for the option
     # deletes the value with the given id for the given option
-    #
-    # :call-seq:
-    #   delete_option_value(option_id, id)
 
-    ##
-    # :method: order_statuses
+    # @!method order_statuses(options = {})
+    # @param [Hash] options the filters for the order_statuses
     # gets a list of order_statuses
-    #
-    # :call-seq:
-    #   order_statuses(options = {})
 
-    ##
-    # :method: order_status
+    # @!method order_status(id, options = {})
+    # @param [Integer] id the identifier for the order_status
     # gets the order_status with the given id
-    #
-    # :call-seq:
-    #   order_status(id, options = {})
 
-    ##
-    # :method: orders
+    # @!method orders(options = {})
+    # @param [Hash] options the filters for the orders
     # gets a list of orders
-    #
-    # :call-seq:
-    #   orders(options = {})
 
-    ##
-    # :method: order
+    # @!method order(id, options = {})
+    # @param [Integer] id the identifier for the order
     # gets the order with the given id
-    #
-    # :call-seq:
-    #   order(id, options = {})
 
-    ##
-    # :method: create_order
+    # @!method create_order(options = {})
+    # @param [Hash] options the attributes for the order
     # creates a order with the given attributes
-    #
-    # :call-seq:
-    #   create_order(options = {})
 
-    ##
-    # :method: update_order
+    # @!method update_order(id, options = {})
+    # @param [Integer] id the identifier for the order
+    # @param [Hash] options the attributes for the order
     # update the attributes of the order with the given id
-    #
-    # :call-seq:
-    #   update_order(id, options = {})
 
-    ##
-    # :method: delete_order
+    # @!method delete_order(id)
+    # @param [Integer] id the identifier for the order
     # deletes the order with the given id
-    #
-    # :call-seq:
-    #   delete_order(id)
 
-    ##
-    # :method: orders_count
+    # @!method orders_count(options = {})
+    # @param [Hash] options the filters for the orders
     # returns the number of orders
-    #
-    # :call-seq:
-    #   orders_count(options = {})
 
-    ##
-    # :method: order_coupons
+    # @!method order_coupons(order_id, options = {})
+    # @param [Integer] order_id the identifier for the order
+    # @param [Hash] options the filters for the coupons
     # gets a list of coupons for the given order
-    #
-    # :call-seq:
-    #   order_coupons(order_id, options = {})
 
-    ##
-    # :method: order_coupon
+    # @!method order_coupon(order_id, id, options = {})
+    # @param [Integer] id the identifier for the coupon
+    # @param [Integer] order_id the identifier for the order
     # gets the coupon with the given id for the given order
-    #
-    # :call-seq:
-    #   order_coupon(order_id, id, options = {})
 
-    ##
-    # :method: order_messages
+    # @!method order_messages(order_id, options = {})
+    # @param [Integer] order_id the identifier for the order
+    # @param [Hash] options the filters for the messages
     # gets a list of messages for the given order
-    #
-    # :call-seq:
-    #   order_messages(order_id, options = {})
 
-    ##
-    # :method: order_message
+    # @!method order_message(order_id, id, options = {})
+    # @param [Integer] id the identifier for the message
+    # @param [Integer] order_id the identifier for the order
     # gets the message with the given id for the given order
-    #
-    # :call-seq:
-    #   order_message(order_id, id, options = {})
 
-    ##
-    # :method: order_products
+    # @!method order_products(order_id, options = {})
+    # @param [Integer] order_id the identifier for the order
+    # @param [Hash] options the filters for the products
     # gets a list of products for the given order
-    #
-    # :call-seq:
-    #   order_products(order_id, options = {})
 
-    ##
-    # :method: order_product
+    # @!method order_product(order_id, id, options = {})
+    # @param [Integer] id the identifier for the product
+    # @param [Integer] order_id the identifier for the order
     # gets the product with the given id for the given order
-    #
-    # :call-seq:
-    #   order_product(order_id, id, options = {})
 
-    ##
-    # :method: order_products_count
+    # @!method order_products_count(order_id, options = {})
+    # @param [Integer] order_id the identifier for the order
+    # @param [Hash] options the filters for the products
     # returns the number of products for the given order
-    #
-    # :call-seq:
-    #   order_products_count(order_id, options = {})
 
-    ##
-    # :method: order_shipments
+    # @!method order_shipments(order_id, options = {})
+    # @param [Integer] order_id the identifier for the order
+    # @param [Hash] options the filters for the shipments
     # gets a list of shipments for the given order
-    #
-    # :call-seq:
-    #   order_shipments(order_id, options = {})
 
-    ##
-    # :method: order_shipment
+    # @!method order_shipment(order_id, id, options = {})
+    # @param [Integer] id the identifier for the shipment
+    # @param [Integer] order_id the identifier for the order
     # gets the shipment with the given id for the given order
-    #
-    # :call-seq:
-    #   order_shipment(order_id, id, options = {})
 
-    ##
-    # :method: create_order_shipment
+    # @!method create_order_shipment(order_id, options = {})
+    # @param [Integer] order_id the identifier for the order
+    # @param [Hash] options the attributes for the shipment
     # creates a shipment with the given attributes for the given order
-    #
-    # :call-seq:
-    #   create_order_shipment(order_id, options = {})
 
-    ##
-    # :method: update_order_shipment
+    # @!method update_order_shipment(order_id, id, options = {})
+    # @param [Integer] id the identifier for the shipment
+    # @param [Integer] order_id the identifier for the order
+    # @param [Hash] options the attributes for the shipment
     # update the attributes of the shipment with the given id for the given order
-    #
-    # :call-seq:
-    #   update_order_shipment(order_id, id, options = {})
 
-    ##
-    # :method: delete_order_shipment
+    # @!method delete_order_shipment(order_id, id)
+    # @param [Integer] id the identifier for the shipment
+    # @param [Integer] order_id the identifier for the order
     # deletes the shipment with the given id for the given order
-    #
-    # :call-seq:
-    #   delete_order_shipment(order_id, id)
 
-    ##
-    # :method: order_shipping_addresses
+    # @!method order_shipping_addresses(order_id, options = {})
+    # @param [Integer] order_id the identifier for the order
+    # @param [Hash] options the filters for the shipping_addresses
     # gets a list of shipping_addresses for the given order
-    #
-    # :call-seq:
-    #   order_shipping_addresses(order_id, options = {})
 
-    ##
-    # :method: order_shipping_address
+    # @!method order_shipping_address(order_id, id, options = {})
+    # @param [Integer] id the identifier for the shipping_address
+    # @param [Integer] order_id the identifier for the order
     # gets the shipping_address with the given id for the given order
-    #
-    # :call-seq:
-    #   order_shipping_address(order_id, id, options = {})
 
-    ##
-    # :method: order_taxes
+    # @!method order_taxes(order_id, options = {})
+    # @param [Integer] order_id the identifier for the order
+    # @param [Hash] options the filters for the taxes
     # gets a list of taxes for the given order
-    #
-    # :call-seq:
-    #   order_taxes(order_id, options = {})
 
-    ##
-    # :method: order_tax
+    # @!method order_tax(order_id, id, options = {})
+    # @param [Integer] id the identifier for the tax
+    # @param [Integer] order_id the identifier for the order
     # gets the tax with the given id for the given order
-    #
-    # :call-seq:
-    #   order_tax(order_id, id, options = {})
 
-    ##
-    # :method: payment_methods
+    # @!method payment_methods(options = {})
+    # @param [Hash] options the filters for the methods
     # gets a list of methods
-    #
-    # :call-seq:
-    #   payment_methods(options = {})
 
-    ##
-    # :method: products
+    # @!method products(options = {})
+    # @param [Hash] options the filters for the products
     # gets a list of products
-    #
-    # :call-seq:
-    #   products(options = {})
 
-    ##
-    # :method: product
+    # @!method product(id, options = {})
+    # @param [Integer] id the identifier for the product
     # gets the product with the given id
-    #
-    # :call-seq:
-    #   product(id, options = {})
 
-    ##
-    # :method: create_product
+    # @!method create_product(options = {})
+    # @param [Hash] options the attributes for the product
     # creates a product with the given attributes
-    #
-    # :call-seq:
-    #   create_product(options = {})
 
-    ##
-    # :method: update_product
+    # @!method update_product(id, options = {})
+    # @param [Integer] id the identifier for the product
+    # @param [Hash] options the attributes for the product
     # update the attributes of the product with the given id
-    #
-    # :call-seq:
-    #   update_product(id, options = {})
 
-    ##
-    # :method: delete_product
+    # @!method delete_product(id)
+    # @param [Integer] id the identifier for the product
     # deletes the product with the given id
-    #
-    # :call-seq:
-    #   delete_product(id)
 
-    ##
-    # :method: products_count
+    # @!method products_count(options = {})
+    # @param [Hash] options the filters for the products
     # returns the number of products
-    #
-    # :call-seq:
-    #   products_count(options = {})
 
-    ##
-    # :method: product_custom_fields
+    # @!method product_custom_fields(product_id, options = {})
+    # @param [Integer] product_id the identifier for the product
+    # @param [Hash] options the filters for the custom_fields
     # gets a list of custom_fields for the given product
-    #
-    # :call-seq:
-    #   product_custom_fields(product_id, options = {})
 
-    ##
-    # :method: product_custom_field
+    # @!method product_custom_field(product_id, id, options = {})
+    # @param [Integer] id the identifier for the custom_field
+    # @param [Integer] product_id the identifier for the product
     # gets the custom_field with the given id for the given product
-    #
-    # :call-seq:
-    #   product_custom_field(product_id, id, options = {})
 
-    ##
-    # :method: create_product_custom_field
+    # @!method create_product_custom_field(product_id, options = {})
+    # @param [Integer] product_id the identifier for the product
+    # @param [Hash] options the attributes for the custom_field
     # creates a custom_field with the given attributes for the given product
-    #
-    # :call-seq:
-    #   create_product_custom_field(product_id, options = {})
 
-    ##
-    # :method: update_product_custom_field
+    # @!method update_product_custom_field(product_id, id, options = {})
+    # @param [Integer] id the identifier for the custom_field
+    # @param [Integer] product_id the identifier for the product
+    # @param [Hash] options the attributes for the custom_field
     # update the attributes of the custom_field with the given id for the given product
-    #
-    # :call-seq:
-    #   update_product_custom_field(product_id, id, options = {})
 
-    ##
-    # :method: delete_product_custom_field
+    # @!method delete_product_custom_field(product_id, id)
+    # @param [Integer] id the identifier for the custom_field
+    # @param [Integer] product_id the identifier for the product
     # deletes the custom_field with the given id for the given product
-    #
-    # :call-seq:
-    #   delete_product_custom_field(product_id, id)
 
-    ##
-    # :method: product_discount_rules
+    # @!method product_discount_rules(product_id, options = {})
+    # @param [Integer] product_id the identifier for the product
+    # @param [Hash] options the filters for the discount_rules
     # gets a list of discount_rules for the given product
-    #
-    # :call-seq:
-    #   product_discount_rules(product_id, options = {})
 
-    ##
-    # :method: product_discount_rule
+    # @!method product_discount_rule(product_id, id, options = {})
+    # @param [Integer] id the identifier for the discount_rule
+    # @param [Integer] product_id the identifier for the product
     # gets the discount_rule with the given id for the given product
-    #
-    # :call-seq:
-    #   product_discount_rule(product_id, id, options = {})
 
-    ##
-    # :method: create_product_discount_rule
+    # @!method create_product_discount_rule(product_id, options = {})
+    # @param [Integer] product_id the identifier for the product
+    # @param [Hash] options the attributes for the discount_rule
     # creates a discount_rule with the given attributes for the given product
-    #
-    # :call-seq:
-    #   create_product_discount_rule(product_id, options = {})
 
-    ##
-    # :method: update_product_discount_rule
+    # @!method update_product_discount_rule(product_id, id, options = {})
+    # @param [Integer] id the identifier for the discount_rule
+    # @param [Integer] product_id the identifier for the product
+    # @param [Hash] options the attributes for the discount_rule
     # update the attributes of the discount_rule with the given id for the given product
-    #
-    # :call-seq:
-    #   update_product_discount_rule(product_id, id, options = {})
 
-    ##
-    # :method: delete_product_discount_rule
+    # @!method delete_product_discount_rule(product_id, id)
+    # @param [Integer] id the identifier for the discount_rule
+    # @param [Integer] product_id the identifier for the product
     # deletes the discount_rule with the given id for the given product
-    #
-    # :call-seq:
-    #   delete_product_discount_rule(product_id, id)
 
-    ##
-    # :method: product_discount_rules_count
+    # @!method product_discount_rules_count(product_id, options = {})
+    # @param [Integer] product_id the identifier for the product
+    # @param [Hash] options the filters for the discount_rules
     # returns the number of discount_rules for the given product
-    #
-    # :call-seq:
-    #   product_discount_rules_count(product_id, options = {})
 
-    ##
-    # :method: product_configurable_fields
+    # @!method product_configurable_fields(product_id, options = {})
+    # @param [Integer] product_id the identifier for the product
+    # @param [Hash] options the filters for the configurable_fields
     # gets a list of configurable_fields for the given product
-    #
-    # :call-seq:
-    #   product_configurable_fields(product_id, options = {})
 
-    ##
-    # :method: product_configurable_field
+    # @!method product_configurable_field(product_id, id, options = {})
+    # @param [Integer] id the identifier for the configurable_field
+    # @param [Integer] product_id the identifier for the product
     # gets the configurable_field with the given id for the given product
-    #
-    # :call-seq:
-    #   product_configurable_field(product_id, id, options = {})
 
-    ##
-    # :method: delete_product_configurable_field
+    # @!method delete_product_configurable_field(product_id, id)
+    # @param [Integer] id the identifier for the configurable_field
+    # @param [Integer] product_id the identifier for the product
     # deletes the configurable_field with the given id for the given product
-    #
-    # :call-seq:
-    #   delete_product_configurable_field(product_id, id)
 
-    ##
-    # :method: product_configurable_fields_count
+    # @!method product_configurable_fields_count(product_id, options = {})
+    # @param [Integer] product_id the identifier for the product
+    # @param [Hash] options the filters for the configurable_fields
     # returns the number of configurable_fields for the given product
-    #
-    # :call-seq:
-    #   product_configurable_fields_count(product_id, options = {})
 
-    ##
-    # :method: product_images
+    # @!method product_images(product_id, options = {})
+    # @param [Integer] product_id the identifier for the product
+    # @param [Hash] options the filters for the images
     # gets a list of images for the given product
-    #
-    # :call-seq:
-    #   product_images(product_id, options = {})
 
-    ##
-    # :method: product_image
+    # @!method product_image(product_id, id, options = {})
+    # @param [Integer] id the identifier for the image
+    # @param [Integer] product_id the identifier for the product
     # gets the image with the given id for the given product
-    #
-    # :call-seq:
-    #   product_image(product_id, id, options = {})
 
-    ##
-    # :method: create_product_image
+    # @!method create_product_image(product_id, options = {})
+    # @param [Integer] product_id the identifier for the product
+    # @param [Hash] options the attributes for the image
     # creates a image with the given attributes for the given product
-    #
-    # :call-seq:
-    #   create_product_image(product_id, options = {})
 
-    ##
-    # :method: update_product_image
+    # @!method update_product_image(product_id, id, options = {})
+    # @param [Integer] id the identifier for the image
+    # @param [Integer] product_id the identifier for the product
+    # @param [Hash] options the attributes for the image
     # update the attributes of the image with the given id for the given product
-    #
-    # :call-seq:
-    #   update_product_image(product_id, id, options = {})
 
-    ##
-    # :method: delete_product_image
+    # @!method delete_product_image(product_id, id)
+    # @param [Integer] id the identifier for the image
+    # @param [Integer] product_id the identifier for the product
     # deletes the image with the given id for the given product
-    #
-    # :call-seq:
-    #   delete_product_image(product_id, id)
 
-    ##
-    # :method: product_images_count
+    # @!method product_images_count(product_id, options = {})
+    # @param [Integer] product_id the identifier for the product
+    # @param [Hash] options the filters for the images
     # returns the number of images for the given product
-    #
-    # :call-seq:
-    #   product_images_count(product_id, options = {})
 
-    ##
-    # :method: product_options
+    # @!method product_options(product_id, options = {})
+    # @param [Integer] product_id the identifier for the product
+    # @param [Hash] options the filters for the options
     # gets a list of options for the given product
-    #
-    # :call-seq:
-    #   product_options(product_id, options = {})
 
-    ##
-    # :method: product_option
+    # @!method product_option(product_id, id, options = {})
+    # @param [Integer] id the identifier for the option
+    # @param [Integer] product_id the identifier for the product
     # gets the option with the given id for the given product
-    #
-    # :call-seq:
-    #   product_option(product_id, id, options = {})
 
-    ##
-    # :method: product_reviews
+    # @!method product_reviews(product_id, options = {})
+    # @param [Integer] product_id the identifier for the product
+    # @param [Hash] options the filters for the reviews
     # gets a list of reviews for the given product
-    #
-    # :call-seq:
-    #   product_reviews(product_id, options = {})
 
-    ##
-    # :method: product_rules
+    # @!method product_rules(product_id, options = {})
+    # @param [Integer] product_id the identifier for the product
+    # @param [Hash] options the filters for the rules
     # gets a list of rules for the given product
-    #
-    # :call-seq:
-    #   product_rules(product_id, options = {})
 
-    ##
-    # :method: product_rule
+    # @!method product_rule(product_id, id, options = {})
+    # @param [Integer] id the identifier for the rule
+    # @param [Integer] product_id the identifier for the product
     # gets the rule with the given id for the given product
-    #
-    # :call-seq:
-    #   product_rule(product_id, id, options = {})
 
-    ##
-    # :method: create_product_rule
+    # @!method create_product_rule(product_id, options = {})
+    # @param [Integer] product_id the identifier for the product
+    # @param [Hash] options the attributes for the rule
     # creates a rule with the given attributes for the given product
-    #
-    # :call-seq:
-    #   create_product_rule(product_id, options = {})
 
-    ##
-    # :method: update_product_rule
+    # @!method update_product_rule(product_id, id, options = {})
+    # @param [Integer] id the identifier for the rule
+    # @param [Integer] product_id the identifier for the product
+    # @param [Hash] options the attributes for the rule
     # update the attributes of the rule with the given id for the given product
-    #
-    # :call-seq:
-    #   update_product_rule(product_id, id, options = {})
 
-    ##
-    # :method: delete_product_rule
+    # @!method delete_product_rule(product_id, id)
+    # @param [Integer] id the identifier for the rule
+    # @param [Integer] product_id the identifier for the product
     # deletes the rule with the given id for the given product
-    #
-    # :call-seq:
-    #   delete_product_rule(product_id, id)
 
-    ##
-    # :method: product_rules_count
+    # @!method product_rules_count(product_id, options = {})
+    # @param [Integer] product_id the identifier for the product
+    # @param [Hash] options the filters for the rules
     # returns the number of rules for the given product
-    #
-    # :call-seq:
-    #   product_rules_count(product_id, options = {})
 
-    ##
-    # :method: product_videos
+    # @!method product_videos(product_id, options = {})
+    # @param [Integer] product_id the identifier for the product
+    # @param [Hash] options the filters for the videos
     # gets a list of videos for the given product
-    #
-    # :call-seq:
-    #   product_videos(product_id, options = {})
 
-    ##
-    # :method: product_video
+    # @!method product_video(product_id, id, options = {})
+    # @param [Integer] id the identifier for the video
+    # @param [Integer] product_id the identifier for the product
     # gets the video with the given id for the given product
-    #
-    # :call-seq:
-    #   product_video(product_id, id, options = {})
 
-    ##
-    # :method: create_product_video
+    # @!method create_product_video(product_id, options = {})
+    # @param [Integer] product_id the identifier for the product
+    # @param [Hash] options the attributes for the video
     # creates a video with the given attributes for the given product
-    #
-    # :call-seq:
-    #   create_product_video(product_id, options = {})
 
-    ##
-    # :method: update_product_video
+    # @!method update_product_video(product_id, id, options = {})
+    # @param [Integer] id the identifier for the video
+    # @param [Integer] product_id the identifier for the product
+    # @param [Hash] options the attributes for the video
     # update the attributes of the video with the given id for the given product
-    #
-    # :call-seq:
-    #   update_product_video(product_id, id, options = {})
 
-    ##
-    # :method: delete_product_video
+    # @!method delete_product_video(product_id, id)
+    # @param [Integer] id the identifier for the video
+    # @param [Integer] product_id the identifier for the product
     # deletes the video with the given id for the given product
-    #
-    # :call-seq:
-    #   delete_product_video(product_id, id)
 
-    ##
-    # :method: product_videos_count
+    # @!method product_videos_count(product_id, options = {})
+    # @param [Integer] product_id the identifier for the product
+    # @param [Hash] options the filters for the videos
     # returns the number of videos for the given product
-    #
-    # :call-seq:
-    #   product_videos_count(product_id, options = {})
 
-    ##
-    # :method: product_skus
+    # @!method product_skus(product_id, options = {})
+    # @param [Integer] product_id the identifier for the product
+    # @param [Hash] options the filters for the skus
     # gets a list of skus for the given product
-    #
-    # :call-seq:
-    #   product_skus(product_id, options = {})
 
-    ##
-    # :method: product_sku
+    # @!method product_sku(product_id, id, options = {})
+    # @param [Integer] id the identifier for the sku
+    # @param [Integer] product_id the identifier for the product
     # gets the sku with the given id for the given product
-    #
-    # :call-seq:
-    #   product_sku(product_id, id, options = {})
 
-    ##
-    # :method: create_product_sku
+    # @!method create_product_sku(product_id, options = {})
+    # @param [Integer] product_id the identifier for the product
+    # @param [Hash] options the attributes for the sku
     # creates a sku with the given attributes for the given product
-    #
-    # :call-seq:
-    #   create_product_sku(product_id, options = {})
 
-    ##
-    # :method: update_product_sku
+    # @!method update_product_sku(product_id, id, options = {})
+    # @param [Integer] id the identifier for the sku
+    # @param [Integer] product_id the identifier for the product
+    # @param [Hash] options the attributes for the sku
     # update the attributes of the sku with the given id for the given product
-    #
-    # :call-seq:
-    #   update_product_sku(product_id, id, options = {})
 
-    ##
-    # :method: delete_product_sku
+    # @!method delete_product_sku(product_id, id)
+    # @param [Integer] id the identifier for the sku
+    # @param [Integer] product_id the identifier for the product
     # deletes the sku with the given id for the given product
-    #
-    # :call-seq:
-    #   delete_product_sku(product_id, id)
 
-    ##
-    # :method: product_skus_count
+    # @!method product_skus_count(product_id, options = {})
+    # @param [Integer] product_id the identifier for the product
+    # @param [Hash] options the filters for the skus
     # returns the number of skus for the given product
-    #
-    # :call-seq:
-    #   product_skus_count(product_id, options = {})
 
-    ##
-    # :method: redirects
+    # @!method redirects(options = {})
+    # @param [Hash] options the filters for the redirects
     # gets a list of redirects
-    #
-    # :call-seq:
-    #   redirects(options = {})
 
-    ##
-    # :method: redirect
+    # @!method redirect(id, options = {})
+    # @param [Integer] id the identifier for the redirect
     # gets the redirect with the given id
-    #
-    # :call-seq:
-    #   redirect(id, options = {})
 
-    ##
-    # :method: create_redirect
+    # @!method create_redirect(options = {})
+    # @param [Hash] options the attributes for the redirect
     # creates a redirect with the given attributes
-    #
-    # :call-seq:
-    #   create_redirect(options = {})
 
-    ##
-    # :method: update_redirect
+    # @!method update_redirect(id, options = {})
+    # @param [Integer] id the identifier for the redirect
+    # @param [Hash] options the attributes for the redirect
     # update the attributes of the redirect with the given id
-    #
-    # :call-seq:
-    #   update_redirect(id, options = {})
 
-    ##
-    # :method: delete_redirect
+    # @!method delete_redirect(id)
+    # @param [Integer] id the identifier for the redirect
     # deletes the redirect with the given id
-    #
-    # :call-seq:
-    #   delete_redirect(id)
 
-    ##
-    # :method: redirects_count
+    # @!method redirects_count(options = {})
+    # @param [Hash] options the filters for the redirects
     # returns the number of redirects
-    #
-    # :call-seq:
-    #   redirects_count(options = {})
 
-    ##
-    # :method: shipping_methods
+    # @!method shipping_methods(options = {})
+    # @param [Hash] options the filters for the methods
     # gets a list of methods
-    #
-    # :call-seq:
-    #   shipping_methods(options = {})
 
-    ##
-    # :method: shipping_method
+    # @!method shipping_method(id, options = {})
+    # @param [Integer] id the identifier for the method
     # gets the method with the given id
-    #
-    # :call-seq:
-    #   shipping_method(id, options = {})
 
-    ##
-    # :method: tax_classes
+    # @!method tax_classes(options = {})
+    # @param [Hash] options the filters for the tax_classes
     # gets a list of tax_classes
-    #
-    # :call-seq:
-    #   tax_classes(options = {})
 
-    ##
-    # :method: tax_class
+    # @!method tax_class(id, options = {})
+    # @param [Integer] id the identifier for the tax_class
     # gets the tax_class with the given id
-    #
-    # :call-seq:
-    #   tax_class(id, options = {})
 
-    ##
-    # :method: hooks
+    # @!method hooks(options = {})
+    # @param [Hash] options the filters for the hooks
     # gets a list of hooks
-    #
-    # :call-seq:
-    #   hooks(options = {})
 
-    ##
-    # :method: hook
+    # @!method hook(id, options = {})
+    # @param [Integer] id the identifier for the hook
     # gets the hook with the given id
-    #
-    # :call-seq:
-    #   hook(id, options = {})
 
-    ##
-    # :method: create_hook
+    # @!method create_hook(options = {})
+    # @param [Hash] options the attributes for the hook
     # creates a hook with the given attributes
-    #
-    # :call-seq:
-    #   create_hook(options = {})
 
-    ##
-    # :method: update_hook
+    # @!method update_hook(id, options = {})
+    # @param [Integer] id the identifier for the hook
+    # @param [Hash] options the attributes for the hook
     # update the attributes of the hook with the given id
-    #
-    # :call-seq:
-    #   update_hook(id, options = {})
 
-    ##
-    # :method: delete_hook
+    # @!method delete_hook(id)
+    # @param [Integer] id the identifier for the hook
     # deletes the hook with the given id
-    #
-    # :call-seq:
-    #   delete_hook(id)
 
   end
 end
