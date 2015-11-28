@@ -31,8 +31,8 @@ module BigcommerceOAuthAPI
     DEFAULT_TYPECAST_TO_RESOURCE = true # if set to false then response-objects with be of type Hash.
     DEFAULT_USER_NAME = nil
     DEFAULT_API_KEY = nil
-    DEFAULT_TIMEOUT = 10
-    DEFAULT_OPEN_TIMEOUT = 10
+    DEFAULT_TIMEOUT = 5
+    DEFAULT_OPEN_TIMEOUT = 2
 
     attr_accessor *VALID_OPTIONS_KEYS
 
