@@ -53,6 +53,8 @@ api = BigcommerceOAuthAPI::Client.new(
 
 Starting from v1.2.1 `bigcommerce-oauth-api` supports the `If-Modified-Since` header described on https://developer.bigcommerce.com/api/req-headers. As all other configurations, the header can be set with both module and instance configuration using the key `if_modified_since`.
 
+Starting from v1.3.0 `bigcommerce-oauth-api` allows you to opt-out of using `BigcommerceOAuthAPI::Resource` through the `typecast_to_resource` configuration. Setting this configuration to `false` ensures that any response object will be of type `Hash` instead of `BigcommerceOAuthAPI::Resource`.
+
 Using the API
 -------------
 It is recommended to use this documentation in combination the official api documentation on https://developer.bigcommerce.com/api/
