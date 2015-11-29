@@ -1,3 +1,9 @@
+### 1.3.1 (2015-11-29)
+
+Bugfixes:
+
+    - increase timeout configuration defaults.
+
 ### 1.3.0 (2015-11-28)
 
 Features:
