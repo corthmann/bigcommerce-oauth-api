@@ -22,8 +22,8 @@ module BigcommerceOAuthAPI
       self == other
     end
 
-    def respond_to?(method_name)
-      super(method_name) ? true : @attributes.include?(method_name.to_s.gsub(/(\?$)|(=$)/, '').to_sym)
+    def respond_to?(method_name, include_all = false)
+      super(method_name, include_all) ? true : @attributes.include?(method_name.to_s.gsub(/(\?$)|(=$)/, '').to_sym)
     end
 
     def to_h
@@ -50,6 +50,14 @@ module BigcommerceOAuthAPI
           @attributes[:#{attribute_name}]
         end
       end"
+    end
+
+    def marshal_dump
+      {}.merge(@attributes.to_h)
+    end
+
+    def marshal_load(attributes)
+      send :initialize, attributes
     end
 
     private
