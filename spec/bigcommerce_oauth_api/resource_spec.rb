@@ -38,6 +38,17 @@ module BigcommerceOAuthAPI
         expect(instance['a']['b']['c']['d']).to eql('e')
         expect(instance.a.b.c.d).to eql('e')
       end
+
+      describe '#marshal_dump' do
+        it 'can load a marshal dump correctly' do
+          dump = Marshal.dump(instance)
+          expect(dump).to be_a String
+          loaded_object = Marshal.load(dump)
+          expect(loaded_object).to_not be_a String
+          expect(loaded_object).to be_a BigcommerceOAuthAPI::Resource
+          expect(loaded_object.a.b.c.d).to eql('e')
+        end
+      end
     end
   end
 end

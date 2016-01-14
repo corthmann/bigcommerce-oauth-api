@@ -1,3 +1,10 @@
+### 1.3.2 (2016-01-14)
+
+Bugfixes:
+
+    - enable BigcommerceOAuthAPI::Resource to marshal correctly.
+    - add missing 'include_all' option on BigcommerceOAuthAPI::Resource#respond_to?.
+
 ### 1.3.1 (2015-11-29)
 
 Bugfixes:
