@@ -23,14 +23,14 @@ Configuration
 The gem can be configured either by module or class configuration. Starting from v1.2.0 `bigcommerce-oauth-api` supports both OAuth and legacy authentication.
 ```
 # module oauth configuration
-BigcommerceOAuthAPI.configuration do |config|
+BigcommerceOAuthAPI.configure do |config|
     config.store_hash = 'YOU STORE ID'
     config.client_id = 'YOUR CLIENT ID'
     config.access_token = 'YOUR OAUTH ACCESS TOKEN'
 end
 
 # module legacy (basic auth) configuration
-BigcommerceOAuthAPI.configuration do |config|
+BigcommerceOAuthAPI.configure do |config|
     config.endpoint = 'YOU STORE URL (https://store-XYZ.mybigcommerce.com)'
     config.user_name = 'API USER NAME'
     config.api_key = 'API KEY'
