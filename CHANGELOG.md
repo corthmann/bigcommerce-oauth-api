@@ -5,6 +5,7 @@ Features:
     - added banner apis
     - added gift certificate apis
     - enable BigcommerceOAuthAPI::Resource to set attributes through methods (ex. resource.attribute_name = 'abc')
+    - add .to_h method on BigcommerceOAuthAPI::Error. This method will parse the json error message and return it as a hash.
 
 Bugfixes:
 

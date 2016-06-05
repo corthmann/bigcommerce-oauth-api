@@ -1,5 +1,12 @@
+require 'json'
+
 module BigcommerceOAuthAPI
   class Error < StandardError
+
+    def to_h
+      JSON.parse(message, symbolize_names: true) rescue {}
+    end
+
     def inspect
       "#<BigcommerceOAuthAPI::Error: BigcommerceOAuthAPI::Error message=\"#{message}\">"
     end
