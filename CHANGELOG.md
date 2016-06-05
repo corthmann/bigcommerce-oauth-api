@@ -1,3 +1,20 @@
+### 1.4.0 (2016-06-05)
+
+Features:
+
+    - added banner apis
+    - added gift certificate apis
+    - enable BigcommerceOAuthAPI::Resource to set attributes through methods (ex. resource.attribute_name = 'abc')
+
+Bugfixes:
+
+    - enable BigcommerceOAuthAPI::Resource to convert array attributes to arrays of BigcommerceOAuthAPI::Resource.
+
+Deprecation warnings added:
+
+    - config.if_modified_since will be removed in v2.0.0
+    - config.format will be removed in v2.0.0
+
 ### 1.3.2 (2016-01-14)
 
 Bugfixes:

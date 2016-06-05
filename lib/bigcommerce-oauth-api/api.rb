@@ -8,6 +8,8 @@ module BigcommerceOAuthAPI
 
     def initialize(options = {})
       merged_options = BigcommerceOAuthAPI.options.merge(options)
+      warn "[DEPRECATION] bigcommerce-oauth-api: 'config.format' will be removed in v2.0.0" unless merged_options[:format] == :json
+      warn "[DEPRECATION] bigcommerce-oauth-api: 'config.if_modified_since' will be removed in v2.0.0" unless merged_options[:if_modified_since].nil?
 
       Configuration::VALID_OPTIONS_KEYS.each do |key|
         send("#{key}=", merged_options[key])
