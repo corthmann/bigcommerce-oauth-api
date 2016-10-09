@@ -76,7 +76,7 @@ module BigcommerceOAuthAPI
     # @!method update_blog_post(id, options = {})
     # @param [Integer] id the identifier for the post
     # @param [Hash] options the attributes for the post
-    # update the attributes of the post with the given id
+    # updates the attributes of the post with the given id
 
     # @!method delete_blog_post(id)
     # @param [Integer] id the identifier for the post
@@ -101,7 +101,7 @@ module BigcommerceOAuthAPI
     # @!method update_brand(id, options = {})
     # @param [Integer] id the identifier for the brand
     # @param [Hash] options the attributes for the brand
-    # update the attributes of the brand with the given id
+    # updates the attributes of the brand with the given id
 
     # @!method delete_brand(id)
     # @param [Integer] id the identifier for the brand
@@ -126,7 +126,7 @@ module BigcommerceOAuthAPI
     # @!method update_category(id, options = {})
     # @param [Integer] id the identifier for the category
     # @param [Hash] options the attributes for the category
-    # update the attributes of the category with the given id
+    # updates the attributes of the category with the given id
 
     # @!method delete_category(id)
     # @param [Integer] id the identifier for the category
@@ -147,7 +147,7 @@ module BigcommerceOAuthAPI
     # @!method update_customer(id, options = {})
     # @param [Integer] id the identifier for the customer
     # @param [Hash] options the attributes for the customer
-    # update the attributes of the customer with the given id
+    # updates the attributes of the customer with the given id
 
     # @!method delete_customer(id)
     # @param [Integer] id the identifier for the customer
@@ -163,8 +163,8 @@ module BigcommerceOAuthAPI
     # gets a list of addresses for the given customer
 
     # @!method customer_address(customer_id, id, options = {})
-    # @param [Integer] id the identifier for the address
     # @param [Integer] customer_id the identifier for the customer
+    # @param [Integer] id the identifier for the address
     # gets the address with the given id for the given customer
 
     # @!method create_customer_address(customer_id, options = {})
@@ -173,14 +173,14 @@ module BigcommerceOAuthAPI
     # creates a address with the given attributes for the given customer
 
     # @!method update_customer_address(customer_id, id, options = {})
-    # @param [Integer] id the identifier for the address
     # @param [Integer] customer_id the identifier for the customer
+    # @param [Integer] id the identifier for the address
     # @param [Hash] options the attributes for the address
-    # update the attributes of the address with the given id for the given customer
+    # updates the attributes of the address with the given id for the given customer
 
     # @!method delete_customer_address(customer_id, id)
-    # @param [Integer] id the identifier for the address
     # @param [Integer] customer_id the identifier for the customer
+    # @param [Integer] id the identifier for the address
     # deletes the address with the given id for the given customer
 
     # @!method customer_groups(options = {})
@@ -198,7 +198,7 @@ module BigcommerceOAuthAPI
     # @!method update_customer_group(id, options = {})
     # @param [Integer] id the identifier for the customer_group
     # @param [Hash] options the attributes for the customer_group
-    # update the attributes of the customer_group with the given id
+    # updates the attributes of the customer_group with the given id
 
     # @!method delete_customer_group(id)
     # @param [Integer] id the identifier for the customer_group
@@ -222,14 +222,35 @@ module BigcommerceOAuthAPI
     # gets a list of states for the given country
 
     # @!method country_state(country_id, id, options = {})
-    # @param [Integer] id the identifier for the state
     # @param [Integer] country_id the identifier for the country
+    # @param [Integer] id the identifier for the state
     # gets the state with the given id for the given country
 
     # @!method country_states_count(country_id, options = {})
     # @param [Integer] country_id the identifier for the country
     # @param [Hash] options the filters for the states
     # returns the number of states for the given country
+
+    # @!method banners(options = {})
+    # @param [Hash] options the filters for the banners
+    # gets a list of banners
+
+    # @!method banner(id, options = {})
+    # @param [Integer] id the identifier for the banner
+    # gets the banner with the given id
+
+    # @!method create_banner(options = {})
+    # @param [Hash] options the attributes for the banner
+    # creates a banner with the given attributes
+
+    # @!method update_banner(id, options = {})
+    # @param [Integer] id the identifier for the banner
+    # @param [Hash] options the attributes for the banner
+    # updates the attributes of the banner with the given id
+
+    # @!method delete_banner(id)
+    # @param [Integer] id the identifier for the banner
+    # deletes the banner with the given id
 
     # @!method coupons(options = {})
     # @param [Hash] options the filters for the coupons
@@ -246,7 +267,7 @@ module BigcommerceOAuthAPI
     # @!method update_coupon(id, options = {})
     # @param [Integer] id the identifier for the coupon
     # @param [Hash] options the attributes for the coupon
-    # update the attributes of the coupon with the given id
+    # updates the attributes of the coupon with the given id
 
     # @!method delete_coupon(id)
     # @param [Integer] id the identifier for the coupon
@@ -255,6 +276,27 @@ module BigcommerceOAuthAPI
     # @!method coupons_count(options = {})
     # @param [Hash] options the filters for the coupons
     # returns the number of coupons
+
+    # @!method gift_certificates(options = {})
+    # @param [Hash] options the filters for the gift_certificates
+    # gets a list of gift_certificates
+
+    # @!method gift_certificate(id, options = {})
+    # @param [Integer] id the identifier for the gift_certificate
+    # gets the gift_certificate with the given id
+
+    # @!method create_gift_certificate(options = {})
+    # @param [Hash] options the attributes for the gift_certificate
+    # creates a gift_certificate with the given attributes
+
+    # @!method update_gift_certificate(id, options = {})
+    # @param [Integer] id the identifier for the gift_certificate
+    # @param [Hash] options the attributes for the gift_certificate
+    # updates the attributes of the gift_certificate with the given id
+
+    # @!method delete_gift_certificate(id)
+    # @param [Integer] id the identifier for the gift_certificate
+    # deletes the gift_certificate with the given id
 
     # @!method options(options = {})
     # @param [Hash] options the filters for the options
@@ -271,7 +313,7 @@ module BigcommerceOAuthAPI
     # @!method update_option(id, options = {})
     # @param [Integer] id the identifier for the option
     # @param [Hash] options the attributes for the option
-    # update the attributes of the option with the given id
+    # updates the attributes of the option with the given id
 
     # @!method delete_option(id)
     # @param [Integer] id the identifier for the option
@@ -296,7 +338,7 @@ module BigcommerceOAuthAPI
     # @!method update_option_set(id, options = {})
     # @param [Integer] id the identifier for the option_set
     # @param [Hash] options the attributes for the option_set
-    # update the attributes of the option_set with the given id
+    # updates the attributes of the option_set with the given id
 
     # @!method delete_option_set(id)
     # @param [Integer] id the identifier for the option_set
@@ -312,8 +354,8 @@ module BigcommerceOAuthAPI
     # gets a list of options for the given option_set
 
     # @!method option_set_option(option_set_id, id, options = {})
-    # @param [Integer] id the identifier for the option
     # @param [Integer] option_set_id the identifier for the option_set
+    # @param [Integer] id the identifier for the option
     # gets the option with the given id for the given option_set
 
     # @!method create_option_set_option(option_set_id, options = {})
@@ -322,14 +364,14 @@ module BigcommerceOAuthAPI
     # creates a option with the given attributes for the given option_set
 
     # @!method update_option_set_option(option_set_id, id, options = {})
-    # @param [Integer] id the identifier for the option
     # @param [Integer] option_set_id the identifier for the option_set
+    # @param [Integer] id the identifier for the option
     # @param [Hash] options the attributes for the option
-    # update the attributes of the option with the given id for the given option_set
+    # updates the attributes of the option with the given id for the given option_set
 
     # @!method delete_option_set_option(option_set_id, id)
-    # @param [Integer] id the identifier for the option
     # @param [Integer] option_set_id the identifier for the option_set
+    # @param [Integer] id the identifier for the option
     # deletes the option with the given id for the given option_set
 
     # @!method option_values(option_id, options = {})
@@ -338,8 +380,8 @@ module BigcommerceOAuthAPI
     # gets a list of values for the given option
 
     # @!method option_value(option_id, id, options = {})
-    # @param [Integer] id the identifier for the value
     # @param [Integer] option_id the identifier for the option
+    # @param [Integer] id the identifier for the value
     # gets the value with the given id for the given option
 
     # @!method create_option_value(option_id, options = {})
@@ -348,14 +390,14 @@ module BigcommerceOAuthAPI
     # creates a value with the given attributes for the given option
 
     # @!method update_option_value(option_id, id, options = {})
-    # @param [Integer] id the identifier for the value
     # @param [Integer] option_id the identifier for the option
+    # @param [Integer] id the identifier for the value
     # @param [Hash] options the attributes for the value
-    # update the attributes of the value with the given id for the given option
+    # updates the attributes of the value with the given id for the given option
 
     # @!method delete_option_value(option_id, id)
-    # @param [Integer] id the identifier for the value
     # @param [Integer] option_id the identifier for the option
+    # @param [Integer] id the identifier for the value
     # deletes the value with the given id for the given option
 
     # @!method order_statuses(options = {})
@@ -381,7 +423,7 @@ module BigcommerceOAuthAPI
     # @!method update_order(id, options = {})
     # @param [Integer] id the identifier for the order
     # @param [Hash] options the attributes for the order
-    # update the attributes of the order with the given id
+    # updates the attributes of the order with the given id
 
     # @!method delete_order(id)
     # @param [Integer] id the identifier for the order
@@ -397,8 +439,8 @@ module BigcommerceOAuthAPI
     # gets a list of coupons for the given order
 
     # @!method order_coupon(order_id, id, options = {})
-    # @param [Integer] id the identifier for the coupon
     # @param [Integer] order_id the identifier for the order
+    # @param [Integer] id the identifier for the coupon
     # gets the coupon with the given id for the given order
 
     # @!method order_messages(order_id, options = {})
@@ -407,8 +449,8 @@ module BigcommerceOAuthAPI
     # gets a list of messages for the given order
 
     # @!method order_message(order_id, id, options = {})
-    # @param [Integer] id the identifier for the message
     # @param [Integer] order_id the identifier for the order
+    # @param [Integer] id the identifier for the message
     # gets the message with the given id for the given order
 
     # @!method order_products(order_id, options = {})
@@ -417,8 +459,8 @@ module BigcommerceOAuthAPI
     # gets a list of products for the given order
 
     # @!method order_product(order_id, id, options = {})
-    # @param [Integer] id the identifier for the product
     # @param [Integer] order_id the identifier for the order
+    # @param [Integer] id the identifier for the product
     # gets the product with the given id for the given order
 
     # @!method order_products_count(order_id, options = {})
@@ -432,8 +474,8 @@ module BigcommerceOAuthAPI
     # gets a list of shipments for the given order
 
     # @!method order_shipment(order_id, id, options = {})
-    # @param [Integer] id the identifier for the shipment
     # @param [Integer] order_id the identifier for the order
+    # @param [Integer] id the identifier for the shipment
     # gets the shipment with the given id for the given order
 
     # @!method create_order_shipment(order_id, options = {})
@@ -442,14 +484,14 @@ module BigcommerceOAuthAPI
     # creates a shipment with the given attributes for the given order
 
     # @!method update_order_shipment(order_id, id, options = {})
-    # @param [Integer] id the identifier for the shipment
     # @param [Integer] order_id the identifier for the order
+    # @param [Integer] id the identifier for the shipment
     # @param [Hash] options the attributes for the shipment
-    # update the attributes of the shipment with the given id for the given order
+    # updates the attributes of the shipment with the given id for the given order
 
     # @!method delete_order_shipment(order_id, id)
-    # @param [Integer] id the identifier for the shipment
     # @param [Integer] order_id the identifier for the order
+    # @param [Integer] id the identifier for the shipment
     # deletes the shipment with the given id for the given order
 
     # @!method order_shipping_addresses(order_id, options = {})
@@ -458,8 +500,8 @@ module BigcommerceOAuthAPI
     # gets a list of shipping_addresses for the given order
 
     # @!method order_shipping_address(order_id, id, options = {})
-    # @param [Integer] id the identifier for the shipping_address
     # @param [Integer] order_id the identifier for the order
+    # @param [Integer] id the identifier for the shipping_address
     # gets the shipping_address with the given id for the given order
 
     # @!method order_taxes(order_id, options = {})
@@ -468,8 +510,8 @@ module BigcommerceOAuthAPI
     # gets a list of taxes for the given order
 
     # @!method order_tax(order_id, id, options = {})
-    # @param [Integer] id the identifier for the tax
     # @param [Integer] order_id the identifier for the order
+    # @param [Integer] id the identifier for the tax
     # gets the tax with the given id for the given order
 
     # @!method payment_methods(options = {})
@@ -491,7 +533,7 @@ module BigcommerceOAuthAPI
     # @!method update_product(id, options = {})
     # @param [Integer] id the identifier for the product
     # @param [Hash] options the attributes for the product
-    # update the attributes of the product with the given id
+    # updates the attributes of the product with the given id
 
     # @!method delete_product(id)
     # @param [Integer] id the identifier for the product
@@ -507,8 +549,8 @@ module BigcommerceOAuthAPI
     # gets a list of custom_fields for the given product
 
     # @!method product_custom_field(product_id, id, options = {})
-    # @param [Integer] id the identifier for the custom_field
     # @param [Integer] product_id the identifier for the product
+    # @param [Integer] id the identifier for the custom_field
     # gets the custom_field with the given id for the given product
 
     # @!method create_product_custom_field(product_id, options = {})
@@ -517,14 +559,14 @@ module BigcommerceOAuthAPI
     # creates a custom_field with the given attributes for the given product
 
     # @!method update_product_custom_field(product_id, id, options = {})
-    # @param [Integer] id the identifier for the custom_field
     # @param [Integer] product_id the identifier for the product
+    # @param [Integer] id the identifier for the custom_field
     # @param [Hash] options the attributes for the custom_field
-    # update the attributes of the custom_field with the given id for the given product
+    # updates the attributes of the custom_field with the given id for the given product
 
     # @!method delete_product_custom_field(product_id, id)
-    # @param [Integer] id the identifier for the custom_field
     # @param [Integer] product_id the identifier for the product
+    # @param [Integer] id the identifier for the custom_field
     # deletes the custom_field with the given id for the given product
 
     # @!method product_discount_rules(product_id, options = {})
@@ -533,8 +575,8 @@ module BigcommerceOAuthAPI
     # gets a list of discount_rules for the given product
 
     # @!method product_discount_rule(product_id, id, options = {})
-    # @param [Integer] id the identifier for the discount_rule
     # @param [Integer] product_id the identifier for the product
+    # @param [Integer] id the identifier for the discount_rule
     # gets the discount_rule with the given id for the given product
 
     # @!method create_product_discount_rule(product_id, options = {})
@@ -543,14 +585,14 @@ module BigcommerceOAuthAPI
     # creates a discount_rule with the given attributes for the given product
 
     # @!method update_product_discount_rule(product_id, id, options = {})
-    # @param [Integer] id the identifier for the discount_rule
     # @param [Integer] product_id the identifier for the product
+    # @param [Integer] id the identifier for the discount_rule
     # @param [Hash] options the attributes for the discount_rule
-    # update the attributes of the discount_rule with the given id for the given product
+    # updates the attributes of the discount_rule with the given id for the given product
 
     # @!method delete_product_discount_rule(product_id, id)
-    # @param [Integer] id the identifier for the discount_rule
     # @param [Integer] product_id the identifier for the product
+    # @param [Integer] id the identifier for the discount_rule
     # deletes the discount_rule with the given id for the given product
 
     # @!method product_discount_rules_count(product_id, options = {})
@@ -564,13 +606,13 @@ module BigcommerceOAuthAPI
     # gets a list of configurable_fields for the given product
 
     # @!method product_configurable_field(product_id, id, options = {})
-    # @param [Integer] id the identifier for the configurable_field
     # @param [Integer] product_id the identifier for the product
+    # @param [Integer] id the identifier for the configurable_field
     # gets the configurable_field with the given id for the given product
 
     # @!method delete_product_configurable_field(product_id, id)
-    # @param [Integer] id the identifier for the configurable_field
     # @param [Integer] product_id the identifier for the product
+    # @param [Integer] id the identifier for the configurable_field
     # deletes the configurable_field with the given id for the given product
 
     # @!method product_configurable_fields_count(product_id, options = {})
@@ -584,8 +626,8 @@ module BigcommerceOAuthAPI
     # gets a list of images for the given product
 
     # @!method product_image(product_id, id, options = {})
-    # @param [Integer] id the identifier for the image
     # @param [Integer] product_id the identifier for the product
+    # @param [Integer] id the identifier for the image
     # gets the image with the given id for the given product
 
     # @!method create_product_image(product_id, options = {})
@@ -594,14 +636,14 @@ module BigcommerceOAuthAPI
     # creates a image with the given attributes for the given product
 
     # @!method update_product_image(product_id, id, options = {})
-    # @param [Integer] id the identifier for the image
     # @param [Integer] product_id the identifier for the product
+    # @param [Integer] id the identifier for the image
     # @param [Hash] options the attributes for the image
-    # update the attributes of the image with the given id for the given product
+    # updates the attributes of the image with the given id for the given product
 
     # @!method delete_product_image(product_id, id)
-    # @param [Integer] id the identifier for the image
     # @param [Integer] product_id the identifier for the product
+    # @param [Integer] id the identifier for the image
     # deletes the image with the given id for the given product
 
     # @!method product_images_count(product_id, options = {})
@@ -615,8 +657,8 @@ module BigcommerceOAuthAPI
     # gets a list of options for the given product
 
     # @!method product_option(product_id, id, options = {})
-    # @param [Integer] id the identifier for the option
     # @param [Integer] product_id the identifier for the product
+    # @param [Integer] id the identifier for the option
     # gets the option with the given id for the given product
 
     # @!method product_reviews(product_id, options = {})
@@ -630,8 +672,8 @@ module BigcommerceOAuthAPI
     # gets a list of rules for the given product
 
     # @!method product_rule(product_id, id, options = {})
-    # @param [Integer] id the identifier for the rule
     # @param [Integer] product_id the identifier for the product
+    # @param [Integer] id the identifier for the rule
     # gets the rule with the given id for the given product
 
     # @!method create_product_rule(product_id, options = {})
@@ -640,14 +682,14 @@ module BigcommerceOAuthAPI
     # creates a rule with the given attributes for the given product
 
     # @!method update_product_rule(product_id, id, options = {})
-    # @param [Integer] id the identifier for the rule
     # @param [Integer] product_id the identifier for the product
+    # @param [Integer] id the identifier for the rule
     # @param [Hash] options the attributes for the rule
-    # update the attributes of the rule with the given id for the given product
+    # updates the attributes of the rule with the given id for the given product
 
     # @!method delete_product_rule(product_id, id)
-    # @param [Integer] id the identifier for the rule
     # @param [Integer] product_id the identifier for the product
+    # @param [Integer] id the identifier for the rule
     # deletes the rule with the given id for the given product
 
     # @!method product_rules_count(product_id, options = {})
@@ -661,8 +703,8 @@ module BigcommerceOAuthAPI
     # gets a list of videos for the given product
 
     # @!method product_video(product_id, id, options = {})
-    # @param [Integer] id the identifier for the video
     # @param [Integer] product_id the identifier for the product
+    # @param [Integer] id the identifier for the video
     # gets the video with the given id for the given product
 
     # @!method create_product_video(product_id, options = {})
@@ -671,14 +713,14 @@ module BigcommerceOAuthAPI
     # creates a video with the given attributes for the given product
 
     # @!method update_product_video(product_id, id, options = {})
-    # @param [Integer] id the identifier for the video
     # @param [Integer] product_id the identifier for the product
+    # @param [Integer] id the identifier for the video
     # @param [Hash] options the attributes for the video
-    # update the attributes of the video with the given id for the given product
+    # updates the attributes of the video with the given id for the given product
 
     # @!method delete_product_video(product_id, id)
-    # @param [Integer] id the identifier for the video
     # @param [Integer] product_id the identifier for the product
+    # @param [Integer] id the identifier for the video
     # deletes the video with the given id for the given product
 
     # @!method product_videos_count(product_id, options = {})
@@ -692,8 +734,8 @@ module BigcommerceOAuthAPI
     # gets a list of skus for the given product
 
     # @!method product_sku(product_id, id, options = {})
-    # @param [Integer] id the identifier for the sku
     # @param [Integer] product_id the identifier for the product
+    # @param [Integer] id the identifier for the sku
     # gets the sku with the given id for the given product
 
     # @!method create_product_sku(product_id, options = {})
@@ -702,14 +744,14 @@ module BigcommerceOAuthAPI
     # creates a sku with the given attributes for the given product
 
     # @!method update_product_sku(product_id, id, options = {})
-    # @param [Integer] id the identifier for the sku
     # @param [Integer] product_id the identifier for the product
+    # @param [Integer] id the identifier for the sku
     # @param [Hash] options the attributes for the sku
-    # update the attributes of the sku with the given id for the given product
+    # updates the attributes of the sku with the given id for the given product
 
     # @!method delete_product_sku(product_id, id)
-    # @param [Integer] id the identifier for the sku
     # @param [Integer] product_id the identifier for the product
+    # @param [Integer] id the identifier for the sku
     # deletes the sku with the given id for the given product
 
     # @!method product_skus_count(product_id, options = {})
@@ -732,7 +774,7 @@ module BigcommerceOAuthAPI
     # @!method update_redirect(id, options = {})
     # @param [Integer] id the identifier for the redirect
     # @param [Hash] options the attributes for the redirect
-    # update the attributes of the redirect with the given id
+    # updates the attributes of the redirect with the given id
 
     # @!method delete_redirect(id)
     # @param [Integer] id the identifier for the redirect
@@ -773,7 +815,7 @@ module BigcommerceOAuthAPI
     # @!method update_hook(id, options = {})
     # @param [Integer] id the identifier for the hook
     # @param [Hash] options the attributes for the hook
-    # update the attributes of the hook with the given id
+    # updates the attributes of the hook with the given id
 
     # @!method delete_hook(id)
     # @param [Integer] id the identifier for the hook
