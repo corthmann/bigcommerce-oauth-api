@@ -132,7 +132,9 @@ customer address | 1.0.2 | https://developer.bigcommerce.com/api/stores/v2/custo
 customer group | 1.0.2 | https://developer.bigcommerce.com/api/stores/v2/customer_groups
 geography country | 1.0.2 | https://developer.bigcommerce.com/api/stores/v2/countries
 geography state | 1.0.2 | https://developer.bigcommerce.com/api/stores/v2/countries/states
+marketing banner | 1.4.0 | https://developer.bigcommerce.com/api/stores/v2/banners
 marketing coupon | 1.0.2 | https://developer.bigcommerce.com/api/stores/v2/coupons
+marketing gift certificate | 1.4.0 | https://developer.bigcommerce.com/api/stores/v2/gift_certificates
 option | 1.1.0 | https://developer.bigcommerce.com/api/stores/v2/options
 option set | 1.1.0 | https://developer.bigcommerce.com/api/stores/v2/option_sets
 option set option | 1.1.0 | https://developer.bigcommerce.com/api/stores/v2/option_sets/options

@@ -1,3 +1,21 @@
+### 1.4.0 (2016-10-09)
+
+Features:
+
+    - added banner apis
+    - added gift certificate apis
+    - enable BigcommerceOAuthAPI::Resource to set attributes through methods (ex. resource.attribute_name = 'abc')
+    - add .to_h method on BigcommerceOAuthAPI::Error. This method will parse the json error message and return it as a hash.
+
+Bugfixes:
+
+    - enable BigcommerceOAuthAPI::Resource to convert array attributes to arrays of BigcommerceOAuthAPI::Resource.
+
+Deprecation warnings added:
+
+    - config.if_modified_since will be removed in v2.0.0
+    - config.format will be removed in v2.0.0
+
 ### 1.3.2 (2016-01-14)
 
 Bugfixes:
