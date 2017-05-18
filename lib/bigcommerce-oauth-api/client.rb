@@ -57,7 +57,8 @@ module BigcommerceOAuthAPI
                      :product_video => { api_module: :video, scope: :product, methods: [:all, :select, :create, :update, :delete, :count]},
                      :product_sku => { api_module: :sku, scope: :product, methods: [:all, :select, :create, :update, :delete, :count]},
                      :redirect => { api_module: :redirect, scope: :self, methods: [:all, :select, :create, :update, :delete, :count]},
-                     :shipping_method => { api_module: :method, scope: :self, methods: [:all, :select], prefix_paths: 'shipping', prefix_methods: 'shipping'},
+                     :shipping_method => { api_module: :method, scope: :zone, methods: [:all, :select, :create, :update, :delete], prefix_paths: 'shipping', prefix_methods: 'shipping'},
+                     :shipping_zones => { api_module: :zone, scope: :self, methods: [:all, :select, :create, :update, :delete], prefix_paths: 'shipping', prefix_methods: 'shipping'},
                      :tax_class => { api_module: :tax_class, scope: :self, methods: [:all, :select]},
                      :web_hook => { api_module: :hook, scope: :self, methods: [:all, :select, :create, :update, :delete], legacy: false }
 
