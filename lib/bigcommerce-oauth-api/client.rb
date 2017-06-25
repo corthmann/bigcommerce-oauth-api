@@ -57,34 +57,35 @@ module BigcommerceOAuthAPI
                      :product_video => { api_module: :video, scope: :product, methods: [:all, :select, :create, :update, :delete, :count]},
                      :product_sku => { api_module: :sku, scope: :product, methods: [:all, :select, :create, :update, :delete, :count]},
                      :redirect => { api_module: :redirect, scope: :self, methods: [:all, :select, :create, :update, :delete, :count]},
-                     :shipping_method => { api_module: :method, scope: :self, methods: [:all, :select], prefix_paths: 'shipping', prefix_methods: 'shipping'},
+                     :shipping_method => { api_module: :method, scope: :zone, methods: [:all, :select, :create, :update, :delete], prefix_paths: 'shipping', prefix_methods: 'shipping'},
+                     :shipping_zones => { api_module: :zone, scope: :self, methods: [:all, :select, :create, :update, :delete], prefix_paths: 'shipping', prefix_methods: 'shipping'},
                      :tax_class => { api_module: :tax_class, scope: :self, methods: [:all, :select]},
                      :web_hook => { api_module: :hook, scope: :self, methods: [:all, :select, :create, :update, :delete], legacy: false }
 
     # @!method blog_posts(options = {})
     # @param [Hash] options the filters for the posts
-    # gets a list of posts
+    # gets a list of blog posts
 
     # @!method blog_post(id, options = {})
     # @param [Integer] id the identifier for the post
-    # gets the post with the given id
+    # gets the blog post with the given id
 
     # @!method create_blog_post(options = {})
     # @param [Hash] options the attributes for the post
-    # creates a post with the given attributes
+    # creates a blog post with the given attributes
 
     # @!method update_blog_post(id, options = {})
     # @param [Integer] id the identifier for the post
     # @param [Hash] options the attributes for the post
-    # updates the attributes of the post with the given id
+    # updates the attributes of the blog post with the given id
 
     # @!method delete_blog_post(id)
     # @param [Integer] id the identifier for the post
-    # deletes the post with the given id
+    # deletes the blog post with the given id
 
     # @!method blog_tags(options = {})
     # @param [Hash] options the filters for the tags
-    # gets a list of tags
+    # gets a list of blog tags
 
     # @!method brands(options = {})
     # @param [Hash] options the filters for the brands
@@ -516,7 +517,7 @@ module BigcommerceOAuthAPI
 
     # @!method payment_methods(options = {})
     # @param [Hash] options the filters for the methods
-    # gets a list of methods
+    # gets a list of payment methods
 
     # @!method products(options = {})
     # @param [Hash] options the filters for the products
@@ -784,13 +785,52 @@ module BigcommerceOAuthAPI
     # @param [Hash] options the filters for the redirects
     # returns the number of redirects
 
-    # @!method shipping_methods(options = {})
+    # @!method shipping_zone_methods(zone_id, options = {})
+    # @param [Integer] zone_id the identifier for the zone
     # @param [Hash] options the filters for the methods
-    # gets a list of methods
+    # gets a list of shipping methods for the given shipping zone
 
-    # @!method shipping_method(id, options = {})
+    # @!method shipping_zone_method(zone_id, id, options = {})
+    # @param [Integer] zone_id the identifier for the zone
     # @param [Integer] id the identifier for the method
-    # gets the method with the given id
+    # gets the shipping method with the given id for the given shipping zone
+
+    # @!method create_shipping_zone_method(zone_id, options = {})
+    # @param [Integer] zone_id the identifier for the zone
+    # @param [Hash] options the attributes for the method
+    # creates a shipping method with the given attributes for the given shipping zone
+
+    # @!method update_shipping_zone_method(zone_id, id, options = {})
+    # @param [Integer] zone_id the identifier for the zone
+    # @param [Integer] id the identifier for the method
+    # @param [Hash] options the attributes for the method
+    # updates the attributes of the shipping method with the given id for the given shipping zone
+
+    # @!method delete_shipping_zone_method(zone_id, id)
+    # @param [Integer] zone_id the identifier for the zone
+    # @param [Integer] id the identifier for the method
+    # deletes the shipping method with the given id for the given shipping zone
+
+    # @!method shipping_zones(options = {})
+    # @param [Hash] options the filters for the zones
+    # gets a list of shipping zones
+
+    # @!method shipping_zone(id, options = {})
+    # @param [Integer] id the identifier for the zone
+    # gets the shipping zone with the given id
+
+    # @!method create_shipping_zone(options = {})
+    # @param [Hash] options the attributes for the zone
+    # creates a shipping zone with the given attributes
+
+    # @!method update_shipping_zone(id, options = {})
+    # @param [Integer] id the identifier for the zone
+    # @param [Hash] options the attributes for the zone
+    # updates the attributes of the shipping zone with the given id
+
+    # @!method delete_shipping_zone(id)
+    # @param [Integer] id the identifier for the zone
+    # deletes the shipping zone with the given id
 
     # @!method tax_classes(options = {})
     # @param [Hash] options the filters for the tax_classes

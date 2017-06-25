@@ -122,84 +122,46 @@ The following APIs are currently supported:
 
 API | Gem Version | Official Documentation
 --- | --- | ---
-blog post | 1.0.2 | https://developer.bigcommerce.com/api/stores/v2/blog/posts
-blog tag | 1.0.2 | https://developer.bigcommerce.com/api/stores/v2/blog/tags
-brand api | 1.1.0 | https://developer.bigcommerce.com/api/stores/v2/brands
-bulk pricing (discount rules) | 1.1.0 | https://developer.bigcommerce.com/api/stores/v2/products/discount_rules
-category | 1.1.0 | https://developer.bigcommerce.com/api/stores/v2/categories
-customer api | 1.0.2 | https://developer.bigcommerce.com/api/stores/v2/customers
-customer address | 1.0.2 | https://developer.bigcommerce.com/api/stores/v2/customers/addresses
-customer group | 1.0.2 | https://developer.bigcommerce.com/api/stores/v2/customer_groups
-geography country | 1.0.2 | https://developer.bigcommerce.com/api/stores/v2/countries
-geography state | 1.0.2 | https://developer.bigcommerce.com/api/stores/v2/countries/states
-marketing banner | 1.4.0 | https://developer.bigcommerce.com/api/stores/v2/banners
-marketing coupon | 1.0.2 | https://developer.bigcommerce.com/api/stores/v2/coupons
-marketing gift certificate | 1.4.0 | https://developer.bigcommerce.com/api/stores/v2/gift_certificates
-option | 1.1.0 | https://developer.bigcommerce.com/api/stores/v2/options
-option set | 1.1.0 | https://developer.bigcommerce.com/api/stores/v2/option_sets
-option set option | 1.1.0 | https://developer.bigcommerce.com/api/stores/v2/option_sets/options
-option value | 1.2.0 | https://developer.bigcommerce.com/api/stores/v2/options/values
-order | 1.0.2 | https://developer.bigcommerce.com/api/stores/v2/orders
-order coupon | 1.2.0 | https://developer.bigcommerce.com/api/stores/v2/orders/coupons
-order message | 1.0.2 | https://developer.bigcommerce.com/api/stores/v2/orders/messages
-order product | 1.0.2 | https://developer.bigcommerce.com/api/stores/v2/orders/products
-order shipment | 1.0.2 | https://developer.bigcommerce.com/api/stores/v2/orders/shipments
-order shipping address | 1.0.2 | https://developer.bigcommerce.com/api/stores/v2/orders/shipping_addresses
+blog post | 1.0.2 | https://developer.bigcommerce.com/api/v2/#blog-posts
+blog tag | 1.0.2 | https://developer.bigcommerce.com/api/v2/#blog-tags
+brand api | 1.1.0 | https://developer.bigcommerce.com/api/v2/#brands
+bulk pricing (discount rules) | 1.1.0 | https://developer.bigcommerce.com/api/v2/#bulk-pricing
+category | 1.1.0 | https://developer.bigcommerce.com/api/v2/#categories
+customer api | 1.0.2 | https://developer.bigcommerce.com/api/v2/#customers-2
+customer address | 1.0.2 | https://developer.bigcommerce.com/api/v2/#customer-addresses
+customer group | 1.0.2 | https://developer.bigcommerce.com/api/v2/#customer-groups
+geography country | 1.0.2 | https://developer.bigcommerce.com/api/v2/#countries
+geography state | 1.0.2 | https://developer.bigcommerce.com/api/v2/#states
+marketing banner | 1.4.0 | https://developer.bigcommerce.com/api/v2/#banners
+marketing coupon | 1.0.2 | https://developer.bigcommerce.com/api/v2/#coupons
+marketing gift certificate | 1.4.0 | https://developer.bigcommerce.com/api/v2/#gift-certificates
+option | 1.1.0 | https://developer.bigcommerce.com/api/v2/#options
+option set | 1.1.0 | https://developer.bigcommerce.com/api/v2/#option-sets
+option set option | 1.1.0 | https://developer.bigcommerce.com/api/v2/#option-set-options
+option value | 1.2.0 | https://developer.bigcommerce.com/api/v2/#option-values
+order | 1.0.2 | https://developer.bigcommerce.com/api/v2/#orders-2
+order coupon | 1.2.0 | https://developer.bigcommerce.com/api/v2/#order-coupons
+order message | 1.0.2 | https://developer.bigcommerce.com/api/v2/#order-messages
+order product | 1.0.2 | https://developer.bigcommerce.com/api/v2/#order-products-2
+order shipment | 1.0.2 | https://developer.bigcommerce.com/api/v2/#shipments
+order shipping address | 1.0.2 | https://developer.bigcommerce.com/api/v2/#order-shipping-addresses
 order statuses | 1.2.0 | https://developer.bigcommerce.com/api/stores/v2/order_statuses
-order tax | 1.2.0 | https://developer.bigcommerce.com/api/stores/v2/orders/taxes
-payment method | 1.0.2 | https://developer.bigcommerce.com/api/stores/v2/payments/methods
-product | 1.0.2 | https://developer.bigcommerce.com/api/stores/v2/products
-product configurable field | 1.1.0 | https://developer.bigcommerce.com/api/stores/v2/products/configurable_fields
-product custom field | 1.0.2 | https://developer.bigcommerce.com/api/stores/v2/products/custom_fields
-product googleproductsearch | 1.1.0 | https://developer.bigcommerce.com/api/stores/v2/products/googleproductsearch
-product image | 1.1.0 | https://developer.bigcommerce.com/api/stores/v2/products/images
-product option | 1.1.0 | https://developer.bigcommerce.com/api/stores/v2/products/options
-product review | 1.1.0 | https://developer.bigcommerce.com/api/stores/v2/products/reviews
-product rules | 1.1.0 | https://developer.bigcommerce.com/api/stores/v2/products/rules
-product video | 1.1.0 | https://developer.bigcommerce.com/api/stores/v2/products/videos
-product SKU | 1.1.0 | https://developer.bigcommerce.com/api/stores/v2/products/skus
-redirect | 1.0.2 | https://developer.bigcommerce.com/api/stores/v2/redirects
-shipping method api | 1.0.2 | https://developer.bigcommerce.com/api/stores/v2/shipping/methods
-store information | 1.0.2 | https://developer.bigcommerce.com/api/stores/v2/store_information
-system (time) | 1.0.2 | https://developer.bigcommerce.com/api/stores/v2/time
-tax class | 1.0.2 | https://developer.bigcommerce.com/api/stores/v2/tax_classes
-web hook | 1.0.2 | https://developer.bigcommerce.com/api/stores/v2/webhooks
-
-Getting an OAuth Access Token
--------------
-The Bigcommerce API focused on making OAuth available for 3rd party development through Apps.
-Bigcommerce currently recommends using basic authentication when developing custom (private) integrations for your webshop.
-
-However, it is actually possible to aquire access tokens without publishing an App for Bigcommerce by following these steps:
-
-1.  Go to http://developer.bigcommerce.com
-
-2.  Login with the same user as the webshop you want to create a token for.
-
-3.  Go to "My Apps" and create dummy app (maybe call it "Authentication App")
-
-4.  Select the APIs you need and set the Auth Callback Url.
-    * This needs to be a HTTPS Url where you can read incomming GET request
-
-5.  Go to your webshop and click on "Apps"
-
-6.  Select the tab "My Drafts" (which should contain your "Authentication App")
-
-7.  Install the "Authentication App" in your webshop.
-    * This triggers a callback to your "Auth Callback Url" where you receive a code which can be exchanged for a token.
-
-8.  Send a POST request containing the following parameters (to https://login.bigcommerce.com/oauth2/token):
-    * client_id (can be found under "My Apps" at developer.bigcommerce.com
-    * client_secret (can be found under "My Apps" at developer.bigcommerce.com
-    * code (is received in the "Auth Callback")
-    * scope (is received in the "Auth Callback")
-    * grant_type (is always authorization_code)
-    * redirect_uri (your "Auth Callback Url")
-    * context (is "stores/{your store hash / id}")
-
-9.  Done! The response returns your OAuth Access Token.
-
-If you are experiencing problems with the POST call try using the folllowing curl command
-```
-curl --data "[YOUR POST PARAMETERS]" https://login.bigcommerce.com/oauth2/token
-```
+order tax | 1.2.0 | https://developer.bigcommerce.com/api/v2/#order-taxes
+payment method | 1.0.2 | https://developer.bigcommerce.com/api/v2/#payment-methods
+product | 1.0.2 | https://developer.bigcommerce.com/api/v2/#products
+product configurable field | 1.1.0 | https://developer.bigcommerce.com/api/v2/#configurable-fields
+product custom field | 1.0.2 | https://developer.bigcommerce.com/api/v2/#custom-fields
+product googleproductsearch | 1.1.0 | https://developer.bigcommerce.com/api/v2/#google-product-search-mapping-object-properties
+product image | 1.1.0 | https://developer.bigcommerce.com/api/v2/#product-images
+product option | 1.1.0 | https://developer.bigcommerce.com/api/v2/#product-options
+product review | 1.1.0 | https://developer.bigcommerce.com/api/v2/#product-reviews
+product rules | 1.1.0 | https://developer.bigcommerce.com/api/v2/#product-rules
+product video | 1.1.0 | https://developer.bigcommerce.com/api/v2/#videos
+product SKU | 1.1.0 | https://developer.bigcommerce.com/api/v2/#skus
+redirect | 1.0.2 | https://developer.bigcommerce.com/api/v2/#redirects
+shipping method api | 1.0.2 | https://developer.bigcommerce.com/api/v2/#shipping-methods-reference
+shipping zone api | 1.4.1 | https://developer.bigcommerce.com/api/v2/#shipping-zones-reference
+store information | 1.0.2 | hhttps://developer.bigcommerce.com/api/v2/#store-information-reference
+system (time) | 1.0.2 | https://developer.bigcommerce.com/api/v2/#system-reference
+tax class | 1.0.2 | https://developer.bigcommerce.com/api/v2/#tax-class-reference
+web hook | 1.0.2 | https://developer.bigcommerce.com/api/#webhook-object-properties

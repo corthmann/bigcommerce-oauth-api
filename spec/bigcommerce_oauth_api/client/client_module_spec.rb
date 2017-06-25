@@ -22,7 +22,7 @@ describe BigcommerceOAuthAPI::Client do
       { api_module: 'product', methods: [:all, :select, :create, :update, :delete, :count]},
       { api_module: 'coupon', methods: [:all, :select, :create, :update, :delete, :count]},
       { api_module: 'redirect', methods: [:all, :select, :create, :update, :delete, :count]},
-      { api_module: 'method', methods: [:all, :select], prefix_paths: 'shipping', prefix_methods: 'shipping'},
+      { api_module: 'zone', methods: [:all, :select, :create, :update, :delete], prefix_paths: 'shipping', prefix_methods: 'shipping'},
       { api_module: 'tax_class', scope: :self, methods: [:all, :select]},
       { api_module: 'hook', methods: [:all, :select, :create, :update, :delete], legacy: false}
   ]. each do |api_description|

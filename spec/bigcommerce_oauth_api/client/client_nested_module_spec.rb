@@ -17,6 +17,7 @@ describe BigcommerceOAuthAPI::Client do
       { api_module: 'value', api_parent_module: 'option', methods: [:all, :select, :create, :update, :delete]},
       { api_module: 'discount_rule', api_parent_module: 'product', methods: [:all, :select, :create, :update, :delete, :count]},
       { api_module: 'image', api_parent_module: 'product', methods: [:all, :select, :create, :update, :delete, :count]},
+      { api_module: 'method', api_parent_module: 'zone', methods: [:all, :select, :create, :update, :delete], prefix_paths: 'shipping', prefix_methods: 'shipping'},
       { api_module: 'option', api_parent_module: 'product', methods: [:all, :select]},
       { api_module: 'review', api_parent_module: 'product', methods: [:all]},
       { api_module: 'rule', api_parent_module: 'product', methods: [:all, :select, :create, :update, :delete, :count]},
