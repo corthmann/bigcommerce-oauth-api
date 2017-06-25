@@ -1,8 +1,13 @@
-### 1.4.1 (2017-05-18)
+### 1.4.1 (2017-06-25)
 
 Features:
+
     - added shipping zone api
+
+Bugfixes:
+
     - fixed shipping method api
+    - fixed links to official api documentation
 
 ### 1.4.0 (2016-10-09)
 
