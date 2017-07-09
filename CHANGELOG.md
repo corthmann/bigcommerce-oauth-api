@@ -1,3 +1,9 @@
+### 1.4.2 (2017-07-09)
+
+Other:
+
+    - update gem dependencies
+
 ### 1.4.1 (2017-06-25)
 
 Features:
